@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="Selectors">
+  <meta property="og:url" content="http://localhost:4000/docs/developer-guide/selectors">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="Selectors">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/developer-guide/selectors">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>Selectors - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/docs/developer-guide/selectors" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="doc">
+  <article class="container">
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="selectors">Selectors</h1>
+
+<p>Some rules and APIs allow the use of selectors to query an AST. This page is intended to:</p>
+
+<ol>
+  <li>Explain what selectors are</li>
+  <li>Describe the syntax for creating selectors</li>
+  <li>Describe what selectors can be used for</li>
+</ol>
+
+<h2 id="what-is-a-selector">What is a selector?</h2>
+
+<p>A selector is a string that can be used to match nodes in an Abstract Syntax Tree (AST). This is useful for describing a particular syntax pattern in your code.</p>
+
+<p>The syntax for AST selectors is similar to the syntax for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors">CSS selectors</a>. If you’ve used CSS selectors before, the syntax for AST selectors should be easy to understand.</p>
+
+<p>The simplest selector is just a node type. A node type selector will match all nodes with the given type. For example, consider the following program:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">bar</span><span class="p">.</span><span class="nx">baz</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>The selector “<code class="language-plaintext highlighter-rouge">Identifier</code>” will match all <code class="language-plaintext highlighter-rouge">Identifier</code> nodes in the program. In this case, the selector will match the nodes for <code class="language-plaintext highlighter-rouge">foo</code>, <code class="language-plaintext highlighter-rouge">bar</code>, and <code class="language-plaintext highlighter-rouge">baz</code>.</p>
+
+<p>Selectors are not limited to matching against single node types. For example, the selector <code class="language-plaintext highlighter-rouge">VariableDeclarator &gt; Identifier</code> will match all <code class="language-plaintext highlighter-rouge">Identifier</code> nodes that have a <code class="language-plaintext highlighter-rouge">VariableDeclarator</code> as a direct parent. In the program above, this will match the node for <code class="language-plaintext highlighter-rouge">foo</code>, but not the nodes for <code class="language-plaintext highlighter-rouge">bar</code> and <code class="language-plaintext highlighter-rouge">baz</code>.</p>
+
+<h2 id="what-syntax-can-selectors-have">What syntax can selectors have?</h2>
+
+<p>The following selectors are supported:</p>
+
+<ul>
+  <li>AST node type: <code class="language-plaintext highlighter-rouge">ForStatement</code></li>
+  <li>wildcard (matches all nodes): <code class="language-plaintext highlighter-rouge">*</code></li>
+  <li>attribute existence: <code class="language-plaintext highlighter-rouge">[attr]</code></li>
+  <li>attribute value: <code class="language-plaintext highlighter-rouge">[attr="foo"]</code> or <code class="language-plaintext highlighter-rouge">[attr=123]</code></li>
+  <li>attribute regex: <code class="language-plaintext highlighter-rouge">[attr=/foo.*/]</code></li>
+  <li>attribute conditions: <code class="language-plaintext highlighter-rouge">[attr!="foo"]</code>, <code class="language-plaintext highlighter-rouge">[attr&gt;2]</code>, <code class="language-plaintext highlighter-rouge">[attr&lt;3]</code>, <code class="language-plaintext highlighter-rouge">[attr&gt;=2]</code>, or <code class="language-plaintext highlighter-rouge">[attr&lt;=3]</code></li>
+  <li>nested attribute: <code class="language-plaintext highlighter-rouge">[attr.level2="foo"]</code></li>
+  <li>field: <code class="language-plaintext highlighter-rouge">FunctionDeclaration &gt; Identifier.id</code></li>
+  <li>First or last child: <code class="language-plaintext highlighter-rouge">:first-child</code> or <code class="language-plaintext highlighter-rouge">:last-child</code></li>
+  <li>nth-child (no ax+b support): <code class="language-plaintext highlighter-rouge">:nth-child(2)</code></li>
+  <li>nth-last-child (no ax+b support): <code class="language-plaintext highlighter-rouge">:nth-last-child(1)</code></li>
+  <li>descendant: <code class="language-plaintext highlighter-rouge">FunctionExpression ReturnStatement</code></li>
+  <li>child: <code class="language-plaintext highlighter-rouge">UnaryExpression &gt; Literal</code></li>
+  <li>following sibling: <code class="language-plaintext highlighter-rouge">ArrayExpression &gt; Literal + SpreadElement</code></li>
+  <li>adjacent sibling: <code class="language-plaintext highlighter-rouge">VariableDeclaration ~ VariableDeclaration</code></li>
+  <li>negation: <code class="language-plaintext highlighter-rouge">:not(ForStatement)</code></li>
+  <li>matches-any: <code class="language-plaintext highlighter-rouge">:matches([attr] &gt; :first-child, :last-child)</code></li>
+  <li>class of AST node: <code class="language-plaintext highlighter-rouge">:statement</code>, <code class="language-plaintext highlighter-rouge">:expression</code>, <code class="language-plaintext highlighter-rouge">:declaration</code>, <code class="language-plaintext highlighter-rouge">:function</code>, or <code class="language-plaintext highlighter-rouge">:pattern</code></li>
+</ul>
+
+<p>This syntax is very powerful, and can be used to precisely select many syntactic patterns in your code.</p>
+
+<p><sup>The examples in this section were adapted from the <a href="https://github.com/estools/esquery">esquery</a> documentation.</sup></p>
+
+<h2 id="what-can-selectors-be-used-for">What can selectors be used for?</h2>
+
+<p>If you’re writing custom ESLint rules, you might be interested in using selectors to examine specific parts of the AST. If you’re configuring ESLint for your codebase, you might be interested in restricting particular syntax patterns with selectors.</p>
+
+<h3 id="listening-for-selectors-in-rules">Listening for selectors in rules</h3>
+
+<p>When writing a custom ESLint rule, you can listen for nodes that match a particular selector as the AST is traversed.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">create</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+
+      <span class="c1">// This listener will be called for all IfStatement nodes with blocks.</span>
+      <span class="dl">"</span><span class="s2">IfStatement &gt; BlockStatement</span><span class="dl">"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">blockStatementNode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// ...your logic here</span>
+      <span class="p">},</span>
+
+      <span class="c1">// This listener will be called for all function declarations with more than 3 parameters.</span>
+      <span class="dl">"</span><span class="s2">FunctionDeclaration[params.length&gt;3]</span><span class="dl">"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">functionDeclarationNode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// ...your logic here</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Adding <code class="language-plaintext highlighter-rouge">:exit</code> to the end of a selector will cause the listener to be called when the matching nodes are exited during traversal, rather than when they are entered.</p>
+
+<p>If two or more selectors match the same node, their listeners will be called in order of increasing specificity. The specificity of an AST selector is similar to the specificity of a CSS selector:</p>
+
+<ul>
+  <li>When comparing two selectors, the selector that contains more class selectors, attribute selectors, and pseudo-class selectors (excluding <code class="language-plaintext highlighter-rouge">:not()</code>) has higher specificity.</li>
+  <li>If the class/attribute/pseudo-class count is tied, the selector that contains more node type selectors has higher specificity.</li>
+</ul>
+
+<p>If multiple selectors have equal specificity, their listeners will be called in alphabetical order for that node.</p>
+
+<h3 id="restricting-syntax-with-selectors">Restricting syntax with selectors</h3>
+
+<p>With the <a href="/docs/rules/no-restricted-syntax">no-restricted-syntax</a> rule, you can restrict the usage of particular syntax in your code. For example, you can use the following configuration to disallow using <code class="language-plaintext highlighter-rouge">if</code> statements that do not have block statements as their body:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"rules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"no-restricted-syntax"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"IfStatement &gt; :not(BlockStatement).consequent"</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>…or equivalently, you can use this configuration:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"rules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"no-restricted-syntax"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"IfStatement[consequent.type!='BlockStatement']"</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>As another example, you can disallow calls to <code class="language-plaintext highlighter-rouge">require()</code>:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"rules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"no-restricted-syntax"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CallExpression[callee.name='require']"</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Or you can enforce that calls to <code class="language-plaintext highlighter-rouge">setTimeout</code> always have two arguments:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"rules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"no-restricted-syntax"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CallExpression[callee.name='setTimeout'][arguments.length!=2]"</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Using selectors in the <code class="language-plaintext highlighter-rouge">no-restricted-syntax</code> rule can give you a lot of control over problematic patterns in your codebase, without needing to write custom rules to detect each pattern.</p>
+
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint/edit/master/docs/developer-guide/selectors.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+

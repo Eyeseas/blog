@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="no-undefined - Rules">
+  <meta property="og:url" content="http://localhost:4000/docs/rules/no-undefined">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="no-undefined - Rules">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/rules/no-undefined">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>no-undefined - Rules - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/docs/rules/no-undefined" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel="stylesheet" href="/styles/mixed.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="lang-chooser">中文</span><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="lang-type" data-lang="zh" href="javascript:;">中文</a></li>
+            <li><a class="lang-type" data-lang="mixed" href="javascript:;">中英文</a></li>
+            <li><a class="lang-type" data-lang="en" href="javascript:;">英文</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="doc lang-zh">
+  <article class="container">
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-use-of-undefined-variable-no-undefined">Disallow Use of <code class="language-plaintext highlighter-rouge">undefined</code> Variable (no-undefined)</h1>
+
+<h1 id="不允许使用undefined变量-no-undefined">不允许使用<code class="language-plaintext highlighter-rouge">undefined</code>变量 (no-undefined)</h1>
+
+<p>The <code class="language-plaintext highlighter-rouge">undefined</code> variable in JavaScript is actually a property of the global object. As such, in ECMAScript 3 it was possible to overwrite the value of <code class="language-plaintext highlighter-rouge">undefined</code>. While ECMAScript 5 disallows overwriting <code class="language-plaintext highlighter-rouge">undefined</code>, it’s still possible to shadow <code class="language-plaintext highlighter-rouge">undefined</code>, such as:</p>
+
+<p><code class="language-plaintext highlighter-rouge">undefined</code> 变量在 JavaScript 中是独一无二的，因为它实际上是一个全局对象属性。在 ECMAScript 3 中，可重写 <code class="language-plaintext highlighter-rouge">undefined</code> 的值，然而 ECMAScript 5 不允许重写 <code class="language-plaintext highlighter-rouge">undefined</code> ，但仍然可能遮盖原来的 <code class="language-plaintext highlighter-rouge">undefined</code>，例如：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">doSomething</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="kc">undefined</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hi</span><span class="dl">"</span><span class="p">;</span>
+
+    <span class="c1">// doesn't do what you think it does</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">data</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Because <code class="language-plaintext highlighter-rouge">undefined</code> can be overwritten or shadowed, reading <code class="language-plaintext highlighter-rouge">undefined</code> can give an unexpected value. (This is not the case for <code class="language-plaintext highlighter-rouge">null</code>, which is a keyword that always produces the same value.) To guard against this, you can avoid all uses of <code class="language-plaintext highlighter-rouge">undefined</code>, which is what some style guides recommend and what this rule enforces. Those style guides then also recommend:</p>
+
+<p>由于 <code class="language-plaintext highlighter-rouge">undefined</code> 会被覆盖和遮蔽，所以读取 <code class="language-plaintext highlighter-rouge">undefined</code> 会给你一个意想不到的值。（这种情况还不同于 <code class="language-plaintext highlighter-rouge">null</code>， <code class="language-plaintext highlighter-rouge">null</code> 会始终产生同一个值。）为了防止这种情况凡是，你可以避免对 <code class="language-plaintext highlighter-rouge">undefined</code> 的所有使用，这也是一项风格指南所推荐的，也是该规则强制的。那些风格指南也推荐：</p>
+
+<ul>
+  <li>Variables that should be <code class="language-plaintext highlighter-rouge">undefined</code> are simply left uninitialized. (All uninitialized variables automatically get the value of <code class="language-plaintext highlighter-rouge">undefined</code> in JavaScript.)</li>
+  <li>要使变量值为 <code class="language-plaintext highlighter-rouge">undefined</code>，不初始化即可。 (在 JavaScript 中，所有未经初始化的变量会自动地获得值为 <code class="language-plaintext highlighter-rouge">undefined</code>)</li>
+  <li>Checking if a value is <code class="language-plaintext highlighter-rouge">undefined</code> should be done with <code class="language-plaintext highlighter-rouge">typeof</code>.</li>
+  <li>应该使用 <code class="language-plaintext highlighter-rouge">typeof</code> 检测一个值是否是 <code class="language-plaintext highlighter-rouge">undefined</code>。</li>
+  <li>Using the <code class="language-plaintext highlighter-rouge">void</code> operator to generate the value of <code class="language-plaintext highlighter-rouge">undefined</code> if necessary.</li>
+  <li>如果有必要，使用 <code class="language-plaintext highlighter-rouge">void</code> 操作符生成 <code class="language-plaintext highlighter-rouge">undefined</code>。</li>
+</ul>
+
+<p>As an alternative, you can use the <a href="no-global-assign">no-global-assign</a> and <a href="no-shadow-restricted-names">no-shadow-restricted-names</a> rules to prevent <code class="language-plaintext highlighter-rouge">undefined</code> from being shadowed or assigned a different value. This ensures that <code class="language-plaintext highlighter-rouge">undefined</code> will always hold its original, expected value.</p>
+
+<p>作为另外一种宣泄，你可以使用 <a href="no-global-assign">no-global-assign</a> 和 <a href="no-shadow-restricted-names">no-shadow-restricted-names</a> 规则来阻止遮蔽 <code class="language-plaintext highlighter-rouge">undefined</code> 或被赋值为一个不同的值。这会保证 <code class="language-plaintext highlighter-rouge">undefined</code> 将总是保持它的原始的和所期望的值。</p>
+
+<h2 id="rule-details">Rule Details</h2>
+
+<p>This rule aims to eliminate the use of <code class="language-plaintext highlighter-rouge">undefined</code>, and as such, generates a warning whenever it is used.</p>
+
+<p>此规则的目的在于消除使用 <code class="language-plaintext highlighter-rouge">undefined</code>，使用 <code class="language-plaintext highlighter-rouge">undefined</code> 会产生一个警告。</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<p><strong>错误</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-undefined: "error"*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="kc">undefined</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<p><strong>正确</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-undefined: "error"*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="k">void</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">Undefined</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">foo</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">undefined</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="nb">global</span><span class="p">.</span><span class="kc">undefined</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="when-not-to-use-it">When Not To Use It</h2>
+
+<p>If you want to allow the use of <code class="language-plaintext highlighter-rouge">undefined</code> in your code, then you can safely turn this rule off.</p>
+
+<p>如果想在代码中使用 <code class="language-plaintext highlighter-rouge">undefined</code>，应关闭此规则。</p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined - JavaScript | MDN</a></li>
+  <li><a href="https://javascriptweblog.wordpress.com/2010/08/16/understanding-undefined-and-preventing-referenceerrors/">Understanding JavaScript’s ‘undefined’ | JavaScript, JavaScript…</a></li>
+  <li><a href="https://es5.github.io/#x15.1.1.3">ECMA262 edition 5.1 §15.1.1.3: undefined</a></li>
+</ul>
+
+<h2 id="related-rules">Related Rules</h2>
+
+<ul>
+  <li><a href="no-undef-init">no-undef-init</a></li>
+  <li><a href="no-void">no-void</a></li>
+  <li><a href="no-shadow-restricted-names">no-shadow-restricted-names</a></li>
+  <li><a href="no-global-assign">no-global-assign</a></li>
+</ul>
+
+<h2 id="version">Version</h2>
+
+<p>This rule was introduced in ESLint 0.7.1.</p>
+
+<p>该规则在 ESLint 0.7.1 中被引入。</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-undefined.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-undefined.md">Documentation source</a></li>
+</ul>
+
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint/edit/master/docs/rules/no-undefined.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+	    var langs = {mixed: '中英文',zh: '中文',en: '英文'};
+	    var last = localStorage.getItem('lang') || 'zh';
+
+	    if (last in langs) {
+	      $('.lang-chooser').html(langs[last]); 
+	      $('.doc').removeClass(function(index,clz){
+	          return clz.slice(3);
+	      }).addClass('lang-' + last);
+	    }
+
+	    $('.navbar-left').show();
+
+	    $('.lang-type').on('click', function() {
+	        var $this = $(this),
+	            type = $this.data('lang'),
+	            lang = $this.html();
+
+	        localStorage.setItem('lang', type);
+
+	        $('.lang-chooser').html(lang); 
+	        $('.doc').removeClass(function(index,clz){
+	            return clz.slice(3);
+	        }).addClass('lang-' + type);
+	    });
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+

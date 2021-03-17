@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="no-restricted-modules - Rules">
+  <meta property="og:url" content="http://localhost:4000/docs/6.0.0/rules/no-restricted-modules">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="no-restricted-modules - Rules">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/6.0.0/rules/no-restricted-modules">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>no-restricted-modules - Rules - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/docs/6.0.0/rules/no-restricted-modules" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel="stylesheet" href="/styles/mixed.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="lang-chooser">中文</span><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="lang-type" data-lang="zh" href="javascript:;">中文</a></li>
+            <li><a class="lang-type" data-lang="mixed" href="javascript:;">中英文</a></li>
+            <li><a class="lang-type" data-lang="en" href="javascript:;">英文</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="doc lang-zh">
+  <article class="container">
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-nodejs-modules-no-restricted-modules">Disallow Node.js modules (no-restricted-modules)</h1>
+
+<p>A module in Node.js is a simple or complex functionality organized in a JavaScript file which can be reused throughout the Node.js
+application. The keyword <code class="language-plaintext highlighter-rouge">require</code> is used in Node.js/CommonJS to import modules into an application. This way you can have dynamic loading where the loaded module name isn’t predefined /static, or where you conditionally load a module only if it’s “truly required”.</p>
+
+<p>Why would you want to restrict a module?</p>
+
+<p>Disallowing usage of specific Node.js modules can be useful if you want to limit the available methods a developer can use. For example, you can block usage of the <code class="language-plaintext highlighter-rouge">fs</code> module if you want to disallow file system access.</p>
+
+<h2 id="rule-details">Rule Details</h2>
+
+<p>This rule allows you to specify modules that you don’t want to use in your application.</p>
+
+<h2 id="options">Options</h2>
+
+<p>The rule takes one or more strings as options: the names of restricted modules.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"no-restricted-modules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"foo-module"</span><span class="p">,</span><span class="w"> </span><span class="s2">"bar-module"</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>It can also take an object with lists of <code class="language-plaintext highlighter-rouge">paths</code> and gitignore-style <code class="language-plaintext highlighter-rouge">patterns</code> strings.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"no-restricted-modules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"paths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"foo-module"</span><span class="p">,</span><span class="w"> </span><span class="s2">"bar-module"</span><span class="p">]</span><span class="w"> </span><span class="p">}]</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"no-restricted-modules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"paths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"foo-module"</span><span class="p">,</span><span class="w"> </span><span class="s2">"bar-module"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"patterns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"foo-module/private/*"</span><span class="p">,</span><span class="w"> </span><span class="s2">"bar-module/*"</span><span class="p">,</span><span class="s2">"!baz-module/good"</span><span class="p">]</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>You may also specify a custom message for any paths you want to restrict as follows:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"no-restricted-modules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo-module"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please use bar-module instead."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>or like this:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"no-restricted-modules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,{</span><span class="w">
+</span><span class="nl">"paths"</span><span class="p">:[{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo-module"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please use bar-module instead."</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The custom message will be appended to the default error message. Please note that you may not specify custom error messages for restricted patterns as a particular module may match more than one pattern.</p>
+
+<p>To restrict the use of all Node.js core modules (via https://github.com/nodejs/node/tree/master/lib):</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"no-restricted-modules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"assert"</span><span class="p">,</span><span class="s2">"buffer"</span><span class="p">,</span><span class="s2">"child_process"</span><span class="p">,</span><span class="s2">"cluster"</span><span class="p">,</span><span class="s2">"crypto"</span><span class="p">,</span><span class="s2">"dgram"</span><span class="p">,</span><span class="s2">"dns"</span><span class="p">,</span><span class="s2">"domain"</span><span class="p">,</span><span class="s2">"events"</span><span class="p">,</span><span class="s2">"freelist"</span><span class="p">,</span><span class="s2">"fs"</span><span class="p">,</span><span class="s2">"http"</span><span class="p">,</span><span class="s2">"https"</span><span class="p">,</span><span class="s2">"module"</span><span class="p">,</span><span class="s2">"net"</span><span class="p">,</span><span class="s2">"os"</span><span class="p">,</span><span class="s2">"path"</span><span class="p">,</span><span class="s2">"punycode"</span><span class="p">,</span><span class="s2">"querystring"</span><span class="p">,</span><span class="s2">"readline"</span><span class="p">,</span><span class="s2">"repl"</span><span class="p">,</span><span class="s2">"smalloc"</span><span class="p">,</span><span class="s2">"stream"</span><span class="p">,</span><span class="s2">"string_decoder"</span><span class="p">,</span><span class="s2">"sys"</span><span class="p">,</span><span class="s2">"timers"</span><span class="p">,</span><span class="s2">"tls"</span><span class="p">,</span><span class="s2">"tracing"</span><span class="p">,</span><span class="s2">"tty"</span><span class="p">,</span><span class="s2">"url"</span><span class="p">,</span><span class="s2">"util"</span><span class="p">,</span><span class="s2">"vm"</span><span class="p">,</span><span class="s2">"zlib"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="examples">Examples</h2>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule  with sample <code class="language-plaintext highlighter-rouge">"fs", "cluster", "lodash"</code> restricted modules:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-modules: ["error", "fs", "cluster"]*/</span>
+
+<span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">cluster</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">cluster</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-modules: ["error", {"paths": ["cluster"] }]*/</span>
+
+<span class="kd">var</span> <span class="nx">cluster</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">cluster</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-modules: ["error", { "patterns": ["lodash/*"] }]*/</span>
+
+<span class="kd">var</span> <span class="nx">pick</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">lodash/pick</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with sample <code class="language-plaintext highlighter-rouge">"fs", "cluster", "lodash"</code> restricted modules:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-modules: ["error", "fs", "cluster"]*/</span>
+
+<span class="kd">var</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">crypto</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-modules: ["error", {
+    "paths": ["fs", "cluster"],
+    "patterns": ["lodash/*", "!lodash/pick"]
+}]*/</span>
+
+<span class="kd">var</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">crypto</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">pick</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">lodash/pick</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="version">Version</h2>
+
+<p>This rule was introduced in ESLint 0.6.0.</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-restricted-modules.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-restricted-modules.md">Documentation source</a></li>
+</ul>
+
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint/edit/master/docs/rules/no-restricted-modules.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+	    var langs = {mixed: '中英文',zh: '中文',en: '英文'};
+	    var last = localStorage.getItem('lang') || 'zh';
+
+	    if (last in langs) {
+	      $('.lang-chooser').html(langs[last]); 
+	      $('.doc').removeClass(function(index,clz){
+	          return clz.slice(3);
+	      }).addClass('lang-' + last);
+	    }
+
+	    $('.navbar-left').show();
+
+	    $('.lang-type').on('click', function() {
+	        var $this = $(this),
+	            type = $this.data('lang'),
+	            lang = $this.html();
+
+	        localStorage.setItem('lang', type);
+
+	        $('.lang-chooser').html(lang); 
+	        $('.doc').removeClass(function(index,clz){
+	            return clz.slice(3);
+	        }).addClass('lang-' + type);
+	    });
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+

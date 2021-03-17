@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="ScopeManager">
+  <meta property="og:url" content="http://localhost:4000/docs/6.0.0/developer-guide/scope-manager-interface">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="ScopeManager">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/6.0.0/developer-guide/scope-manager-interface">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>ScopeManager - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/docs/6.0.0/developer-guide/scope-manager-interface" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel="stylesheet" href="/styles/mixed.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="lang-chooser">中文</span><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="lang-type" data-lang="zh" href="javascript:;">中文</a></li>
+            <li><a class="lang-type" data-lang="mixed" href="javascript:;">中英文</a></li>
+            <li><a class="lang-type" data-lang="en" href="javascript:;">英文</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="doc lang-zh">
+  <article class="container">
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="scopemanager">ScopeManager</h1>
+
+<p>This document was written based on the implementation of <a href="https://github.com/eslint/eslint-scope">eslint-scope</a>, a fork of <a href="https://github.com/estools/escope">escope</a>, and deprecates some members ESLint is not using.</p>
+
+<hr />
+
+<h2 id="scopemanager-interface">ScopeManager interface</h2>
+
+<p><code class="language-plaintext highlighter-rouge">ScopeManager</code> object has all variable scopes.</p>
+
+<h3 id="fields">Fields</h3>
+
+<h4 id="scopes">scopes</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Scope[]</code></li>
+  <li><strong>Description:</strong> All scopes.</li>
+</ul>
+
+<h4 id="globalscope">globalScope</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Scope</code></li>
+  <li><strong>Description:</strong> The root scope.</li>
+</ul>
+
+<h3 id="methods">Methods</h3>
+
+<h4 id="acquirenode-inner--false">acquire(node, inner = false)</h4>
+
+<ul>
+  <li><strong>Parameters:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">node</code> (<code class="language-plaintext highlighter-rouge">ASTNode</code>) … An AST node to get their scope.</li>
+      <li><code class="language-plaintext highlighter-rouge">inner</code> (<code class="language-plaintext highlighter-rouge">boolean</code>) … If the node has multiple scope, this returns the outermost scope normally. If <code class="language-plaintext highlighter-rouge">inner</code> is <code class="language-plaintext highlighter-rouge">true</code> then this returns the innermost scope. Default is <code class="language-plaintext highlighter-rouge">false</code>.</li>
+    </ul>
+  </li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">Scope | null</code></li>
+  <li><strong>Description:</strong> Get the scope of a given AST node. The gotten scope’s <code class="language-plaintext highlighter-rouge">block</code> property is the node. This method never returns <code class="language-plaintext highlighter-rouge">function-expression-name</code> scope and <code class="language-plaintext highlighter-rouge">TDZ</code> scope. If the node does not have their scope, this returns <code class="language-plaintext highlighter-rouge">null</code>.</li>
+</ul>
+
+<h4 id="getdeclaredvariablesnode">getDeclaredVariables(node)</h4>
+
+<ul>
+  <li><strong>Parameters:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">node</code> (<code class="language-plaintext highlighter-rouge">ASTNode</code>) … An AST node to get their variables.</li>
+    </ul>
+  </li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">Variable[]</code></li>
+  <li><strong>Description:</strong> Get the variables that a given AST node defines. The gotten variables’ <code class="language-plaintext highlighter-rouge">def[].node</code>/<code class="language-plaintext highlighter-rouge">def[].parent</code> property is the node. If the node does not define any variable, this returns an empty array.</li>
+</ul>
+
+<h3 id="deprecated-members">Deprecated members</h3>
+
+<p>Those members are defined but not used in ESLint.</p>
+
+<h4 id="ismodule">isModule()</h4>
+
+<ul>
+  <li><strong>Parameters:</strong></li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this program is module.</li>
+</ul>
+
+<h4 id="isimpliedstrict">isImpliedStrict()</h4>
+
+<ul>
+  <li><strong>Parameters:</strong></li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this program is strict mode implicitly. I.e., <code class="language-plaintext highlighter-rouge">options.impliedStrict === true</code>.</li>
+</ul>
+
+<h4 id="isstrictmodesupported">isStrictModeSupported()</h4>
+
+<ul>
+  <li><strong>Parameters:</strong></li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this program supports strict mode. I.e., <code class="language-plaintext highlighter-rouge">options.ecmaVersion &gt;= 5</code>.</li>
+</ul>
+
+<h4 id="acquireallnode">acquireAll(node)</h4>
+
+<ul>
+  <li><strong>Parameters:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">node</code> (<code class="language-plaintext highlighter-rouge">ASTNode</code>) … An AST node to get their scope.</li>
+    </ul>
+  </li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">Scope[] | null</code></li>
+  <li><strong>Description:</strong> Get the scopes of a given AST node. The gotten scopes’ <code class="language-plaintext highlighter-rouge">block</code> property is the node. If the node does not have their scope, this returns <code class="language-plaintext highlighter-rouge">null</code>.</li>
+</ul>
+
+<hr />
+
+<h2 id="scope-interface">Scope interface</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Scope</code> object has all variables and references in the scope.</p>
+
+<h3 id="fields-1">Fields</h3>
+
+<h4 id="type">type</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">string</code></li>
+  <li><strong>Description:</strong> The type of this scope. This is one of <code class="language-plaintext highlighter-rouge">"block"</code>, <code class="language-plaintext highlighter-rouge">"catch"</code>, <code class="language-plaintext highlighter-rouge">"class"</code>, <code class="language-plaintext highlighter-rouge">"for"</code>, <code class="language-plaintext highlighter-rouge">"function"</code>, <code class="language-plaintext highlighter-rouge">"function-expression-name"</code>, <code class="language-plaintext highlighter-rouge">"global"</code>, <code class="language-plaintext highlighter-rouge">"module"</code>, <code class="language-plaintext highlighter-rouge">"switch"</code>, <code class="language-plaintext highlighter-rouge">"with"</code>, <code class="language-plaintext highlighter-rouge">"TDZ"</code></li>
+</ul>
+
+<h4 id="isstrict">isStrict</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this scope is strict mode.</li>
+</ul>
+
+<h4 id="upper">upper</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Scope | null</code></li>
+  <li><strong>Description:</strong> The parent scope. If this is the global scope then this property is <code class="language-plaintext highlighter-rouge">null</code>.</li>
+</ul>
+
+<h4 id="childscopes">childScopes</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Scope[]</code></li>
+  <li><strong>Description:</strong> The array of child scopes. This does not include grandchild scopes.</li>
+</ul>
+
+<h4 id="variablescope">variableScope</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Scope</code></li>
+  <li><strong>Description:</strong> The scope which hosts variables which are defined by <code class="language-plaintext highlighter-rouge">var</code> declarations.</li>
+</ul>
+
+<h4 id="block">block</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">ASTNode</code></li>
+  <li><strong>Description:</strong> The AST node which created this scope.</li>
+</ul>
+
+<h4 id="variables">variables</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Variable[]</code></li>
+  <li><strong>Description:</strong> The array of all variables which are defined on this scope. This does not include variables which are defined in child scopes.</li>
+</ul>
+
+<h4 id="set">set</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Map&lt;string, Variable&gt;</code></li>
+  <li><strong>Description:</strong> The map from variable names to variable objects.</li>
+</ul>
+
+<blockquote>
+  <p>I hope to rename <code class="language-plaintext highlighter-rouge">set</code> field or replace by a method.</p>
+</blockquote>
+
+<h4 id="references">references</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Reference[]</code></li>
+  <li><strong>Description:</strong> The array of all references on this scope. This does not include references in child scopes.</li>
+</ul>
+
+<h4 id="through">through</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Reference[]</code></li>
+  <li><strong>Description:</strong> The array of references which could not be resolved in this scope.</li>
+</ul>
+
+<h4 id="functionexpressionscope">functionExpressionScope</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this scope is <code class="language-plaintext highlighter-rouge">"function-expression-name"</code> scope.</li>
+</ul>
+
+<blockquote>
+  <p>I hope to deprecate <code class="language-plaintext highlighter-rouge">functionExpressionScope</code> field as replacing by <code class="language-plaintext highlighter-rouge">scope.type === "function-expression-name"</code>.</p>
+</blockquote>
+
+<h3 id="deprecated-members-1">Deprecated members</h3>
+
+<p>Those members are defined but not used in ESLint.</p>
+
+<h4 id="taints">taints</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Map&lt;string, boolean&gt;</code></li>
+  <li><strong>Description:</strong> The map from variable names to <code class="language-plaintext highlighter-rouge">tainted</code> flag.</li>
+</ul>
+
+<h4 id="dynamic">dynamic</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this scope is dynamic. I.e., the type of this scope is <code class="language-plaintext highlighter-rouge">"global"</code> or <code class="language-plaintext highlighter-rouge">"with"</code>.</li>
+</ul>
+
+<h4 id="directcalltoevalscope">directCallToEvalScope</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this scope contains <code class="language-plaintext highlighter-rouge">eval()</code> invocations.</li>
+</ul>
+
+<h4 id="thisfound">thisFound</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this scope contains <code class="language-plaintext highlighter-rouge">this</code>.</li>
+</ul>
+
+<h4 id="resolvenode">resolve(node)</h4>
+
+<ul>
+  <li><strong>Parameters:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">node</code> (<code class="language-plaintext highlighter-rouge">ASTNode</code>) … An AST node to get their reference object. The type of the node must be <code class="language-plaintext highlighter-rouge">"Identifier"</code>.</li>
+    </ul>
+  </li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">Reference | null</code></li>
+  <li><strong>Description:</strong> Returns <code class="language-plaintext highlighter-rouge">this.references.find(r =&gt; r.identifier === node)</code>.</li>
+</ul>
+
+<h4 id="isstatic">isStatic()</h4>
+
+<ul>
+  <li><strong>Parameters:</strong></li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> Returns <code class="language-plaintext highlighter-rouge">!this.dynamic</code>.</li>
+</ul>
+
+<h4 id="isargumentsmaterialized">isArgumentsMaterialized()</h4>
+
+<ul>
+  <li><strong>Parameters:</strong></li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this is a <code class="language-plaintext highlighter-rouge">"function"</code> scope which has used <code class="language-plaintext highlighter-rouge">arguments</code> variable.</li>
+</ul>
+
+<h4 id="isthismaterialized">isThisMaterialized()</h4>
+
+<ul>
+  <li><strong>Parameters:</strong></li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> Returns <code class="language-plaintext highlighter-rouge">this.thisFound</code>.</li>
+</ul>
+
+<h4 id="isusednamename">isUsedName(name)</h4>
+
+<ul>
+  <li><strong>Parameters:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">name</code> (<code class="language-plaintext highlighter-rouge">string</code>) … The name to check.</li>
+    </ul>
+  </li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if a given name is used in variable names or reference names.</li>
+</ul>
+
+<hr />
+
+<h2 id="variable-interface">Variable interface</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Variable</code> object is variable’s information.</p>
+
+<h3 id="fields-2">Fields</h3>
+
+<h4 id="name">name</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">string</code></li>
+  <li><strong>Description:</strong> The name of this variable.</li>
+</ul>
+
+<h4 id="identifiers">identifiers</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">ASTNode[]</code></li>
+  <li><strong>Description:</strong> The array of <code class="language-plaintext highlighter-rouge">Identifier</code> nodes which define this variable. If this variable is redeclared, this array includes two or more nodes.</li>
+</ul>
+
+<blockquote>
+  <p>I hope to deprecate <code class="language-plaintext highlighter-rouge">identifiers</code> field as replacing by <code class="language-plaintext highlighter-rouge">defs[].name</code> field.</p>
+</blockquote>
+
+<h4 id="references-1">references</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Reference[]</code></li>
+  <li><strong>Description:</strong> The array of the references of this variable.</li>
+</ul>
+
+<h4 id="defs">defs</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Definition[]</code></li>
+  <li><strong>Description:</strong> The array of the definitions of this variable.</li>
+</ul>
+
+<h3 id="deprecated-members-2">Deprecated members</h3>
+
+<p>Those members are defined but not used in ESLint.</p>
+
+<h4 id="tainted">tainted</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> The <code class="language-plaintext highlighter-rouge">tainted</code> flag. (always <code class="language-plaintext highlighter-rouge">false</code>)</li>
+</ul>
+
+<h4 id="stack">stack</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> The <code class="language-plaintext highlighter-rouge">stack</code> flag. (I’m not sure what this means.)</li>
+</ul>
+
+<hr />
+
+<h2 id="reference-interface">Reference interface</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Reference</code> object is reference’s information.</p>
+
+<h3 id="fields-3">Fields</h3>
+
+<h4 id="identifier">identifier</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">ASTNode</code></li>
+  <li><strong>Description:</strong> The <code class="language-plaintext highlighter-rouge">Identifier</code> node of this reference.</li>
+</ul>
+
+<h4 id="from">from</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Scope</code></li>
+  <li><strong>Description:</strong> The <code class="language-plaintext highlighter-rouge">Scope</code> object that this reference is on.</li>
+</ul>
+
+<h4 id="resolved">resolved</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Variable | null</code></li>
+  <li><strong>Description:</strong> The <code class="language-plaintext highlighter-rouge">Variable</code> object that this reference refers. If such variable was not defined, this is <code class="language-plaintext highlighter-rouge">null</code>.</li>
+</ul>
+
+<h4 id="writeexpr">writeExpr</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">ASTNode | null</code></li>
+  <li><strong>Description:</strong> The ASTNode object which is right-hand side.</li>
+</ul>
+
+<h4 id="init">init</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this writing reference is a variable initializer or a default value.</li>
+</ul>
+
+<h3 id="methods-1">Methods</h3>
+
+<h4 id="iswrite">isWrite()</h4>
+
+<ul>
+  <li><strong>Parameters:</strong></li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this reference is writing.</li>
+</ul>
+
+<h4 id="isread">isRead()</h4>
+
+<ul>
+  <li><strong>Parameters:</strong></li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this reference is reading.</li>
+</ul>
+
+<h4 id="iswriteonly">isWriteOnly()</h4>
+
+<ul>
+  <li><strong>Parameters:</strong></li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this reference is writing but not reading.</li>
+</ul>
+
+<h4 id="isreadonly">isReadOnly()</h4>
+
+<ul>
+  <li><strong>Parameters:</strong></li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this reference is reading but not writing.</li>
+</ul>
+
+<h4 id="isreadwrite">isReadWrite()</h4>
+
+<ul>
+  <li><strong>Parameters:</strong></li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this reference is reading and writing.</li>
+</ul>
+
+<h3 id="deprecated-members-3">Deprecated members</h3>
+
+<p>Those members are defined but not used in ESLint.</p>
+
+<h4 id="tainted-1">tainted</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> The <code class="language-plaintext highlighter-rouge">tainted</code> flag. (always <code class="language-plaintext highlighter-rouge">false</code>)</li>
+</ul>
+
+<h4 id="flag">flag</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">number</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">1</code> is reading, <code class="language-plaintext highlighter-rouge">2</code> is writing, <code class="language-plaintext highlighter-rouge">3</code> is reading/writing.</li>
+</ul>
+
+<h4 id="partial">partial</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> The <code class="language-plaintext highlighter-rouge">partial</code> flag.</li>
+</ul>
+
+<h4 id="isstatic-1">isStatic()</h4>
+
+<ul>
+  <li><strong>Parameters:</strong></li>
+  <li><strong>Return type:</strong> <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><strong>Description:</strong> <code class="language-plaintext highlighter-rouge">true</code> if this reference is resolved statically.</li>
+</ul>
+
+<hr />
+
+<h2 id="definition-interface">Definition interface</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Definition</code> object is variable definition’s information.</p>
+
+<h3 id="fields-4">Fields</h3>
+
+<h4 id="type-1">type</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">string</code></li>
+  <li><strong>Description:</strong> The type of this definition. One of <code class="language-plaintext highlighter-rouge">"CatchClause"</code>, <code class="language-plaintext highlighter-rouge">"ClassName"</code>, <code class="language-plaintext highlighter-rouge">"FunctionName"</code>, <code class="language-plaintext highlighter-rouge">"ImplicitGlobalVariable"</code>, <code class="language-plaintext highlighter-rouge">"ImportBinding"</code>, <code class="language-plaintext highlighter-rouge">"Parameter"</code>, <code class="language-plaintext highlighter-rouge">"TDZ"</code>, and <code class="language-plaintext highlighter-rouge">"Variable"</code>.</li>
+</ul>
+
+<h4 id="name-1">name</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">ASTNode</code></li>
+  <li><strong>Description:</strong> The <code class="language-plaintext highlighter-rouge">Identifier</code> node of this definition.</li>
+</ul>
+
+<h4 id="node">node</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">ASTNode</code></li>
+  <li><strong>Description:</strong> The enclosing node of the name.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">type</th>
+      <th style="text-align: left">node</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"CatchClause"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CatchClause</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"ClassName"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ClassDeclaration</code> or <code class="language-plaintext highlighter-rouge">ClassExpression</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"FunctionName"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">FunctionDeclaration</code> or <code class="language-plaintext highlighter-rouge">FunctionExpression</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"ImplicitGlobalVariable"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Program</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"ImportBinding"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ImportSpecifier</code>, <code class="language-plaintext highlighter-rouge">ImportDefaultSpecifier</code>, or <code class="language-plaintext highlighter-rouge">ImportNamespaceSpecifier</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"Parameter"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">FunctionDeclaration</code>, <code class="language-plaintext highlighter-rouge">FunctionExpression</code>, or <code class="language-plaintext highlighter-rouge">ArrowFunctionExpression</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"TDZ"</code></td>
+      <td style="text-align: left">?</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"Variable"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">VariableDeclarator</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="parent">parent</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">ASTNode | undefined | null</code></li>
+  <li><strong>Description:</strong> The enclosing statement node of the name.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">type</th>
+      <th style="text-align: left">parent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"CatchClause"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">null</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"ClassName"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">null</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"FunctionName"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">null</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"ImplicitGlobalVariable"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">null</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"ImportBinding"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ImportDeclaration</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"Parameter"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">null</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"TDZ"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">null</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">"Variable"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">VariableDeclaration</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="deprecated-members-4">Deprecated members</h3>
+
+<p>Those members are defined but not used in ESLint.</p>
+
+<h4 id="index">index</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">number | undefined | null</code></li>
+  <li><strong>Description:</strong> The index in the declaration statement.</li>
+</ul>
+
+<h4 id="kind">kind</h4>
+
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">string | undefined | null</code></li>
+  <li><strong>Description:</strong> The kind of the declaration statement.</li>
+</ul>
+
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint/edit/master/docs/developer-guide/scope-manager-interface.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+	    var langs = {mixed: '中英文',zh: '中文',en: '英文'};
+	    var last = localStorage.getItem('lang') || 'zh';
+
+	    if (last in langs) {
+	      $('.lang-chooser').html(langs[last]); 
+	      $('.doc').removeClass(function(index,clz){
+	          return clz.slice(3);
+	      }).addClass('lang-' + last);
+	    }
+
+	    $('.navbar-left').show();
+
+	    $('.lang-type').on('click', function() {
+	        var $this = $(this),
+	            type = $this.data('lang'),
+	            lang = $this.html();
+
+	        localStorage.setItem('lang', type);
+
+	        $('.lang-chooser').html(lang); 
+	        $('.doc').removeClass(function(index,clz){
+	            return clz.slice(3);
+	        }).addClass('lang-' + type);
+	    });
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+

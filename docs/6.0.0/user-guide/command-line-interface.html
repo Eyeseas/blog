@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="Command Line Interface">
+  <meta property="og:url" content="http://localhost:4000/docs/6.0.0/user-guide/command-line-interface">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="Command Line Interface">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/6.0.0/user-guide/command-line-interface">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>Command Line Interface - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/docs/6.0.0/user-guide/command-line-interface" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel="stylesheet" href="/styles/mixed.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="lang-chooser">中文</span><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="lang-type" data-lang="zh" href="javascript:;">中文</a></li>
+            <li><a class="lang-type" data-lang="mixed" href="javascript:;">中英文</a></li>
+            <li><a class="lang-type" data-lang="en" href="javascript:;">英文</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="doc lang-zh">
+  <article class="container">
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="command-line-interface">Command Line Interface</h1>
+
+<p>To run ESLint on Node.js, you must have npm installed. If npm is not installed, follow the instructions here: https://www.npmjs.com/</p>
+
+<p>Once npm is installed, run the following</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i -g eslint
+</code></pre></div></div>
+
+<p>This installs the ESLint CLI from the npm repository. To run ESLint, use the following format:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint [options] [file|dir|glob]*
+</code></pre></div></div>
+
+<p>Such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint file1.js file2.js
+</code></pre></div></div>
+
+<p>or:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint lib/**
+</code></pre></div></div>
+
+<p>Please note that when passing a glob as a parameter, it will be expanded by your shell. The results of the expansion can vary depending on your shell, and its configuration. If you want to use node <code class="language-plaintext highlighter-rouge">glob</code> syntax, you have to quote your parameter (using double quotes if you need it to run in Windows), as follows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint "lib/**"
+</code></pre></div></div>
+
+<h2 id="options">Options</h2>
+
+<p>The command line utility has several options. You can view the options by running <code class="language-plaintext highlighter-rouge">eslint -h</code>.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint [options] file.js [file.js] [dir]
+
+Basic configuration:
+  --no-eslintrc                  Disable use of configuration from .eslintrc.*
+  -c, --config path::String      Use this configuration, overriding .eslintrc.* config options if present
+  --env [String]                 Specify environments
+  --ext [String]                 Specify JavaScript file extensions - default: .js
+  --global [String]              Define global variables
+  --parser String                Specify the parser to be used
+  --parser-options Object        Specify parser options
+
+Specifying rules and plugins:
+  --rulesdir [path::String]      Use additional rules from this directory
+  --plugin [String]              Specify plugins
+  --rule Object                  Specify rules
+
+Fixing problems:
+  --fix                          Automatically fix problems
+  --fix-dry-run                  Automatically fix problems without saving the changes to the file system
+  --fix-type Array               Specify the types of fixes to apply (problem, suggestion, layout)
+
+Ignoring files:
+  --ignore-path path::String     Specify path of ignore file
+  --no-ignore                    Disable use of ignore files and patterns
+  --ignore-pattern [String]      Pattern of files to ignore (in addition to those in .eslintignore)
+
+Using stdin:
+  --stdin                        Lint code provided on &lt;STDIN&gt; - default: false
+  --stdin-filename String        Specify filename to process STDIN as
+
+Handling warnings:
+  --quiet                        Report errors only - default: false
+  --max-warnings Int             Number of warnings to trigger nonzero exit code - default: -1
+
+Output:
+  -o, --output-file path::String  Specify file to write report to
+  -f, --format String            Use a specific output format - default: stylish
+  --color, --no-color            Force enabling/disabling of color
+
+Inline configuration comments:
+  --no-inline-config             Prevent comments from changing config or rules
+  --report-unused-disable-directives  Adds reported errors for unused eslint-disable directives
+
+Caching:
+  --cache                        Only check changed files - default: false
+  --cache-file path::String      Path to the cache file. Deprecated: use --cache-location - default: .eslintcache
+  --cache-location path::String  Path to the cache file or directory
+
+Miscellaneous:
+  --init                         Run config initialization wizard - default: false
+  --debug                        Output debugging information
+  -h, --help                     Show help
+  -v, --version                  Output the version number
+  --print-config path::String    Print the configuration for the given file
+</code></pre></div></div>
+
+<p>Options that accept array values can be specified by repeating the option or with a comma-delimited list (other than <code class="language-plaintext highlighter-rouge">--ignore-pattern</code> which does not allow the second style).</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --ext .jsx --ext .js lib/
+
+eslint --ext .jsx,.js lib/
+</code></pre></div></div>
+
+<h3 id="basic-configuration">Basic configuration</h3>
+
+<h4 id="--no-eslintrc"><code class="language-plaintext highlighter-rouge">--no-eslintrc</code></h4>
+
+<p>Disables use of configuration from <code class="language-plaintext highlighter-rouge">.eslintrc.*</code> and <code class="language-plaintext highlighter-rouge">package.json</code> files.</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --no-eslintrc file.js
+</code></pre></div></div>
+
+<h4 id="-c---config"><code class="language-plaintext highlighter-rouge">-c</code>, <code class="language-plaintext highlighter-rouge">--config</code></h4>
+
+<p>This option allows you to specify an additional configuration file for ESLint (see <a href="configuring">Configuring ESLint</a> for more).</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint -c ~/my-eslint.json file.js
+</code></pre></div></div>
+
+<p>This example uses the configuration file at <code class="language-plaintext highlighter-rouge">~/my-eslint.json</code>.</p>
+
+<p>If <code class="language-plaintext highlighter-rouge">.eslintrc.*</code> and/or <code class="language-plaintext highlighter-rouge">package.json</code> files are also used for configuration (i.e., <code class="language-plaintext highlighter-rouge">--no-eslintrc</code> was not specified), the configurations will be merged. Options from this configuration file have precedence over the options from <code class="language-plaintext highlighter-rouge">.eslintrc.*</code> and <code class="language-plaintext highlighter-rouge">package.json</code> files.</p>
+
+<h4 id="--env"><code class="language-plaintext highlighter-rouge">--env</code></h4>
+
+<p>This option enables specific environments. Details about the global variables defined by each environment are available on the <a href="configuring">configuration</a> documentation. This option only enables environments; it does not disable environments set in other configuration files. To specify multiple environments, separate them using commas, or use the option multiple times.</p>
+
+<p>Examples:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --env browser,node file.js
+eslint --env browser --env node file.js
+</code></pre></div></div>
+
+<h4 id="--ext"><code class="language-plaintext highlighter-rouge">--ext</code></h4>
+
+<p>This option allows you to specify which file extensions ESLint will use when searching for JavaScript files in the directories you specify.
+By default, it uses <code class="language-plaintext highlighter-rouge">.js</code> as the only file extension.</p>
+
+<p>Examples:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Use only .js2 extension
+eslint . --ext .js2
+
+# Use both .js and .js2
+eslint . --ext .js --ext .js2
+
+# Also use both .js and .js2
+eslint . --ext .js,.js2
+</code></pre></div></div>
+
+<p><strong>Note:</strong> <code class="language-plaintext highlighter-rouge">--ext</code> is only used when the arguments are directories. If you use glob patterns or file names, then <code class="language-plaintext highlighter-rouge">--ext</code> is ignored.</p>
+
+<p>For example, <code class="language-plaintext highlighter-rouge">eslint lib/* --ext .js</code> will match all files within the <code class="language-plaintext highlighter-rouge">lib/</code> directory, regardless of extension.</p>
+
+<h4 id="--global"><code class="language-plaintext highlighter-rouge">--global</code></h4>
+
+<p>This option defines global variables so that they will not be flagged as undefined by the <code class="language-plaintext highlighter-rouge">no-undef</code> rule. Any specified global variables are assumed to be read-only by default, but appending <code class="language-plaintext highlighter-rouge">:true</code> to a variable’s name ensures that <code class="language-plaintext highlighter-rouge">no-undef</code> will also allow writes. To specify multiple global variables, separate them using commas, or use the option multiple times.</p>
+
+<p>Examples:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --global require,exports:true file.js
+eslint --global require --global exports:true
+</code></pre></div></div>
+
+<h4 id="--parser"><code class="language-plaintext highlighter-rouge">--parser</code></h4>
+
+<p>This option allows you to specify a parser to be used by ESLint. By default, <code class="language-plaintext highlighter-rouge">espree</code> will be used.</p>
+
+<h4 id="--parser-options"><code class="language-plaintext highlighter-rouge">--parser-options</code></h4>
+
+<p>This option allows you to specify parser options to be used by ESLint. Note that the available parser options are determined by the parser being used.</p>
+
+<p>Examples:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo '3 ** 4' | eslint --stdin --parser-options=ecmaVersion:6 # will fail with a parsing error
+echo '3 ** 4' | eslint --stdin --parser-options=ecmaVersion:7 # succeeds, yay!
+</code></pre></div></div>
+
+<h3 id="specifying-rules-and-plugins">Specifying rules and plugins</h3>
+
+<h4 id="--rulesdir"><code class="language-plaintext highlighter-rouge">--rulesdir</code></h4>
+
+<p>This option allows you to specify another directory from which to load rules files. This allows you to dynamically load new rules at run time. This is useful when you have custom rules that aren’t suitable for being bundled with ESLint.</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --rulesdir my-rules/ file.js
+</code></pre></div></div>
+
+<p>The rules in your custom rules directory must follow the same format as bundled rules to work properly. You can also specify multiple locations for custom rules by including multiple <code class="language-plaintext highlighter-rouge">--rulesdir</code> options:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --rulesdir my-rules/ --rulesdir my-other-rules/ file.js
+</code></pre></div></div>
+
+<p>Note that, as with core rules and plugin rules, you still need to enable the rules in configuration or via the <code class="language-plaintext highlighter-rouge">--rule</code> CLI option in order to actually run those rules during linting. Specifying a rules directory with <code class="language-plaintext highlighter-rouge">--rulesdir</code> does not automatically enable the rules within that directory.</p>
+
+<h4 id="--plugin"><code class="language-plaintext highlighter-rouge">--plugin</code></h4>
+
+<p>This option specifies a plugin to load. You can omit the prefix <code class="language-plaintext highlighter-rouge">eslint-plugin-</code> from the plugin name.</p>
+
+<p>Before using the plugin, you have to install it using npm.</p>
+
+<p>Examples:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --plugin jquery file.js
+eslint --plugin eslint-plugin-mocha file.js
+</code></pre></div></div>
+
+<h4 id="--rule"><code class="language-plaintext highlighter-rouge">--rule</code></h4>
+
+<p>This option specifies rules to be used. These rules will be merged with any rules specified with configuration files. (You can use <code class="language-plaintext highlighter-rouge">--no-eslintrc</code> to change that behavior.) To define multiple rules, separate them using commas, or use the option multiple times. The <a href="https://github.com/gkz/levn#levn--">levn</a> format is used for specifying the rules.</p>
+
+<p>If the rule is defined within a plugin, you have to prefix the rule ID with the plugin name and a <code class="language-plaintext highlighter-rouge">/</code>.</p>
+
+<p>Examples:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --rule 'quotes: [2, double]'
+eslint --rule 'guard-for-in: 2' --rule 'brace-style: [2, 1tbs]'
+eslint --rule 'jquery/dollar-sign: 2'
+</code></pre></div></div>
+
+<h3 id="fixing-problems">Fixing problems</h3>
+
+<h4 id="--fix"><code class="language-plaintext highlighter-rouge">--fix</code></h4>
+
+<p>This option instructs ESLint to try to fix as many issues as possible. The fixes are made to the actual files themselves and only the remaining unfixed issues are output. Not all problems are fixable using this option, and the option does not work in these situations:</p>
+
+<ol>
+  <li>This option throws an error when code is piped to ESLint.</li>
+  <li>This option has no effect on code that uses a processor, unless the processor opts into allowing autofixes.</li>
+</ol>
+
+<p>If you want to fix code from <code class="language-plaintext highlighter-rouge">stdin</code> or otherwise want to get the fixes without actually writing them to the file, use the <a href="#--fix-dry-run"><code class="language-plaintext highlighter-rouge">--fix-dry-run</code></a> option.</p>
+
+<h4 id="--fix-dry-run"><code class="language-plaintext highlighter-rouge">--fix-dry-run</code></h4>
+
+<p>This option has the same effect as <code class="language-plaintext highlighter-rouge">--fix</code> with one difference: the fixes are not saved to the file system. This makes it possible to fix code from <code class="language-plaintext highlighter-rouge">stdin</code> (when used with the <code class="language-plaintext highlighter-rouge">--stdin</code> flag).</p>
+
+<p>Because the default formatter does not output the fixed code, you’ll have to use another one (e.g. <code class="language-plaintext highlighter-rouge">json</code>) to get the fixes. Here’s an example of this pattern:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>getSomeText | eslint --stdin --fix-dry-run --format=json
+</code></pre></div></div>
+
+<p>This flag can be useful for integrations (e.g. editor plugins) which need to autofix text from the command line without saving it to the filesystem.</p>
+
+<h4 id="--fix-type"><code class="language-plaintext highlighter-rouge">--fix-type</code></h4>
+
+<p>This option allows you to specify the type of fixes to apply when using either <code class="language-plaintext highlighter-rouge">--fix</code> or <code class="language-plaintext highlighter-rouge">--fix-dry-run</code>. The three types of fixes are:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">problem</code> - fix potential errors in the code</li>
+  <li><code class="language-plaintext highlighter-rouge">suggestion</code> - apply fixes to the code that improve it</li>
+  <li><code class="language-plaintext highlighter-rouge">layout</code> - apply fixes that do not change the program structure (AST)</li>
+</ol>
+
+<p>You can specify one or more fix type on the command line. Here are some examples:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --fix --fix-type suggestion .
+eslint --fix --fix-type suggestion --fix-type problem .
+eslint --fix --fix-type suggestion,layout .
+</code></pre></div></div>
+
+<p>This option is helpful if you are using another program to format your code but you would still like ESLint to apply other types of fixes.</p>
+
+<h3 id="ignoring-files">Ignoring files</h3>
+
+<h4 id="--ignore-path"><code class="language-plaintext highlighter-rouge">--ignore-path</code></h4>
+
+<p>This option allows you to specify the file to use as your <code class="language-plaintext highlighter-rouge">.eslintignore</code>. By default, ESLint looks in the current working directory for <code class="language-plaintext highlighter-rouge">.eslintignore</code>. You can override this behavior by providing a path to a different file.</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --ignore-path tmp/.eslintignore file.js
+eslint --ignore-path .gitignore file.js
+</code></pre></div></div>
+
+<h4 id="--no-ignore"><code class="language-plaintext highlighter-rouge">--no-ignore</code></h4>
+
+<p>Disables excluding of files from <code class="language-plaintext highlighter-rouge">.eslintignore</code>, <code class="language-plaintext highlighter-rouge">--ignore-path</code> and <code class="language-plaintext highlighter-rouge">--ignore-pattern</code>.</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --no-ignore file.js
+</code></pre></div></div>
+
+<h4 id="--ignore-pattern"><code class="language-plaintext highlighter-rouge">--ignore-pattern</code></h4>
+
+<p>This option allows you to specify patterns of files to ignore (in addition to those in <code class="language-plaintext highlighter-rouge">.eslintignore</code>). You can repeat the option to provide multiple patterns. The supported syntax is the same as for <code class="language-plaintext highlighter-rouge">.eslintignore</code> <a href="./configuring#.eslintignore">files</a>, which use the same patterns as the <code class="language-plaintext highlighter-rouge">.gitignore</code> <a href="https://git-scm.com/docs/gitignore">specification</a>. You should quote your patterns in order to avoid shell interpretation of glob patterns.</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --ignore-pattern '/lib/' --ignore-pattern '/src/vendor/*' .
+</code></pre></div></div>
+
+<h3 id="using-stdin">Using stdin</h3>
+
+<h4 id="--stdin"><code class="language-plaintext highlighter-rouge">--stdin</code></h4>
+
+<p>This option tells ESLint to read and lint source code from STDIN instead of from files. You can use this to pipe code to ESLint.</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat myfile.js | eslint --stdin
+</code></pre></div></div>
+
+<h4 id="--stdin-filename"><code class="language-plaintext highlighter-rouge">--stdin-filename</code></h4>
+
+<p>This option allows you to specify a filename to process STDIN as. This is useful when processing files from STDIN and you have rules which depend on the filename.</p>
+
+<p>Example</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat myfile.js | eslint --stdin --stdin-filename=myfile.js
+</code></pre></div></div>
+
+<h3 id="handling-warnings">Handling warnings</h3>
+
+<h4 id="--quiet"><code class="language-plaintext highlighter-rouge">--quiet</code></h4>
+
+<p>This option allows you to disable reporting on warnings. If you enable this option, only errors are reported by ESLint.</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --quiet file.js
+</code></pre></div></div>
+
+<h4 id="--max-warnings"><code class="language-plaintext highlighter-rouge">--max-warnings</code></h4>
+
+<p>This option allows you to specify a warning threshold, which can be used to force ESLint to exit with an error status if there are too many warning-level rule violations in your project.</p>
+
+<p>Normally, if ESLint runs and finds no errors (only warnings), it will exit with a success exit status. However, if <code class="language-plaintext highlighter-rouge">--max-warnings</code> is specified and the total warning count is greater than the specified threshold, ESLint will exit with an error status. Specifying a threshold of <code class="language-plaintext highlighter-rouge">-1</code> or omitting this option will prevent this behavior.</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --max-warnings 10 file.js
+</code></pre></div></div>
+
+<h3 id="output">Output</h3>
+
+<h4 id="-o---output-file"><code class="language-plaintext highlighter-rouge">-o</code>, <code class="language-plaintext highlighter-rouge">--output-file</code></h4>
+
+<p>Enable report to be written to a file.</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint -o ./test/test.html
+</code></pre></div></div>
+
+<p>When specified, the given format is output into the provided file name.</p>
+
+<h4 id="-f---format"><code class="language-plaintext highlighter-rouge">-f</code>, <code class="language-plaintext highlighter-rouge">--format</code></h4>
+
+<p>This option specifies the output format for the console. Possible formats are:</p>
+
+<ul>
+  <li><a href="formatters/#checkstyle">checkstyle</a></li>
+  <li><a href="formatters/#codeframe">codeframe</a></li>
+  <li><a href="formatters/#compact">compact</a></li>
+  <li><a href="formatters/#html">html</a></li>
+  <li><a href="formatters/#jslint-xml">jslint-xml</a></li>
+  <li><a href="formatters/#json">json</a></li>
+  <li><a href="formatters/#junit">junit</a></li>
+  <li><a href="formatters/#stylish">stylish</a> (the default)</li>
+  <li><a href="formatters/#table">table</a></li>
+  <li><a href="formatters/#tap">tap</a></li>
+  <li><a href="formatters/#unix">unix</a></li>
+  <li><a href="formatters/#visualstudio">visualstudio</a></li>
+</ul>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint -f compact file.js
+</code></pre></div></div>
+
+<p>You can also use a custom formatter from the command line by specifying a path to the custom formatter file.</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint -f ./customformat.js file.js
+</code></pre></div></div>
+
+<p>An npm-installed formatter is resolved with or without <code class="language-plaintext highlighter-rouge">eslint-formatter-</code> prefix.</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install eslint-formatter-pretty
+
+eslint -f pretty file.js
+
+// equivalent:
+eslint -f eslint-formatter-pretty file.js
+</code></pre></div></div>
+
+<p>When specified, the given format is output to the console. If you’d like to save that output into a file, you can do so on the command line like so:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint -f compact file.js &gt; results.txt
+</code></pre></div></div>
+
+<p>This saves the output into the <code class="language-plaintext highlighter-rouge">results.txt</code> file.</p>
+
+<h4 id="--color---no-color"><code class="language-plaintext highlighter-rouge">--color</code>, <code class="language-plaintext highlighter-rouge">--no-color</code></h4>
+
+<p>This option forces the enabling/disabling of colorized output. You can use this to override the default behavior, which is to enable colorized output unless no TTY is detected, such as when piping <code class="language-plaintext highlighter-rouge">eslint</code> through <code class="language-plaintext highlighter-rouge">cat</code> or <code class="language-plaintext highlighter-rouge">less</code>.</p>
+
+<p>Examples:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --color file.js | cat
+eslint --no-color file.js
+</code></pre></div></div>
+
+<h3 id="inline-configuration-comments">Inline configuration comments</h3>
+
+<h4 id="--no-inline-config"><code class="language-plaintext highlighter-rouge">--no-inline-config</code></h4>
+
+<p>This option prevents inline comments like <code class="language-plaintext highlighter-rouge">/*eslint-disable*/</code> or
+<code class="language-plaintext highlighter-rouge">/*global foo*/</code> from having any effect. This allows you to set an ESLint
+config without files modifying it. All inline config comments are ignored, e.g.:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/*eslint-disable*/</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/*eslint-enable*/</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/*global*/</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/*eslint*/</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/*eslint-env*/</code></li>
+  <li><code class="language-plaintext highlighter-rouge">// eslint-disable-line</code></li>
+  <li><code class="language-plaintext highlighter-rouge">// eslint-disable-next-line</code></li>
+</ul>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --no-inline-config file.js
+</code></pre></div></div>
+
+<h4 id="--report-unused-disable-directives"><code class="language-plaintext highlighter-rouge">--report-unused-disable-directives</code></h4>
+
+<p>This option causes ESLint to report directive comments like <code class="language-plaintext highlighter-rouge">// eslint-disable-line</code> when no errors would have been reported on that line anyway. This can be useful to prevent future errors from unexpectedly being suppressed, by cleaning up old <code class="language-plaintext highlighter-rouge">eslint-disable</code> comments which are no longer applicable.</p>
+
+<p><strong>Warning</strong>: When using this option, it is possible that new errors will start being reported whenever ESLint or custom rules are upgraded. For example, suppose a rule has a bug that causes it to report a false positive, and an <code class="language-plaintext highlighter-rouge">eslint-disable</code> comment is added to suppress the incorrect report. If the bug is then fixed in a patch release of ESLint, the <code class="language-plaintext highlighter-rouge">eslint-disable</code> comment will become unused since ESLint is no longer generating an incorrect report. This will result in a new reported error for the unused directive if the <code class="language-plaintext highlighter-rouge">report-unused-disable-directives</code> option is used.</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --report-unused-disable-directives file.js
+</code></pre></div></div>
+
+<h3 id="caching">Caching</h3>
+
+<h4 id="--cache"><code class="language-plaintext highlighter-rouge">--cache</code></h4>
+
+<p>Store the info about processed files in order to only operate on the changed ones. The cache is stored in <code class="language-plaintext highlighter-rouge">.eslintcache</code> by default. Enabling this option can dramatically improve ESLint’s running time by ensuring that only changed files are linted.</p>
+
+<p><strong>Note:</strong> If you run ESLint with <code class="language-plaintext highlighter-rouge">--cache</code> and then run ESLint without <code class="language-plaintext highlighter-rouge">--cache</code>, the <code class="language-plaintext highlighter-rouge">.eslintcache</code> file will be deleted. This is necessary because the results of the lint might change and make <code class="language-plaintext highlighter-rouge">.eslintcache</code> invalid. If you want to control when the cache file is deleted, then use <code class="language-plaintext highlighter-rouge">--cache-location</code> to specify an alternate location for the cache file.</p>
+
+<p><strong>Note:</strong> Autofixed files are not placed in the cache. Subsequent linting that does not trigger an autofix will place it in the cache.</p>
+
+<h4 id="--cache-file"><code class="language-plaintext highlighter-rouge">--cache-file</code></h4>
+
+<p>Path to the cache file. If none specified <code class="language-plaintext highlighter-rouge">.eslintcache</code> will be used. The file will be created in the directory where the <code class="language-plaintext highlighter-rouge">eslint</code> command is executed. <strong>Deprecated</strong>: Use <code class="language-plaintext highlighter-rouge">--cache-location</code> instead.</p>
+
+<h4 id="--cache-location"><code class="language-plaintext highlighter-rouge">--cache-location</code></h4>
+
+<p>Path to the cache location. Can be a file or a directory. If no location is specified, <code class="language-plaintext highlighter-rouge">.eslintcache</code> will be used. In that case, the file will be created in the directory where the <code class="language-plaintext highlighter-rouge">eslint</code> command is executed.</p>
+
+<p>If a directory is specified, a cache file will be created inside the specified folder. The name of the file will be based on the hash of the current working directory (CWD). e.g.: <code class="language-plaintext highlighter-rouge">.cache_hashOfCWD</code></p>
+
+<p><strong>Important note:</strong> If the directory for the cache does not exist make sure you add a trailing <code class="language-plaintext highlighter-rouge">/</code> on *nix systems or <code class="language-plaintext highlighter-rouge">\</code> in windows. Otherwise the path will be assumed to be a file.</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint "src/**/*.js" --cache --cache-location "/Users/user/.eslintcache/"
+</code></pre></div></div>
+
+<h3 id="miscellaneous">Miscellaneous</h3>
+
+<h4 id="--init"><code class="language-plaintext highlighter-rouge">--init</code></h4>
+
+<p>This option will start config initialization wizard. It’s designed to help new users quickly create .eslintrc file by answering a few questions, choosing a popular style guide, or inspecting your source files and attempting to automatically generate a suitable configuration.</p>
+
+<p>The resulting configuration file will be created in the current directory.</p>
+
+<h4 id="--debug"><code class="language-plaintext highlighter-rouge">--debug</code></h4>
+
+<p>This option outputs debugging information to the console. This information is useful when you’re seeing a problem and having a hard time pinpointing it. The ESLint team may ask for this debugging information to help solve bugs.</p>
+
+<h4 id="-h---help"><code class="language-plaintext highlighter-rouge">-h</code>, <code class="language-plaintext highlighter-rouge">--help</code></h4>
+
+<p>This option outputs the help menu, displaying all of the available options. All other options are ignored when this is present.</p>
+
+<h4 id="-v---version"><code class="language-plaintext highlighter-rouge">-v</code>, <code class="language-plaintext highlighter-rouge">--version</code></h4>
+
+<p>This option outputs the current ESLint version onto the console. All other options are ignored when this is present.</p>
+
+<h4 id="--print-config"><code class="language-plaintext highlighter-rouge">--print-config</code></h4>
+
+<p>This option outputs the configuration to be used for the file passed. When present, no linting is performed and only config-related options are valid.</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint --print-config file.js
+</code></pre></div></div>
+
+<h2 id="ignoring-files-from-linting">Ignoring files from linting</h2>
+
+<p>ESLint supports <code class="language-plaintext highlighter-rouge">.eslintignore</code> files to exclude files from the linting process when ESLint operates on a directory. Files given as individual CLI arguments will be exempt from exclusion. The <code class="language-plaintext highlighter-rouge">.eslintignore</code> file is a plain text file containing one pattern per line. It can be located in any of the target directory’s ancestors; it will affect files in its containing directory as well as all sub-directories. Here’s a simple example of a <code class="language-plaintext highlighter-rouge">.eslintignore</code> file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node_modules/*
+**/vendor/*.js
+</code></pre></div></div>
+
+<p>A more detailed breakdown of supported patterns and directories ESLint ignores by default can be found in <a href="configuring#ignoring-files-and-directories">Configuring ESLint</a>.</p>
+
+<h2 id="exit-codes">Exit codes</h2>
+
+<p>When linting files, ESLint will exit with one of the following exit codes:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">0</code>: Linting was successful and there are no linting errors. If the <code class="language-plaintext highlighter-rouge">--max-warnings</code> flag is set to <code class="language-plaintext highlighter-rouge">n</code>, the number of linting warnings is at most <code class="language-plaintext highlighter-rouge">n</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">1</code>: Linting was successful and there is at least one linting error, or there are more linting warnings than allowed by the <code class="language-plaintext highlighter-rouge">--max-warnings</code> option.</li>
+  <li><code class="language-plaintext highlighter-rouge">2</code>: Linting was unsuccessful due to a configuration problem or an internal error.</li>
+</ul>
+
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint/edit/master/docs/user-guide/command-line-interface.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+	    var langs = {mixed: '中英文',zh: '中文',en: '英文'};
+	    var last = localStorage.getItem('lang') || 'zh';
+
+	    if (last in langs) {
+	      $('.lang-chooser').html(langs[last]); 
+	      $('.doc').removeClass(function(index,clz){
+	          return clz.slice(3);
+	      }).addClass('lang-' + last);
+	    }
+
+	    $('.navbar-left').show();
+
+	    $('.lang-type').on('click', function() {
+	        var $this = $(this),
+	            type = $this.data('lang'),
+	            lang = $this.html();
+
+	        localStorage.setItem('lang', type);
+
+	        $('.lang-chooser').html(lang); 
+	        $('.doc').removeClass(function(index,clz){
+	            return clz.slice(3);
+	        }).addClass('lang-' + type);
+	    });
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+

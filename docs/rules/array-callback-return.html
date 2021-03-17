@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="array-callback-return - Rules">
+  <meta property="og:url" content="http://localhost:4000/docs/rules/array-callback-return">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="array-callback-return - Rules">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/rules/array-callback-return">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>array-callback-return - Rules - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/docs/rules/array-callback-return" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel="stylesheet" href="/styles/mixed.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="lang-chooser">中文</span><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="lang-type" data-lang="zh" href="javascript:;">中文</a></li>
+            <li><a class="lang-type" data-lang="mixed" href="javascript:;">中英文</a></li>
+            <li><a class="lang-type" data-lang="en" href="javascript:;">英文</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="doc lang-zh">
+  <article class="container">
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="enforces-return-statements-in-callbacks-of-arrays-methods-array-callback-return">Enforces return statements in callbacks of array’s methods (array-callback-return)</h1>
+
+<h1 id="强制数组方法的回调函数中有-return-语句-array-callback-return">强制数组方法的回调函数中有 return 语句 (array-callback-return)</h1>
+
+<p><code class="language-plaintext highlighter-rouge">Array</code> has several methods for filtering, mapping, and folding.</p>
+
+<p>If we forget to write <code class="language-plaintext highlighter-rouge">return</code> statement in a callback of those, it’s probably a mistake. If you don’t want to use a return or don’t need the returned results, consider using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">.forEach</a> instead.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Array</code>有一些方法用来过滤、映射和折叠。如果你忘记了在它们的回调函数中写<code class="language-plaintext highlighter-rouge">return</code>语句，这种情况可能是个错误。如果不想使用返回或者不需要返回的结果，可以考虑使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">.forEach</a></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example: convert ['a', 'b', 'c'] --&gt; {a: 0, b: 1, c: 2}</span>
+<span class="kd">var</span> <span class="nx">indexMap</span> <span class="o">=</span> <span class="nx">myArray</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">memo</span><span class="p">,</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">memo</span><span class="p">[</span><span class="nx">item</span><span class="p">]</span> <span class="o">=</span> <span class="nx">index</span><span class="p">;</span>
+<span class="p">},</span> <span class="p">{});</span> <span class="c1">// Error: cannot set property 'b' of undefined</span>
+</code></pre></div></div>
+
+<p>This rule enforces usage of <code class="language-plaintext highlighter-rouge">return</code> statement in callbacks of array’s methods.</p>
+
+<p>该规则强制数组方法的回调函数中的<code class="language-plaintext highlighter-rouge">return</code>语句的使用。</p>
+
+<h2 id="rule-details">Rule Details</h2>
+
+<p>This rule finds callback functions of the following methods, then checks usage of <code class="language-plaintext highlighter-rouge">return</code> statement.</p>
+
+<p>该规则发现以下方法的回调函数，然后检查<code class="language-plaintext highlighter-rouge">return</code>语句的使用。</p>
+
+<ul>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.from"><code class="language-plaintext highlighter-rouge">Array.from</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.from"><code class="language-plaintext highlighter-rouge">Array.from</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.every"><code class="language-plaintext highlighter-rouge">Array.prototype.every</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.every"><code class="language-plaintext highlighter-rouge">Array.prototype.every</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.filter"><code class="language-plaintext highlighter-rouge">Array.prototype.filter</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.filter"><code class="language-plaintext highlighter-rouge">Array.prototype.filter</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.find"><code class="language-plaintext highlighter-rouge">Array.prototype.find</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.find"><code class="language-plaintext highlighter-rouge">Array.prototype.find</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.findIndex"><code class="language-plaintext highlighter-rouge">Array.prototype.findIndex</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.findIndex"><code class="language-plaintext highlighter-rouge">Array.prototype.findIndex</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.map"><code class="language-plaintext highlighter-rouge">Array.prototype.map</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.map"><code class="language-plaintext highlighter-rouge">Array.prototype.map</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.reduce"><code class="language-plaintext highlighter-rouge">Array.prototype.reduce</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.reduce"><code class="language-plaintext highlighter-rouge">Array.prototype.reduce</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.reduceRight"><code class="language-plaintext highlighter-rouge">Array.prototype.reduceRight</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.reduceRight"><code class="language-plaintext highlighter-rouge">Array.prototype.reduceRight</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.some"><code class="language-plaintext highlighter-rouge">Array.prototype.some</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.some"><code class="language-plaintext highlighter-rouge">Array.prototype.some</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.sort"><code class="language-plaintext highlighter-rouge">Array.prototype.sort</code></a></li>
+  <li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.sort"><code class="language-plaintext highlighter-rouge">Array.prototype.sort</code></a></li>
+  <li>And above of typed arrays.</li>
+  <li>以上类型的数据。</li>
+</ul>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<p><strong>错误</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint array-callback-return: "error"*/</span>
+
+<span class="kd">var</span> <span class="nx">indexMap</span> <span class="o">=</span> <span class="nx">myArray</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">memo</span><span class="p">,</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">memo</span><span class="p">[</span><span class="nx">item</span><span class="p">]</span> <span class="o">=</span> <span class="nx">index</span><span class="p">;</span>
+<span class="p">},</span> <span class="p">{});</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">nodes</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">tagName</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">DIV</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<p><strong>正确</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint array-callback-return: "error"*/</span>
+
+<span class="kd">var</span> <span class="nx">indexMap</span> <span class="o">=</span> <span class="nx">myArray</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">memo</span><span class="p">,</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">memo</span><span class="p">[</span><span class="nx">item</span><span class="p">]</span> <span class="o">=</span> <span class="nx">index</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">memo</span><span class="p">;</span>
+<span class="p">},</span> <span class="p">{});</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">nodes</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">tagName</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">DIV</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">node</span> <span class="o">=&gt;</span> <span class="nx">node</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h2 id="options">Options</h2>
+
+<p>This rule has an object option:</p>
+
+<p>该规则有一个对象选项：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"allowImplicit": false</code> (default) When set to true, allows implicitly returning <code class="language-plaintext highlighter-rouge">undefined</code> with a <code class="language-plaintext highlighter-rouge">return</code> statement containing no expression.</li>
+  <li><code class="language-plaintext highlighter-rouge">"allowImplicit": false</code> (默认) 当设置为 <code class="language-plaintext highlighter-rouge">true</code> 时，允许隐式使用 <code class="language-plaintext highlighter-rouge">return</code> 不包含任何表达式地返回 <code class="language-plaintext highlighter-rouge">undefined</code>。</li>
+</ul>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="language-plaintext highlighter-rouge">{ "allowImplicit": true }</code> option:</p>
+
+<p>选项 <code class="language-plaintext highlighter-rouge">{ "allowImplicit": true }</code> 的 <strong>正确</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint array-callback-return: ["error", { allowImplicit: true }]*/</span>
+<span class="kd">var</span> <span class="nx">undefAllTheThings</span> <span class="o">=</span> <span class="nx">myArray</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="known-limitations">Known Limitations</h2>
+
+<p>This rule checks callback functions of methods with the given names, <em>even if</em> the object which has the method is <em>not</em> an array.</p>
+
+<p>该规则检查给定名称的方法中的回调函数，<em>即使</em>该对象中的方法 <em>不是</em>一个数组。</p>
+
+<h2 id="when-not-to-use-it">When Not To Use It</h2>
+
+<p>If you don’t want to warn about usage of <code class="language-plaintext highlighter-rouge">return</code> statement in callbacks of array’s methods, then it’s safe to disable this rule.</p>
+
+<p>如果你不想收到关于强制数组方法的回调函数中<code class="language-plaintext highlighter-rouge">return</code>语句的使用情况的警告，你可以禁用此规则。</p>
+
+<h2 id="version">Version</h2>
+
+<p>This rule was introduced in ESLint 2.0.0-alpha-1.</p>
+
+<p>该规则在 ESLint 2.0.0-alpha-1 中被引入。</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/array-callback-return.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/array-callback-return.md">Documentation source</a></li>
+</ul>
+
+
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint/edit/master/docs/rules/array-callback-return.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+	    var langs = {mixed: '中英文',zh: '中文',en: '英文'};
+	    var last = localStorage.getItem('lang') || 'zh';
+
+	    if (last in langs) {
+	      $('.lang-chooser').html(langs[last]); 
+	      $('.doc').removeClass(function(index,clz){
+	          return clz.slice(3);
+	      }).addClass('lang-' + last);
+	    }
+
+	    $('.navbar-left').show();
+
+	    $('.lang-type').on('click', function() {
+	        var $this = $(this),
+	            type = $this.data('lang'),
+	            lang = $this.html();
+
+	        localStorage.setItem('lang', type);
+
+	        $('.lang-chooser').html(lang); 
+	        $('.doc').removeClass(function(index,clz){
+	            return clz.slice(3);
+	        }).addClass('lang-' + type);
+	    });
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+

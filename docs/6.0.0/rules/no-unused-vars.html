@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="no-unused-vars - Rules">
+  <meta property="og:url" content="http://localhost:4000/docs/6.0.0/rules/no-unused-vars">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="no-unused-vars - Rules">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/6.0.0/rules/no-unused-vars">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>no-unused-vars - Rules - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/docs/6.0.0/rules/no-unused-vars" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel="stylesheet" href="/styles/mixed.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="lang-chooser">中文</span><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="lang-type" data-lang="zh" href="javascript:;">中文</a></li>
+            <li><a class="lang-type" data-lang="mixed" href="javascript:;">中英文</a></li>
+            <li><a class="lang-type" data-lang="en" href="javascript:;">英文</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="doc lang-zh">
+  <article class="container">
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-unused-variables-no-unused-vars">Disallow Unused Variables (no-unused-vars)</h1>
+
+<p class="recommended icon">The <code class="language-plaintext highlighter-rouge">"extends": "eslint:recommended"</code> property in a configuration file enables this rule.</p>
+
+<p>Variables that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring. Such variables take up space in the code and can lead to confusion by readers.</p>
+
+<h2 id="rule-details">Rule Details</h2>
+
+<p>This rule is aimed at eliminating unused variables, functions, and function parameters.</p>
+
+<p>A variable <code class="language-plaintext highlighter-rouge">foo</code> is considered to be used if any of the following are true:</p>
+
+<ul>
+  <li>It is called (<code class="language-plaintext highlighter-rouge">foo()</code>) or constructed (<code class="language-plaintext highlighter-rouge">new foo()</code>)</li>
+  <li>It is read (<code class="language-plaintext highlighter-rouge">var bar = foo</code>)</li>
+  <li>It is passed into a function as an argument (<code class="language-plaintext highlighter-rouge">doSomething(foo)</code>)</li>
+  <li>It is read inside of a function that is passed to another function (<code class="language-plaintext highlighter-rouge">doSomething(function() { foo(); })</code>)</li>
+</ul>
+
+<p>A variable is <em>not</em> considered to be used if it is only ever declared (<code class="language-plaintext highlighter-rouge">var foo = 5</code>) or assigned to (<code class="language-plaintext highlighter-rouge">foo = 7</code>).</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: "error"*/</span>
+<span class="cm">/*global some_unused_var*/</span>
+
+<span class="c1">// It checks variables you have defined as global</span>
+<span class="nx">some_unused_var</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">x</span><span class="p">;</span>
+
+<span class="c1">// Write-only variables are not considered as used.</span>
+<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">y</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="c1">// A read for a modification of itself is not considered as used.</span>
+<span class="kd">var</span> <span class="nx">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">z</span> <span class="o">=</span> <span class="nx">z</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">// By default, unused arguments cause warnings.</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">})();</span>
+
+<span class="c1">// Unused recursive functions also cause warnings.</span>
+<span class="kd">function</span> <span class="nx">fact</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">n</span> <span class="o">*</span> <span class="nx">fact</span><span class="p">(</span><span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// When a function definition destructures an array, unused entries from the array also cause warnings.</span>
+<span class="kd">function</span> <span class="nx">getY</span><span class="p">([</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: "error"*/</span>
+
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+
+<span class="c1">// foo is considered used here</span>
+<span class="nx">myFunc</span><span class="p">(</span><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+
+<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">foo</span><span class="p">;</span>
+<span class="p">})();</span>
+
+<span class="kd">var</span> <span class="nx">myFunc</span><span class="p">;</span>
+<span class="nx">myFunc</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// myFunc is considered used</span>
+    <span class="nx">myFunc</span><span class="p">();</span>
+<span class="p">},</span> <span class="mi">50</span><span class="p">);</span>
+
+<span class="c1">// Only the second argument from the descructured array is used.</span>
+<span class="kd">function</span> <span class="nx">getY</span><span class="p">([,</span> <span class="nx">y</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exported">exported</h3>
+
+<p>In environments outside of CommonJS or ECMAScript modules, you may use <code class="language-plaintext highlighter-rouge">var</code> to create a global variable that may be used by other scripts. You can use the <code class="language-plaintext highlighter-rouge">/* exported variableName */</code> comment block to indicate that this variable is being exported and therefore should not be considered unused.</p>
+
+<p>Note that <code class="language-plaintext highlighter-rouge">/* exported */</code> has no effect for any of the following:</p>
+
+<ul>
+  <li>when the environment is <code class="language-plaintext highlighter-rouge">node</code> or <code class="language-plaintext highlighter-rouge">commonjs</code></li>
+  <li>when <code class="language-plaintext highlighter-rouge">parserOptions.sourceType</code> is <code class="language-plaintext highlighter-rouge">module</code></li>
+  <li>when <code class="language-plaintext highlighter-rouge">ecmaFeatures.globalReturn</code> is <code class="language-plaintext highlighter-rouge">true</code></li>
+</ul>
+
+<p>The line comment <code class="language-plaintext highlighter-rouge">// exported variableName</code> will not work as <code class="language-plaintext highlighter-rouge">exported</code> is not line-specific.</p>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for <code class="language-plaintext highlighter-rouge">/* exported variableName */</code> operation:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* exported global_var */</span>
+
+<span class="kd">var</span> <span class="nx">global_var</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="options">Options</h2>
+
+<p>This rule takes one argument which can be a string or an object. The string settings are the same as those of the <code class="language-plaintext highlighter-rouge">vars</code> property (explained below).</p>
+
+<p>By default this rule is enabled with <code class="language-plaintext highlighter-rouge">all</code> option for variables and <code class="language-plaintext highlighter-rouge">after-used</code> for arguments.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"rules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"no-unused-vars"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"vars"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all"</span><span class="p">,</span><span class="w"> </span><span class="nl">"args"</span><span class="p">:</span><span class="w"> </span><span class="s2">"after-used"</span><span class="p">,</span><span class="w"> </span><span class="nl">"ignoreRestSiblings"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="vars">vars</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">vars</code> option has two settings:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">all</code> checks all variables for usage, including those in the global scope. This is the default setting.</li>
+  <li><code class="language-plaintext highlighter-rouge">local</code> checks only that locally-declared variables are used but will allow global variables to be unused.</li>
+</ul>
+
+<h4 id="vars-local">vars: local</h4>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="language-plaintext highlighter-rouge">{ "vars": "local" }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "vars": "local" }]*/</span>
+<span class="cm">/*global some_unused_var */</span>
+
+<span class="nx">some_unused_var</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="varsignorepattern">varsIgnorePattern</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">varsIgnorePattern</code> option specifies exceptions not to check for usage: variables whose names match a regexp pattern. For example, variables whose names contain <code class="language-plaintext highlighter-rouge">ignored</code> or <code class="language-plaintext highlighter-rouge">Ignored</code>.</p>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="language-plaintext highlighter-rouge">{ "varsIgnorePattern": "[iI]gnored" }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "[iI]gnored" }]*/</span>
+
+<span class="kd">var</span> <span class="nx">firstVarIgnored</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">secondVar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">secondVar</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="args">args</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">args</code> option has three settings:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">after-used</code> - unused positional arguments that occur before the last used argument will not be checked, but all named arguments and all positional arguments after the last used argument will be checked.</li>
+  <li><code class="language-plaintext highlighter-rouge">all</code> - all named arguments must be used.</li>
+  <li><code class="language-plaintext highlighter-rouge">none</code> - do not check arguments.</li>
+</ul>
+
+<h4 id="args-after-used">args: after-used</h4>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the default <code class="language-plaintext highlighter-rouge">{ "args": "after-used" }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "args": "after-used" }]*/</span>
+
+<span class="c1">// 2 errors, for the parameters after the last used parameter (bar)</span>
+<span class="c1">// "baz" is defined but never used</span>
+<span class="c1">// "qux" is defined but never used</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">,</span> <span class="nx">qux</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">bar</span><span class="p">;</span>
+<span class="p">})();</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the default <code class="language-plaintext highlighter-rouge">{ "args": "after-used" }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", {"args": "after-used"}]*/</span>
+
+<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">,</span> <span class="nx">qux</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">qux</span><span class="p">;</span>
+<span class="p">})();</span>
+</code></pre></div></div>
+
+<h4 id="args-all">args: all</h4>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="language-plaintext highlighter-rouge">{ "args": "all" }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "args": "all" }]*/</span>
+
+<span class="c1">// 2 errors</span>
+<span class="c1">// "foo" is defined but never used</span>
+<span class="c1">// "baz" is defined but never used</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">bar</span><span class="p">;</span>
+<span class="p">})();</span>
+</code></pre></div></div>
+
+<h4 id="args-none">args: none</h4>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="language-plaintext highlighter-rouge">{ "args": "none" }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "args": "none" }]*/</span>
+
+<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">bar</span><span class="p">;</span>
+<span class="p">})();</span>
+</code></pre></div></div>
+
+<h3 id="ignorerestsiblings">ignoreRestSiblings</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">ignoreRestSiblings</code> option is a boolean (default: <code class="language-plaintext highlighter-rouge">false</code>). Using a <a href="https://github.com/tc39/proposal-object-rest-spread">Rest Property</a> it is possible to “omit” properties from an object, but by default the sibling properties are marked as “unused”. With this option enabled the rest property’s siblings are ignored.</p>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="language-plaintext highlighter-rouge">{ "ignoreRestSiblings": true }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "ignoreRestSiblings": true }]*/</span>
+<span class="c1">// 'type' is ignored because it has a rest property sibling.</span>
+<span class="kd">var</span> <span class="p">{</span> <span class="nx">type</span><span class="p">,</span> <span class="p">...</span><span class="nx">coords</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="argsignorepattern">argsIgnorePattern</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">argsIgnorePattern</code> option specifies exceptions not to check for usage: arguments whose names match a regexp pattern. For example, variables whose names begin with an underscore.</p>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="language-plaintext highlighter-rouge">{ "argsIgnorePattern": "^_" }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">_y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">foo</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h3 id="caughterrors">caughtErrors</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">caughtErrors</code> option is used for <code class="language-plaintext highlighter-rouge">catch</code> block arguments validation.</p>
+
+<p>It has two settings:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">none</code> - do not check error objects. This is the default setting.</li>
+  <li><code class="language-plaintext highlighter-rouge">all</code> - all named arguments must be used.</li>
+</ul>
+
+<h4 id="caughterrors-none">caughtErrors: none</h4>
+
+<p>Not specifying this rule is equivalent of assigning it to <code class="language-plaintext highlighter-rouge">none</code>.</p>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="language-plaintext highlighter-rouge">{ "caughtErrors": "none" }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "caughtErrors": "none" }]*/</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">errors</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="caughterrors-all">caughtErrors: all</h4>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="language-plaintext highlighter-rouge">{ "caughtErrors": "all" }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "caughtErrors": "all" }]*/</span>
+
+<span class="c1">// 1 error</span>
+<span class="c1">// "err" is defined but never used</span>
+<span class="k">try</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">errors</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="caughterrorsignorepattern">caughtErrorsIgnorePattern</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">caughtErrorsIgnorePattern</code> option specifies exceptions not to check for usage: catch arguments whose names match a regexp pattern. For example, variables whose names begin with a string ‘ignore’.</p>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="language-plaintext highlighter-rouge">{ "caughtErrorsIgnorePattern": "^ignore" }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "caughtErrorsIgnorePattern": "^ignore" }]*/</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">ignoreErr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">errors</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="when-not-to-use-it">When Not To Use It</h2>
+
+<p>If you don’t want to be notified about unused variables or function arguments, you can safely turn this rule off.</p>
+
+<h2 id="version">Version</h2>
+
+<p>This rule was introduced in ESLint 0.0.9.</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-unused-vars.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-unused-vars.md">Documentation source</a></li>
+</ul>
+
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint/edit/master/docs/rules/no-unused-vars.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+	    var langs = {mixed: '中英文',zh: '中文',en: '英文'};
+	    var last = localStorage.getItem('lang') || 'zh';
+
+	    if (last in langs) {
+	      $('.lang-chooser').html(langs[last]); 
+	      $('.doc').removeClass(function(index,clz){
+	          return clz.slice(3);
+	      }).addClass('lang-' + last);
+	    }
+
+	    $('.navbar-left').show();
+
+	    $('.lang-type').on('click', function() {
+	        var $this = $(this),
+	            type = $this.data('lang'),
+	            lang = $this.html();
+
+	        localStorage.setItem('lang', type);
+
+	        $('.lang-chooser').html(lang); 
+	        $('.doc').removeClass(function(index,clz){
+	            return clz.slice(3);
+	        }).addClass('lang-' + type);
+	    });
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+

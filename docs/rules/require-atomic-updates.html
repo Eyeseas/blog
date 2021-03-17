@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="require-atomic-updates - Rules">
+  <meta property="og:url" content="http://localhost:4000/docs/rules/require-atomic-updates">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="require-atomic-updates - Rules">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/rules/require-atomic-updates">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>require-atomic-updates - Rules - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/docs/rules/require-atomic-updates" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel="stylesheet" href="/styles/mixed.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="lang-chooser">中文</span><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="lang-type" data-lang="zh" href="javascript:;">中文</a></li>
+            <li><a class="lang-type" data-lang="mixed" href="javascript:;">中英文</a></li>
+            <li><a class="lang-type" data-lang="en" href="javascript:;">英文</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="doc lang-zh">
+  <article class="container">
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-assignments-that-can-lead-to-race-conditions-due-to-usage-of-await-or-yield-require-atomic-updates">Disallow assignments that can lead to race conditions due to usage of <code class="language-plaintext highlighter-rouge">await</code> or <code class="language-plaintext highlighter-rouge">yield</code> (require-atomic-updates)</h1>
+
+<h1 id="禁止由于-await-或-yield的使用而可能导致出现竞态条件的赋值require-atomic-updates">禁止由于 <code class="language-plaintext highlighter-rouge">await</code> 或 <code class="language-plaintext highlighter-rouge">yield</code>的使用而可能导致出现竞态条件的赋值。(require-atomic-updates)</h1>
+
+<p>When writing asynchronous code, it is possible to create subtle race condition bugs. Consider the following example:</p>
+
+<p>在编写异步代码时，可能会产生细微的竞争条件错误。考虑下面的例子：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">totalLength</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">addLengthOfSinglePage</span><span class="p">(</span><span class="nx">pageNum</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">totalLength</span> <span class="o">+=</span> <span class="k">await</span> <span class="nx">getPageLength</span><span class="p">(</span><span class="nx">pageNum</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">addLengthOfSinglePage</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="nx">addLengthOfSinglePage</span><span class="p">(</span><span class="mi">2</span><span class="p">)]).</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">The combined length of both pages is</span><span class="dl">'</span><span class="p">,</span> <span class="nx">totalLength</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>This code looks like it will sum the results of calling <code class="language-plaintext highlighter-rouge">getPageLength(1)</code> and <code class="language-plaintext highlighter-rouge">getPageLength(2)</code>, but in reality the final value of <code class="language-plaintext highlighter-rouge">totalLength</code> will only be the length of one of the two pages. The bug is in the statement <code class="language-plaintext highlighter-rouge">totalLength += await getPageLength(pageNum);</code>. This statement first reads an initial value of <code class="language-plaintext highlighter-rouge">totalLength</code>, then calls <code class="language-plaintext highlighter-rouge">getPageLength(pageNum)</code> and waits for that Promise to fulfill. Finally, it sets the value of <code class="language-plaintext highlighter-rouge">totalLength</code> to the sum of <code class="language-plaintext highlighter-rouge">await getPageLength(pageNum)</code> and the <em>initial</em> value of <code class="language-plaintext highlighter-rouge">totalLength</code>. If the <code class="language-plaintext highlighter-rouge">totalLength</code> variable is updated in a separate function call during the time that the <code class="language-plaintext highlighter-rouge">getPageLength(pageNum)</code> Promise is pending, that update will be lost because the new value is overwritten without being read.</p>
+
+<p>这段代码看起来将对调用 <code class="language-plaintext highlighter-rouge">getPageLength(1)</code> 和 <code class="language-plaintext highlighter-rouge">getPageLength(2)</code> 的结果进行求和，但实际上，<code class="language-plaintext highlighter-rouge">totalLength</code>的最终值仅为两个页面中的一个页面的长度。错误在语句 <code class="language-plaintext highlighter-rouge">totalLength += await getPageLength(pageNum);</code> 中。该语句首先读取 <code class="language-plaintext highlighter-rouge">totalLength</code> 的初始值，然后调用 <code class="language-plaintext highlighter-rouge">getPageLength(pageNum)</code> ，并等待该 Promise 完成。最后，它将 <code class="language-plaintext highlighter-rouge">totalLength</code> 的值设置为 <code class="language-plaintext highlighter-rouge">waiting getPageLength(pageNum)</code> 和 <code class="language-plaintext highlighter-rouge">totalLength</code> 的 <em>初始</em> 值的和。如果在 <code class="language-plaintext highlighter-rouge">getPageLength(pageNum)</code> Promise 处于 pending 状态期间，在单独的函数调用中更新了 <code class="language-plaintext highlighter-rouge">totalLength</code> 变量，那么更新将会丢失，因为新值被覆盖而不被读取。</p>
+
+<p>One way to fix this issue would be to ensure that <code class="language-plaintext highlighter-rouge">totalLength</code> is read at the same time as it’s updated, like this:</p>
+
+<p>解决这个问题的一种方法是确保 <code class="language-plaintext highlighter-rouge">totalLength</code> 在更新的同时被读取，如下所示:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="kd">function</span> <span class="nx">addLengthOfSinglePage</span><span class="p">(</span><span class="nx">pageNum</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">lengthOfThisPage</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">getPageLength</span><span class="p">(</span><span class="nx">pageNum</span><span class="p">);</span>
+
+  <span class="nx">totalLength</span> <span class="o">+=</span> <span class="nx">lengthOfThisPage</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Another solution would be to avoid using a mutable variable reference at all:</p>
+
+<p>另一个解决方案是完全避免使用可变变量引用：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">getPageLength</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="nx">getPageLength</span><span class="p">(</span><span class="mi">2</span><span class="p">)]).</span><span class="nx">then</span><span class="p">(</span><span class="nx">pageLengths</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">totalLength</span> <span class="o">=</span> <span class="nx">pageLengths</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">accumulator</span><span class="p">,</span> <span class="nx">length</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">accumulator</span> <span class="o">+</span> <span class="nx">length</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">The combined length of both pages is</span><span class="dl">'</span><span class="p">,</span> <span class="nx">totalLength</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="rule-details">Rule Details</h2>
+
+<p>This rule aims to report assignments to variables or properties where all of the following are true:</p>
+
+<p>这条规则的目的是报告满足下列所有条件的给变量或属性赋值的情况：</p>
+
+<ul>
+  <li>A variable or property is reassigned to a new value which is based on its old value.</li>
+  <li>变量或属性根据其旧值重新分配到新值。</li>
+  <li>A <code class="language-plaintext highlighter-rouge">yield</code> or <code class="language-plaintext highlighter-rouge">await</code> expression interrupts the assignment after the old value is read, and before the new value is set.</li>
+  <li><code class="language-plaintext highlighter-rouge">yield</code> 或 <code class="language-plaintext highlighter-rouge">await</code> 表达式在读取旧值和设置新值之前中断赋值。</li>
+  <li>The rule cannot easily verify that the assignment is safe (e.g. if an assigned variable is local and would not be readable from anywhere else while the function is paused).</li>
+  <li>规则不能很容易地验证赋值是否安全（例如，如果赋值的变量是本地的，并且在函数暂停时不能从其他任何地方读取）。</li>
+</ul>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<p><strong>错误</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* eslint require-atomic-updates: error */</span>
+
+<span class="kd">let</span> <span class="nx">result</span><span class="p">;</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">result</span> <span class="o">+=</span> <span class="k">await</span> <span class="nx">somethingElse</span><span class="p">;</span>
+
+  <span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span> <span class="o">+</span> <span class="k">await</span> <span class="nx">somethingElse</span><span class="p">;</span>
+
+  <span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span> <span class="o">+</span> <span class="nx">doSomething</span><span class="p">(</span><span class="k">await</span> <span class="nx">somethingElse</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="o">*</span> <span class="nx">bar</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">result</span> <span class="o">+=</span> <span class="k">yield</span><span class="p">;</span>
+
+  <span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span> <span class="o">+</span> <span class="p">(</span><span class="k">yield</span> <span class="nx">somethingElse</span><span class="p">);</span>
+
+  <span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span> <span class="o">+</span> <span class="nx">doSomething</span><span class="p">(</span><span class="k">yield</span> <span class="nx">somethingElse</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<p><strong>正确</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* eslint require-atomic-updates: error */</span>
+
+<span class="kd">let</span> <span class="nx">result</span><span class="p">;</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">somethingElse</span> <span class="o">+</span> <span class="nx">result</span><span class="p">;</span>
+
+  <span class="kd">let</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">somethingElse</span><span class="p">;</span>
+  <span class="nx">result</span> <span class="o">+=</span> <span class="nx">tmp</span><span class="p">;</span>
+
+  <span class="kd">let</span> <span class="nx">localVariable</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="nx">localVariable</span> <span class="o">+=</span> <span class="k">await</span> <span class="nx">somethingElse</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="o">*</span> <span class="nx">bar</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">result</span> <span class="o">+=</span> <span class="k">yield</span><span class="p">;</span>
+
+  <span class="nx">result</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield</span> <span class="nx">somethingElse</span><span class="p">)</span> <span class="o">+</span> <span class="nx">result</span><span class="p">;</span>
+
+  <span class="nx">result</span> <span class="o">=</span> <span class="nx">doSomething</span><span class="p">(</span><span class="k">yield</span> <span class="nx">somethingElse</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="when-not-to-use-it">When Not To Use It</h2>
+
+<p>If you don’t use async or generator functions, you don’t need to enable this rule.</p>
+
+<p>如果你不使用异步或生成器函数，则不需要启用此规则。</p>
+
+<h2 id="version">Version</h2>
+
+<p>This rule was introduced in ESLint 5.3.0.</p>
+
+<p>该规则在 ESLint 5.3.0 中被引入。</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/require-atomic-updates.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/require-atomic-updates.md">Documentation source</a></li>
+</ul>
+
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint/edit/master/docs/rules/require-atomic-updates.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+	    var langs = {mixed: '中英文',zh: '中文',en: '英文'};
+	    var last = localStorage.getItem('lang') || 'zh';
+
+	    if (last in langs) {
+	      $('.lang-chooser').html(langs[last]); 
+	      $('.doc').removeClass(function(index,clz){
+	          return clz.slice(3);
+	      }).addClass('lang-' + last);
+	    }
+
+	    $('.navbar-left').show();
+
+	    $('.lang-type').on('click', function() {
+	        var $this = $(this),
+	            type = $this.data('lang'),
+	            lang = $this.html();
+
+	        localStorage.setItem('lang', type);
+
+	        $('.lang-chooser').html(lang); 
+	        $('.doc').removeClass(function(index,clz){
+	            return clz.slice(3);
+	        }).addClass('lang-' + type);
+	    });
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+

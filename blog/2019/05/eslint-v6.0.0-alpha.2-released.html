@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="ESLint v6.0.0-alpha.2 released">
+  <meta property="og:url" content="http://localhost:4000/blog/2019/05/eslint-v6.0.0-alpha.2-released">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="ESLint v6.0.0-alpha.2 released">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/blog/2019/05/eslint-v6.0.0-alpha.2-released">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>ESLint v6.0.0-alpha.2 released - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/blog/2019/05/eslint-v6.0.0-alpha.2-released" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="blog">
+  <article class="container">
+    <h1 id="eslint-v600-alpha2-released">ESLint v6.0.0-alpha.2 released</h1>
+
+<p>We just pushed ESLint v6.0.0-alpha.2, which is a new prerelease for ESLint v6. This release adds some new features and fixes several bugs found in the previous release. This release also has some breaking changes, so please read the following closely.</p>
+
+<h2 id="highlights">Highlights</h2>
+
+<ol>
+  <li>Configuration using glob patterns now supports <code class="language-plaintext highlighter-rouge">extends</code> and nested <code class="language-plaintext highlighter-rouge">overrides</code></li>
+  <li>Using multiple processors is now supported</li>
+</ol>
+
+<h3 id="installing">Installing</h3>
+
+<p>Since this is a pre-release version, you will not automatically be upgraded by npm. You must specify the <code class="language-plaintext highlighter-rouge">next</code> tag when installing:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i eslint@next --save-dev
+</code></pre></div></div>
+
+<p>You can also specify the version directly:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i eslint@6.0.0-alpha.2 --save-dev
+</code></pre></div></div>
+
+<h3 id="migration-guide">Migration Guide</h3>
+
+<p>If you’re upgrading from ESLint v5.x, we recommend looking at the <a href="/docs/6.0.0/user-guide/migrating-to-6.0.0">migration guide</a>, which describes the changes in great detail along with the steps you should take to address them. We expect that most users should be able to upgrade without any build changes, but the migration guide should be a useful resource if you encounter problems.</p>
+
+<h2 id="breaking-changes">Breaking Changes</h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/commit/2d32a9e8dd10a5927576bd50d184876c775da4af"><code class="language-plaintext highlighter-rouge">2d32a9e</code></a> Breaking: stricter rule config validating (fixes <a href="https://github.com/eslint/eslint/issues/9505">#9505</a>) (<a href="https://github.com/eslint/eslint/issues/11742">#11742</a>) (薛定谔的猫)</li>
+</ul>
+
+<h2 id="features">Features</h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/commit/b5fa1491d2371a721e4b5029e797ae98fd30fed2"><code class="language-plaintext highlighter-rouge">b5fa149</code></a> New: multiple processors support (fixes <a href="https://github.com/eslint/eslint/issues/11035">#11035</a>, fixes <a href="https://github.com/eslint/eslint/issues/11725">#11725</a>) (<a href="https://github.com/eslint/eslint/issues/11552">#11552</a>) (Toru Nagashima)</li>
+  <li><a href="https://github.com/eslint/eslint/commit/54e6edaa2f881aab530fa14e63d92e5e0e2ca55c"><code class="language-plaintext highlighter-rouge">54e6eda</code></a> New: extends in glob-based config (fixes <a href="https://github.com/eslint/eslint/issues/8813">#8813</a>) (<a href="https://github.com/eslint/eslint/issues/11554">#11554</a>) (Toru Nagashima)</li>
+</ul>
+
+<h2 id="enhancements">Enhancements</h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/commit/cf9cce81aa68e9bc23840530cb33f4c3f551fb1e"><code class="language-plaintext highlighter-rouge">cf9cce8</code></a> Update: Add never option for <a href="/docs/rules/new-parens">new-parens</a> (refs <a href="https://github.com/eslint/eslint/issues/10034">#10034</a>) (<a href="https://github.com/eslint/eslint/issues/11379">#11379</a>) (pfgithub)</li>
+  <li><a href="https://github.com/eslint/eslint/commit/71716eba3155266d777b994a38af524952e97696"><code class="language-plaintext highlighter-rouge">71716eb</code></a> Update: add fixer for <a href="/docs/rules/no-div-regex">no-div-regex</a> rule (fixes <a href="https://github.com/eslint/eslint/issues/11355">#11355</a>) (<a href="https://github.com/eslint/eslint/issues/11744">#11744</a>) (joe-re)</li>
+  <li><a href="https://github.com/eslint/eslint/commit/53f7f4cf8d8b66a1911db56e4f72764388a21cc4"><code class="language-plaintext highlighter-rouge">53f7f4c</code></a> Update: Uniform messages for the rules in “<a href="/docs/rules/complexity">complexity</a>” section (<a href="https://github.com/eslint/eslint/issues/11759">#11759</a>) (Igor Novozhilov)</li>
+</ul>
+
+<h2 id="bug-fixes">Bug Fixes</h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/commit/f9790ca1baec1275f3c946586766a5713258ac32"><code class="language-plaintext highlighter-rouge">f9790ca</code></a> Fix: typo: missing word in docs (<a href="https://github.com/eslint/eslint/issues/11750">#11750</a>) (Dimitri Mitropoulos)</li>
+  <li><a href="https://github.com/eslint/eslint/commit/5dad0b1d80c9cf380c49f46266c35d461d3cecad"><code class="language-plaintext highlighter-rouge">5dad0b1</code></a> Fix: Unignoring directories in .eslintignore (fixes <a href="https://github.com/eslint/eslint/issues/11684">#11684</a>) (<a href="https://github.com/eslint/eslint/issues/11685">#11685</a>) (Mykola Bilochub)</li>
+  <li><a href="https://github.com/eslint/eslint/commit/7c8e86bf2c900cec7cd1dfd529a8c77cc81ef34c"><code class="language-plaintext highlighter-rouge">7c8e86b</code></a> Fix: wrong ‘plugin-missing’ error on Node.js 12 (fixes <a href="https://github.com/eslint/eslint/issues/11720">#11720</a>) (<a href="https://github.com/eslint/eslint/issues/11722">#11722</a>) (Toru Nagashima)</li>
+</ul>
+
+<h2 id="documentation">Documentation</h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/commit/45bd336e647a6fa8a502488e5cbd27ba02712083"><code class="language-plaintext highlighter-rouge">45bd336</code></a> Docs: add about RuleTester’s parser to migration guide (fixes <a href="https://github.com/eslint/eslint/issues/11728">#11728</a>) (<a href="https://github.com/eslint/eslint/issues/11761">#11761</a>) (Toru Nagashima)</li>
+  <li><a href="https://github.com/eslint/eslint/commit/1374be44f7ec4b8c913c52cc84debc4012c4f3ea"><code class="language-plaintext highlighter-rouge">1374be4</code></a> Docs: add table of contents in readme (<a href="https://github.com/eslint/eslint/issues/11765">#11765</a>) (薛定谔的猫)</li>
+  <li><a href="https://github.com/eslint/eslint/commit/e45cc3f3dc44f3a5b6b713a1bf5ce6e46d87ca49"><code class="language-plaintext highlighter-rouge">e45cc3f</code></a> Docs: updated <a href="/docs/rules/no-proto">no-proto</a> rule (fixes <a href="https://github.com/eslint/eslint/issues/11743">#11743</a>) (<a href="https://github.com/eslint/eslint/issues/11746">#11746</a>) (Francesco Trotta)</li>
+  <li><a href="https://github.com/eslint/eslint/commit/462509058e46770cf70307cf8dba279f0e73b967"><code class="language-plaintext highlighter-rouge">4625090</code></a> Docs: small fix about the migration guide (<a href="https://github.com/eslint/eslint/issues/11729">#11729</a>) (Toru Nagashima)</li>
+</ul>
+
+<h2 id="chores">Chores</h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/commit/9b87fee9dc7b1d99a50b924cb6b81255ebb5c4a2"><code class="language-plaintext highlighter-rouge">9b87fee</code></a> Chore: Fix formatter documentation generation (<a href="https://github.com/eslint/eslint/issues/11767">#11767</a>) (Ilya Volodin)</li>
+  <li><a href="https://github.com/eslint/eslint/commit/f11620848733a3a6f58811d9bb2c3e748d6135ac"><code class="language-plaintext highlighter-rouge">f116208</code></a> Chore: Fix site generation script for releases (<a href="https://github.com/eslint/eslint/issues/11766">#11766</a>) (Ilya Volodin)</li>
+  <li><a href="https://github.com/eslint/eslint/commit/0a801d702dc41dae7eac0c802b822493ddc3ac41"><code class="language-plaintext highlighter-rouge">0a801d7</code></a> Chore: improve perf test (<a href="https://github.com/eslint/eslint/issues/11756">#11756</a>) (薛定谔的猫)</li>
+  <li><a href="https://github.com/eslint/eslint/commit/ec105b24f7e036ecdc4267f018529ac3765e29d5"><code class="language-plaintext highlighter-rouge">ec105b2</code></a> Chore: typo in JSDoc on timing.display’s return value (<a href="https://github.com/eslint/eslint/issues/11755">#11755</a>) (Dimitri Mitropoulos)</li>
+  <li><a href="https://github.com/eslint/eslint/commit/15c6c6374c0425d5402142d012a541fa208bc9da"><code class="language-plaintext highlighter-rouge">15c6c63</code></a> Chore: eslint-config-eslint require node &gt;= 8 (<a href="https://github.com/eslint/eslint/issues/11718">#11718</a>) (薛定谔的猫)</li>
+  <li><a href="https://github.com/eslint/eslint/commit/219aecb78bc646d44bad27dc775a9b3d3dc58232"><code class="language-plaintext highlighter-rouge">219aecb</code></a> Chore: restructure files (<a href="https://github.com/eslint/eslint/issues/11555">#11555</a>) (Toru Nagashima)</li>
+  <li><a href="https://github.com/eslint/eslint/commit/67c671fdc1c8b08cb8d263a9bb2151e3108c88b4"><code class="language-plaintext highlighter-rouge">67c671f</code></a> Chore: ignore deprecated rules in fuzz tests (<a href="https://github.com/eslint/eslint/issues/11710">#11710</a>) (Pig Fang)</li>
+  <li><a href="https://github.com/eslint/eslint/commit/af81cb3ecc5e6bf43a6a2d8f326103350513a1b8"><code class="language-plaintext highlighter-rouge">af81cb3</code></a> Chore: make fuzzer produce minimal reproducible examples of bugs (<a href="https://github.com/eslint/eslint/issues/11700">#11700</a>) (Teddy Katz)</li>
+</ul>
+
+
+    <footer>
+      <p class="text-center">ESLint depends on the support of individuals and companies. <a class="btn btn-default" href="https://opencollective.com/eslint">Become a Sponsor</a></p>
+    </footer>
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint.github.io/edit/master/_posts/2019-05-25-eslint-v6.0.0-alpha.2-released.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+

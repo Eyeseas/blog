@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="Migrating from JSCS">
+  <meta property="og:url" content="http://localhost:4000/docs/user-guide/migrating-from-jscs">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="Migrating from JSCS">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/user-guide/migrating-from-jscs">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>Migrating from JSCS - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/docs/user-guide/migrating-from-jscs" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="doc">
+  <article class="container">
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="migrating-from-jscs">Migrating from JSCS</h1>
+
+<p>In April 2016, we <a href="https://eslint.org/blog/2016/04/welcoming-jscs-to-eslint">announced</a> that the JSCS project was shutting down and the JSCS team would be joining the ESLint team. This guide is intended to help those who are using JSCS to migrate their settings and projects to use ESLint. We’ve tried to automate as much of the conversion as possible, but there are some manual changes that are needed.</p>
+
+<h2 id="terminology">Terminology</h2>
+
+<p>Before beginning the process of migrating to ESLint, it’s helpful to understand some of the terminology that ESLint uses and how it relates to terminology that JSCS uses.</p>
+
+<ul>
+  <li><strong>Configuration File</strong> - In JSCS, the configuration file is <code class="language-plaintext highlighter-rouge">.jscsrc</code>, <code class="language-plaintext highlighter-rouge">.jscsrc.json</code>, <code class="language-plaintext highlighter-rouge">.jscsrc.yaml</code>, or <code class="language-plaintext highlighter-rouge">.jscsrs.js</code>. In ESLint, the configuration file can be <code class="language-plaintext highlighter-rouge">.eslintrc.json</code>, <code class="language-plaintext highlighter-rouge">.eslintrc.yml</code>, <code class="language-plaintext highlighter-rouge">.eslintrc.yaml</code>, or <code class="language-plaintext highlighter-rouge">.eslintrc.js</code> (there is also a deprecated <code class="language-plaintext highlighter-rouge">.eslintrc</code> file format).</li>
+  <li><strong>Presets</strong> - In JSCS, there were numerous predefined configurations shipped directly within JSCS. ESLint ships with just one predefined configuration (<code class="language-plaintext highlighter-rouge">eslint:recommended</code>) that has no style rules enabled. However, ESLint does support <a href="https://eslint.org/docs/developer-guide/shareable-configs">shareable configs</a>. Shareable configs are configurations that are published on their own to npm and there are shareable configs available for almost all of the JSCS presets (see the “Converting Presets” section below). Additionally, the “preset” option in a configuration file is the equivalent of the ESLint “extends” option.</li>
+</ul>
+
+<h2 id="convert-configuration-files-using-polyjuice">Convert Configuration Files Using Polyjuice</h2>
+
+<p><a href="https://github.com/brenolf/polyjuice">Polyjuice</a> is a utility for converting JSCS (and JSHint) configuration files into ESLint configuration files automatically. It understands the equivalent rules from each utility and will automatically output an ESLint configuration file that is a good approximation of your existing JSCS file.</p>
+
+<p>To install Polyjuice:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm install -g polyjuice
+</code></pre></div></div>
+
+<p>Polyjuice works with JSON configuration files, so if you’re using a JavaScript or YAML JSCS configuration file, you should first convert it into a JSON configuration file.</p>
+
+<p>To convert your configuration file, pass in the location of your <code class="language-plaintext highlighter-rouge">.jscs.json</code> file using the <code class="language-plaintext highlighter-rouge">--jscs</code> flag:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ polyjuice --jscs .jscsrc.json &gt; .eslintrc.json
+</code></pre></div></div>
+
+<p>This creates a <code class="language-plaintext highlighter-rouge">.eslintrc.json</code> with the equivalent rules from <code class="language-plaintext highlighter-rouge">.jscsrc.json</code>.</p>
+
+<p>If you have multiple <code class="language-plaintext highlighter-rouge">.jscsrc.json</code> files, you can pass them all and Polyjuice will combine them into one <code class="language-plaintext highlighter-rouge">.eslintrc.json</code> file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ polyjuice --jscs .jscsrc.json ./foo/.jscsrc.json &gt; .eslintrc.json
+</code></pre></div></div>
+
+<p><strong>Note:</strong> Polyjuice does a good job of creating a reasonable ESLint configuration from your JSCS configuration, but it may not be 100%. You may still see different warnings than you saw with JSCS, and so you may need to further modify your configuration after using Polyjuice. This is especially true if you’re using inline comments to enable/disable certain rules in JSCS (you’ll need to manually convert those to use ESLint-style comments instead, see “Disabling Rules Inline” later in this page).</p>
+
+<h3 id="creating-a-new-configuration-from-scratch">Creating a New Configuration From Scratch</h3>
+
+<p>If you don’t want to convert your JSCS configuration directly into an ESLint configuration, then you can use ESLint’s built-in wizard to get you started. Just run:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ eslint --init
+</code></pre></div></div>
+
+<p>You’ll be guided through a series of questions that will help you setup a basic configuration file to get you started.</p>
+
+<h2 id="converting-presets">Converting Presets</h2>
+
+<p>There are shareable configs available for most JSCS presets. The equivalent shareable configs for each JSCS preset are listed in the following table:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>JSCS Preset</strong></th>
+      <th><strong>ESLint Shareable Config</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">airbnb</code></td>
+      <td><a href="https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base"><code class="language-plaintext highlighter-rouge">eslint-config-airbnb-base</code></a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">crockford</code></td>
+      <td>(not available)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">google</code></td>
+      <td><a href="https://github.com/google/eslint-config-google"><code class="language-plaintext highlighter-rouge">eslint-config-google</code></a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">grunt</code></td>
+      <td><a href="https://github.com/markelog/eslint-config-grunt"><code class="language-plaintext highlighter-rouge">eslint-config-grunt</code></a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">idiomatic</code></td>
+      <td><a href="https://github.com/jamespamplin/eslint-config-idiomatic"><code class="language-plaintext highlighter-rouge">eslint-config-idiomatic</code></a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">jquery</code></td>
+      <td><a href="https://github.com/jquery/eslint-config-jquery"><code class="language-plaintext highlighter-rouge">eslint-config-jquery</code></a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mdcs</code></td>
+      <td><a href="https://github.com/zz85/mrdoobapproves"><code class="language-plaintext highlighter-rouge">eslint-config-mdcs</code></a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">node-style-guide</code></td>
+      <td><a href="https://github.com/pdehaan/eslint-config-node-style-guide"><code class="language-plaintext highlighter-rouge">eslint-config-node-style-guide</code></a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">wikimedia</code></td>
+      <td><a href="https://github.com/wikimedia/eslint-config-wikimedia"><code class="language-plaintext highlighter-rouge">eslint-config-wikimedia</code></a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">wordpress</code></td>
+      <td><a href="https://github.com/WordPress-Coding-Standards/eslint-config-wordpress"><code class="language-plaintext highlighter-rouge">eslint-config-wordpress</code></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As an example, suppose that you are using the <code class="language-plaintext highlighter-rouge">airbnb</code> preset, so your <code class="language-plaintext highlighter-rouge">.jscsrc</code> file looks like this:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"preset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"airbnb"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In order to get the same functionality in ESLint, you would first need to install the <code class="language-plaintext highlighter-rouge">eslint-config-airbnb</code> shareable config package:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm install eslint-config-airbnb-base --save-dev
+</code></pre></div></div>
+
+<p>And then you would modify your configuration file like this:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"extends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"airbnb-base"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>ESLint sees <code class="language-plaintext highlighter-rouge">"airbnb-base"</code> and will look for <code class="language-plaintext highlighter-rouge">eslint-config-airbnb-base</code> (to save you some typing).</p>
+
+<h2 id="disabling-rules-inline">Disabling Rules Inline</h2>
+
+<p>Both JSCS and ESLint use comments inside of files to disable rules around certain parts of your code. The following table lists out the JSCS inline configuration comments and their ESLint equivalents.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Description</strong></th>
+      <th><strong>JSCS Comment</strong></th>
+      <th><strong>ESLint Comment</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Disable all rules</td>
+      <td><code class="language-plaintext highlighter-rouge">// jscs:disable</code> or <code class="language-plaintext highlighter-rouge">/* jscs:disable */</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/* eslint-disable */</code></td>
+    </tr>
+    <tr>
+      <td>Enable all rules</td>
+      <td><code class="language-plaintext highlighter-rouge">// jscs:enable</code> or <code class="language-plaintext highlighter-rouge">/* jscs:enable */</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/* eslint-enable */</code></td>
+    </tr>
+    <tr>
+      <td>Disable one rule</td>
+      <td><code class="language-plaintext highlighter-rouge">// jscs:disable ruleName</code> or <code class="language-plaintext highlighter-rouge">/* jscs:disable ruleName */</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/* eslint-disable rule-name */</code></td>
+    </tr>
+    <tr>
+      <td>Enable one rule</td>
+      <td><code class="language-plaintext highlighter-rouge">// jscs:enable ruleName</code> or <code class="language-plaintext highlighter-rouge">/* jscs:enable ruleName */</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/* eslint-enable rule-name */</code></td>
+    </tr>
+    <tr>
+      <td>Disable multiple rules</td>
+      <td><code class="language-plaintext highlighter-rouge">// jscs:disable ruleName1, ruleName2</code> or <code class="language-plaintext highlighter-rouge">/* jscs:disable ruleName1, ruleName2 */</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/* eslint-disable rule-name1, rule-name2 */</code></td>
+    </tr>
+    <tr>
+      <td>Enable multiple rules</td>
+      <td><code class="language-plaintext highlighter-rouge">// jscs:enable ruleName1, ruleName2</code> or <code class="language-plaintext highlighter-rouge">/* jscs:enable ruleName1, ruleName2 */</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/* eslint-enable rule-name1, rule-name2 */</code></td>
+    </tr>
+    <tr>
+      <td>Disable one rule on single line</td>
+      <td><code class="language-plaintext highlighter-rouge">// jscs:ignore ruleName</code></td>
+      <td><code class="language-plaintext highlighter-rouge">// eslint-disable-line rule-name</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="command-line-options">Command Line Options</h2>
+
+<p>Both JSCS and ESLint have command line arguments corresponding to many of their configuration options. The following are the ESLint equivalents of JSCS command line options.</p>
+
+<h3 id="--fix"><code class="language-plaintext highlighter-rouge">--fix</code></h3>
+
+<p>JSCS uses the <code class="language-plaintext highlighter-rouge">--fix</code> option to apply automatic fixes to code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jscs --fix file.js
+</code></pre></div></div>
+
+<p>ESLint has the same option:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ eslint --fix file.js
+</code></pre></div></div>
+
+<h3 id="--auto-configure"><code class="language-plaintext highlighter-rouge">--auto-configure</code></h3>
+
+<p>The JSCS <code class="language-plaintext highlighter-rouge">--auto-configure</code> option created a configuration based on what it found in a given file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jscs --auto-configure file.js
+</code></pre></div></div>
+
+<p>In ESLint, there’s a similar option when you use <code class="language-plaintext highlighter-rouge">--init</code>. Just select “Inspect your JavaScript file(s)”:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ eslint --init
+? How would you like to configure ESLint? (Use arrow keys)
+&gt; Answer questions about your style
+  Use a popular style guide
+  Inspect your JavaScript file(s)
+</code></pre></div></div>
+
+<h2 id="--config--c"><code class="language-plaintext highlighter-rouge">--config</code>, <code class="language-plaintext highlighter-rouge">-c</code></h2>
+
+<p>JSCS allows you to specify a configuration file to use on the command line using either <code class="language-plaintext highlighter-rouge">--config</code> or <code class="language-plaintext highlighter-rouge">-c</code>, such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jscs --config myconfig.json file.js
+$ jscs -c myconfig.json file.js
+</code></pre></div></div>
+
+<p>Both flags are also supported by ESLint:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ eslint --config myconfig.json file.js
+$ eslint -c myconfig.json file.js
+</code></pre></div></div>
+
+<h2 id="piping-code-into-eslint">Piping Code Into ESLint</h2>
+
+<p>In JSCS, you can pipe code in like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat file.js | jscs
+</code></pre></div></div>
+
+<p>In ESLint, you can also pipe in code, but you need to use the <code class="language-plaintext highlighter-rouge">--stdin</code> flag:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat file.js | eslint --stdin
+</code></pre></div></div>
+
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint/edit/master/docs/user-guide/migrating-from-jscs.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+

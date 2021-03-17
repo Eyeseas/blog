@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="no-restricted-imports - Rules">
+  <meta property="og:url" content="http://localhost:4000/docs/rules/no-restricted-imports">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="no-restricted-imports - Rules">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/rules/no-restricted-imports">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>no-restricted-imports - Rules - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/docs/rules/no-restricted-imports" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel="stylesheet" href="/styles/mixed.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="lang-chooser">中文</span><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="lang-type" data-lang="zh" href="javascript:;">中文</a></li>
+            <li><a class="lang-type" data-lang="mixed" href="javascript:;">中英文</a></li>
+            <li><a class="lang-type" data-lang="en" href="javascript:;">英文</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="doc lang-zh">
+  <article class="container">
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-specific-imports-no-restricted-imports">Disallow specific imports (no-restricted-imports)</h1>
+
+<h1 id="禁用特定的-import-no-restricted-imports">禁用特定的 import (no-restricted-imports)</h1>
+
+<p>Imports are an ES6/ES2015 standard for making the functionality of other modules available in your current module. In CommonJS this is implemented through the <code class="language-plaintext highlighter-rouge">require()</code> call which makes this ESLint rule roughly equivalent to its CommonJS counterpart <code class="language-plaintext highlighter-rouge">no-restricted-modules</code>.</p>
+
+<p>import 是 ES6/ES2015 的一个标准，用来在当前模块引入其他模块。在 CommonJS 中是通过调用 <code class="language-plaintext highlighter-rouge">require()</code> 来实现的，使得该规则大致相当于 CommonJS 对应的 <code class="language-plaintext highlighter-rouge">no-restricted-modules</code> 规则。</p>
+
+<p>Why would you want to restrict imports?</p>
+
+<p>为什么要限制 import ?</p>
+
+<ul>
+  <li>Some imports might not make sense in a particular environment. For example, Node.js’ <code class="language-plaintext highlighter-rouge">fs</code> module would not make sense in an environment that didn’t have a file system.</li>
+  <li>某些 import 在特定的环境下毫无意义。比如，Node.js 中的 <code class="language-plaintext highlighter-rouge">fs</code> 模块在不包含文件系统的环境下，毫无意义。</li>
+  <li>Some modules provide similar or identical functionality, think <code class="language-plaintext highlighter-rouge">lodash</code> and <code class="language-plaintext highlighter-rouge">underscore</code>. Your project may have standardized on a module. You want to make sure that the other alternatives are not being used as this would unnecessarily bloat the project and provide a higher maintenance cost of two dependencies when one would suffice.</li>
+  <li>有些模块提供相似或相同的功能，比如 <code class="language-plaintext highlighter-rouge">lodash</code> 和 <code class="language-plaintext highlighter-rouge">underscore</code>。你的项目可能已经模块化了。你想确保其他的替代方案不会被使用，因为会造成不必要的项目体积膨胀，也会使明明一个可以满足需求，却要维护两个依赖，造成维护成本过高。</li>
+</ul>
+
+<h2 id="rule-details">Rule Details</h2>
+
+<p>This rule allows you to specify imports that you don’t want to use in your application.</p>
+
+<p>该规则允许你指定你不想在你的应用中使用的 import。</p>
+
+<h2 id="options">Options</h2>
+
+<p>The syntax to specify restricted imports looks like this:</p>
+
+<p>像这样指定受限制的 import：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"no-restricted-imports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"import1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"import2"</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>or like this:</p>
+
+<p>或像这样：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"no-restricted-imports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"paths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"import1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"import2"</span><span class="p">]</span><span class="w"> </span><span class="p">}]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>When using the object form, you can also specify an array of gitignore-style patterns:</p>
+
+<p>当使用对象格式时，还可以指定一组 gitignore 风格的模式：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"no-restricted-imports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"paths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"import1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"import2"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"patterns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"import1/private/*"</span><span class="p">,</span><span class="w"> </span><span class="s2">"import2/*"</span><span class="p">,</span><span class="w"> </span><span class="s2">"!import2/good"</span><span class="p">]</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>You may also specify a custom message for any paths you want to restrict as follows:</p>
+
+<p>你也可以为你想要限制的路径指定一个自定义消息：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"no-restricted-imports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">[{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"import-foo"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please use import-bar instead."</span><span class="w">
+</span><span class="p">}]]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>or like this:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"no-restricted-imports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"paths"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"import-foo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please use import-bar instead."</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>or like this if you need to restrict only certain imports from a module:</p>
+
+<p>或者像这样，如果你需要限制从一个模块中的某一个导入：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"no-restricted-imports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"paths"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"import-foo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"importNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Bar"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please use Bar from /import-bar/baz/ instead."</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The custom message will be appended to the default error message. Please note that you may not specify custom error messages for restricted patterns as a particular import may match more than one pattern.</p>
+
+<p>自定义消息将附加到默认的错误消息。请注意，你可能没有为受限模式指定自定义错误消息，因为特定的导入可能匹配多个模式。</p>
+
+<p>To restrict the use of all Node.js core imports (via https://github.com/nodejs/node/tree/master/lib):</p>
+
+<p>(通过https://github.com/nodejs/node/tree/master/lib)限制所有 Node.js 核心导入的使用：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="nl">"no-restricted-imports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"assert"</span><span class="p">,</span><span class="s2">"buffer"</span><span class="p">,</span><span class="s2">"child_process"</span><span class="p">,</span><span class="s2">"cluster"</span><span class="p">,</span><span class="s2">"crypto"</span><span class="p">,</span><span class="s2">"dgram"</span><span class="p">,</span><span class="s2">"dns"</span><span class="p">,</span><span class="s2">"domain"</span><span class="p">,</span><span class="s2">"events"</span><span class="p">,</span><span class="s2">"freelist"</span><span class="p">,</span><span class="s2">"fs"</span><span class="p">,</span><span class="s2">"http"</span><span class="p">,</span><span class="s2">"https"</span><span class="p">,</span><span class="s2">"module"</span><span class="p">,</span><span class="s2">"net"</span><span class="p">,</span><span class="s2">"os"</span><span class="p">,</span><span class="s2">"path"</span><span class="p">,</span><span class="s2">"punycode"</span><span class="p">,</span><span class="s2">"querystring"</span><span class="p">,</span><span class="s2">"readline"</span><span class="p">,</span><span class="s2">"repl"</span><span class="p">,</span><span class="s2">"smalloc"</span><span class="p">,</span><span class="s2">"stream"</span><span class="p">,</span><span class="s2">"string_decoder"</span><span class="p">,</span><span class="s2">"sys"</span><span class="p">,</span><span class="s2">"timers"</span><span class="p">,</span><span class="s2">"tls"</span><span class="p">,</span><span class="s2">"tracing"</span><span class="p">,</span><span class="s2">"tty"</span><span class="p">,</span><span class="s2">"url"</span><span class="p">,</span><span class="s2">"util"</span><span class="p">,</span><span class="s2">"vm"</span><span class="p">,</span><span class="s2">"zlib"</span><span class="w">
+    </span><span class="p">]</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="examples">Examples</h2>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<p><strong>错误</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-imports: ["error", "fs"]*/</span>
+
+<span class="k">import</span> <span class="nx">fs</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-imports: ["error", "fs"]*/</span>
+
+<span class="k">export</span> <span class="p">{</span> <span class="nx">fs</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-imports: ["error", "fs"]*/</span>
+
+<span class="k">export</span> <span class="o">*</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-imports: ["error", { "paths": ["cluster"] }]*/</span>
+
+<span class="k">import</span> <span class="nx">cluster</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">cluster</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-imports: ["error", { "patterns": ["lodash/*"] }]*/</span>
+
+<span class="k">import</span> <span class="nx">pick</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">lodash/pick</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-imports: ["error", { paths: [{
+    name: "foo",
+    importNames: ["default"],
+    message: "Please use the default import from '/bar/baz/' instead."
+}]}]*/</span>
+
+<span class="k">import</span> <span class="nx">DisallowedObject</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-imports: ["error", { paths: [{
+    name: "foo",
+    importNames: ["DisallowedObject"],
+    message: "Please import 'DisallowedObject' from '/bar/baz/' instead."
+}]}]*/</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">DisallowedObject</span> <span class="k">as</span> <span class="nx">AllowedObject</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-imports: ["error", { paths: [{
+    name: "foo",
+    importNames: ["DisallowedObject"],
+    message: "Please import 'DisallowedObject' from '/bar/baz/' instead."
+}]}]*/</span>
+
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">Foo</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<p><strong>正确</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-imports: ["error", "fs"]*/</span>
+
+<span class="k">import</span> <span class="nx">crypto</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">crypto</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">export</span> <span class="p">{</span> <span class="nx">foo</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">bar</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-imports: ["error", { "paths": ["fs"], "patterns": ["eslint/*"] }]*/</span>
+
+<span class="k">import</span> <span class="nx">crypto</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">crypto</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">eslint</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">eslint</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">export</span> <span class="o">*</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">path</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-imports: ["error", { paths: [{ name: "foo", importNames: ["DisallowedObject"] }] }]*/</span>
+
+<span class="k">import</span> <span class="nx">DisallowedObject</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint no-restricted-imports: ["error", { paths: [{
+    name: "foo",
+    importNames: ["DisallowedObject"],
+    message: "Please import 'DisallowedObject' from '/bar/baz/' instead."
+}]}]*/</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AllowedObject</span> <span class="k">as</span> <span class="nx">DisallowedObject</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="when-not-to-use-it">When Not To Use It</h2>
+
+<p>Don’t use this rule or don’t include a module in the list for this rule if you want to be able to import a module in your project without an ESLint error or warning.</p>
+
+<p>如果希望在你的项目中引入一个模块，而且不会有 ESLint 错误或警告，不要使用该规则或不要包含该规则列表中的模块。</p>
+
+<h2 id="version">Version</h2>
+
+<p>This rule was introduced in ESLint 2.0.0-alpha-1.</p>
+
+<p>该规则在 ESLint 2.0.0-alpha-1 中被引入。</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-restricted-imports.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-restricted-imports.md">Documentation source</a></li>
+</ul>
+
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint/edit/master/docs/rules/no-restricted-imports.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+	    var langs = {mixed: '中英文',zh: '中文',en: '英文'};
+	    var last = localStorage.getItem('lang') || 'zh';
+
+	    if (last in langs) {
+	      $('.lang-chooser').html(langs[last]); 
+	      $('.doc').removeClass(function(index,clz){
+	          return clz.slice(3);
+	      }).addClass('lang-' + last);
+	    }
+
+	    $('.navbar-left').show();
+
+	    $('.lang-type').on('click', function() {
+	        var $this = $(this),
+	            type = $this.data('lang'),
+	            lang = $this.html();
+
+	        localStorage.setItem('lang', type);
+
+	        $('.lang-chooser').html(lang); 
+	        $('.doc').removeClass(function(index,clz){
+	            return clz.slice(3);
+	        }).addClass('lang-' + type);
+	    });
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+

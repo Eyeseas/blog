@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="Working with Custom Formatters">
+  <meta property="og:url" content="http://localhost:4000/docs/6.0.0/developer-guide/working-with-custom-formatters">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="Working with Custom Formatters">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/6.0.0/developer-guide/working-with-custom-formatters">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>Working with Custom Formatters - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/docs/6.0.0/developer-guide/working-with-custom-formatters" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel="stylesheet" href="/styles/mixed.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="lang-chooser">中文</span><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="lang-type" data-lang="zh" href="javascript:;">中文</a></li>
+            <li><a class="lang-type" data-lang="mixed" href="javascript:;">中英文</a></li>
+            <li><a class="lang-type" data-lang="en" href="javascript:;">英文</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="doc lang-zh">
+  <article class="container">
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="working-with-custom-formatters">Working with Custom Formatters</h1>
+
+<p>While ESLint has some built-in formatters available to format the linting results, it’s also possible to create and distribute your own custom formatters. You can include custom formatters in your project directly or create an npm package to distribute them separately.</p>
+
+<p>Each formatter is just a function that receives a <code class="language-plaintext highlighter-rouge">results</code> object and returns a string. For example, the following is how the <code class="language-plaintext highlighter-rouge">json</code> built-in formatter is implemented:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//my-awesome-formatter.js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">results</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">results</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>To run ESLint with this formatter, you can use the <code class="language-plaintext highlighter-rouge">-f</code> (or <code class="language-plaintext highlighter-rouge">--formatter</code>) command line flag:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint <span class="nt">-f</span> ./my-awesome-formatter.js src/
+</code></pre></div></div>
+
+<p>In order to use a local file as a custom formatter, you must begin the filename with a dot (such as <code class="language-plaintext highlighter-rouge">./my-awesome-formatter.js</code> or <code class="language-plaintext highlighter-rouge">../formatters/my-awesome-formatter.js</code>).</p>
+
+<h3 id="the-data-argument">The <code class="language-plaintext highlighter-rouge">data</code> Argument</h3>
+
+<p>The exported function receives an optional second argument named <code class="language-plaintext highlighter-rouge">data</code>. The <code class="language-plaintext highlighter-rouge">data</code> object provides extended information related to the analysis results. Currently, the <code class="language-plaintext highlighter-rouge">data</code> object consists of a single property named <code class="language-plaintext highlighter-rouge">rulesMeta</code>. This property is a dictionary of rule metadata, keyed with <code class="language-plaintext highlighter-rouge">ruleId</code>. The value for each entry is the <code class="language-plaintext highlighter-rouge">meta</code> property from the corresponding rule object. The dictionary contains an entry for each rule that was run during the analysis.</p>
+
+<p>Here’s what the <code class="language-plaintext highlighter-rouge">data</code> object would look like if one rule, <code class="language-plaintext highlighter-rouge">no-extra-semi</code>, had been run:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="nl">rulesMeta</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">no-extra-semi</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">suggestion</span><span class="dl">"</span><span class="p">,</span>
+            <span class="na">docs</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">description</span><span class="p">:</span> <span class="dl">"</span><span class="s2">disallow unnecessary semicolons</span><span class="dl">"</span><span class="p">,</span>
+                <span class="na">category</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Possible Errors</span><span class="dl">"</span><span class="p">,</span>
+                <span class="na">recommended</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://eslint.org/docs/rules/no-extra-semi</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="na">fixable</span><span class="p">:</span> <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">,</span>
+            <span class="na">schema</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="na">messages</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">unexpected</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Unnecessary semicolon.</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The <a href="#using-rule-metadata">Using Rule metadata</a> example shows how to use the <code class="language-plaintext highlighter-rouge">data</code> object in a custom formatter. See the <a href="https://eslint.org/docs/developer-guide/working-with-rules">Working with Rules</a> page for more information about rules.</p>
+
+<h2 id="packaging-the-custom-formatter">Packaging the Custom Formatter</h2>
+
+<p>Custom formatters can also be distributed through npm packages. To do so, create an npm package with a name in the format of <code class="language-plaintext highlighter-rouge">eslint-formatter-*</code>, where <code class="language-plaintext highlighter-rouge">*</code> is the name of your formatter (such as <code class="language-plaintext highlighter-rouge">eslint-formatter-awesome</code>). Projects should then install the package and can use the custom formatter with the <code class="language-plaintext highlighter-rouge">-f</code> (or <code class="language-plaintext highlighter-rouge">--formatter</code>) flag like this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint <span class="nt">-f</span> awesome src/
+</code></pre></div></div>
+
+<p>Because ESLint knows to look for packages beginning with <code class="language-plaintext highlighter-rouge">eslint-formatter-</code> when the specified formatter doesn’t begin with a dot, there is no need to type <code class="language-plaintext highlighter-rouge">eslint-formatter-</code> when using a packaged custom formatter.</p>
+
+<p>Tips for <code class="language-plaintext highlighter-rouge">package.json</code>:</p>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">main</code> entry should be the JavaScript file implementing your custom formatter.</li>
+  <li>Add these <code class="language-plaintext highlighter-rouge">keywords</code> to help users find your formatter:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">"eslint"</code></li>
+      <li><code class="language-plaintext highlighter-rouge">"eslint-formatter"</code></li>
+      <li><code class="language-plaintext highlighter-rouge">"eslintformatter"</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>See all <a href="https://www.npmjs.com/search?q=eslint-formatter">formatters on npm</a>;</p>
+
+<h2 id="the-results-object">The <code class="language-plaintext highlighter-rouge">results</code> Object</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">results</code> object passed into a formatter is an array of objects containing the lint results for individual files. Here’s some example output:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="na">filePath</span><span class="p">:</span> <span class="dl">"</span><span class="s2">path/to/file.js</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">messages</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="na">ruleId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">curly</span><span class="dl">"</span><span class="p">,</span>
+                <span class="na">severity</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="na">message</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Expected { after 'if' condition.</span><span class="dl">"</span><span class="p">,</span>
+                <span class="na">line</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="na">column</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="na">nodeType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IfStatement</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="na">ruleId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">no-process-exit</span><span class="dl">"</span><span class="p">,</span>
+                <span class="na">severity</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="na">message</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Don't use process.exit(); throw an error instead.</span><span class="dl">"</span><span class="p">,</span>
+                <span class="na">line</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="na">column</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="na">nodeType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CallExpression</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="na">errorCount</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="na">warningCount</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">fixableErrorCount</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">fixableWarningCount</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">source</span><span class="p">:</span>
+            <span class="dl">"</span><span class="s2">var err = doStuff();</span><span class="se">\n</span><span class="s2">if (err) console.log('failed tests: ' + err);</span><span class="se">\n</span><span class="s2">process.exit(1);</span><span class="se">\n</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="na">filePath</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Gruntfile.js</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">messages</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="na">errorCount</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">warningCount</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">fixableErrorCount</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">fixableWarningCount</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="the-result-object">The <code class="language-plaintext highlighter-rouge">result</code> Object</h3>
+
+<!-- This section is copied from the "Node.js API" page. Changes to this section should
+also be manually applied to that page. -->
+
+<p>Each object in the <code class="language-plaintext highlighter-rouge">results</code> array is a <code class="language-plaintext highlighter-rouge">result</code> object. Each <code class="language-plaintext highlighter-rouge">result</code> object contains the path of the file that was linted and information about linting issues that were encountered. Here are the properties available on each <code class="language-plaintext highlighter-rouge">result</code> object:</p>
+
+<ul>
+  <li><strong>filePath</strong>: The absolute path to the file that was linted.</li>
+  <li><strong>messages</strong>: An array of <code class="language-plaintext highlighter-rouge">message</code> objects. See below for more info about messages.</li>
+  <li><strong>errorCount</strong>: The number of errors for the given file.</li>
+  <li><strong>warningCount</strong>: The number of warnings for the given file.</li>
+  <li><strong>source</strong>: The source code for the given file. This property is omitted if this file has no errors/warnings or if the <code class="language-plaintext highlighter-rouge">output</code> property is present.</li>
+  <li><strong>output</strong>: The source code for the given file with as many fixes applied as possible. This property is omitted if no fix is available.</li>
+</ul>
+
+<h3 id="the-message-object">The <code class="language-plaintext highlighter-rouge">message</code> Object</h3>
+
+<p>Each <code class="language-plaintext highlighter-rouge">message</code> object contains information about the ESLint rule that was triggered by some source code. The properties available on each <code class="language-plaintext highlighter-rouge">message</code> object are:</p>
+
+<ul>
+  <li><strong>ruleId</strong>: the ID of the rule that produced the error or warning.</li>
+  <li><strong>severity</strong>: the severity of the failure, <code class="language-plaintext highlighter-rouge">1</code> for warnings and <code class="language-plaintext highlighter-rouge">2</code> for errors.</li>
+  <li><strong>message</strong>: the human readable description of the error.</li>
+  <li><strong>line</strong>: the line where the issue is located.</li>
+  <li><strong>column</strong>: the column where the issue is located.</li>
+  <li><strong>nodeType</strong>: the type of the node in the <a href="https://github.com/estree/estree/blob/master/spec.md#node-objects">AST</a></li>
+</ul>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="summary-formatter">Summary formatter</h3>
+
+<p>A formatter that only cares about the total count of errors and warnings will look like this:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">results</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// accumulate the errors and warnings</span>
+    <span class="kd">var</span> <span class="nx">summary</span> <span class="o">=</span> <span class="nx">results</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span>
+        <span class="kd">function</span><span class="p">(</span><span class="nx">seq</span><span class="p">,</span> <span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">seq</span><span class="p">.</span><span class="nx">errors</span> <span class="o">+=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">errorCount</span><span class="p">;</span>
+            <span class="nx">seq</span><span class="p">.</span><span class="nx">warnings</span> <span class="o">+=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">warningCount</span><span class="p">;</span>
+            <span class="k">return</span> <span class="nx">seq</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="p">{</span> <span class="na">errors</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">warnings</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}</span>
+    <span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">summary</span><span class="p">.</span><span class="nx">errors</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">summary</span><span class="p">.</span><span class="nx">warnings</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="dl">"</span><span class="s2">Errors: </span><span class="dl">"</span> <span class="o">+</span>
+            <span class="nx">summary</span><span class="p">.</span><span class="nx">errors</span> <span class="o">+</span>
+            <span class="dl">"</span><span class="s2">, Warnings: </span><span class="dl">"</span> <span class="o">+</span>
+            <span class="nx">summary</span><span class="p">.</span><span class="nx">warnings</span> <span class="o">+</span>
+            <span class="dl">"</span><span class="se">\n</span><span class="dl">"</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="dl">""</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Running <code class="language-plaintext highlighter-rouge">eslint</code> with the previous custom formatter,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint <span class="nt">-f</span> ./my-awesome-formatter.js src/
+</code></pre></div></div>
+
+<p>Will produce the following output:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Errors: 2, Warnings: 4
+</code></pre></div></div>
+
+<h3 id="detailed-formatter">Detailed formatter</h3>
+
+<p>A more complex report will look something like this:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">results</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="nx">results</span> <span class="o">||</span> <span class="p">[];</span>
+
+    <span class="kd">var</span> <span class="nx">summary</span> <span class="o">=</span> <span class="nx">results</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span>
+        <span class="kd">function</span><span class="p">(</span><span class="nx">seq</span><span class="p">,</span> <span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">current</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">logMessage</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="na">filePath</span><span class="p">:</span> <span class="nx">current</span><span class="p">.</span><span class="nx">filePath</span><span class="p">,</span>
+                    <span class="na">ruleId</span><span class="p">:</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">ruleId</span><span class="p">,</span>
+                    <span class="na">ruleUrl</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">rulesMeta</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">ruleId</span><span class="p">].</span><span class="nx">url</span><span class="p">,</span>
+                    <span class="na">message</span><span class="p">:</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>
+                    <span class="na">line</span><span class="p">:</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">line</span><span class="p">,</span>
+                    <span class="na">column</span><span class="p">:</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">column</span>
+                <span class="p">};</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">severity</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">logMessage</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">warning</span><span class="dl">"</span><span class="p">;</span>
+                    <span class="nx">seq</span><span class="p">.</span><span class="nx">warnings</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">logMessage</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">severity</span> <span class="o">===</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">logMessage</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">;</span>
+                    <span class="nx">seq</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">logMessage</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">});</span>
+            <span class="k">return</span> <span class="nx">seq</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="na">errors</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="na">warnings</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">summary</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">summary</span><span class="p">.</span><span class="nx">warnings</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">summary</span><span class="p">.</span><span class="nx">errors</span>
+            <span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">summary</span><span class="p">.</span><span class="nx">warnings</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="dl">"</span><span class="se">\n</span><span class="dl">"</span> <span class="o">+</span>
+                    <span class="nx">msg</span><span class="p">.</span><span class="nx">type</span> <span class="o">+</span>
+                    <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span> <span class="o">+</span>
+                    <span class="nx">msg</span><span class="p">.</span><span class="nx">ruleId</span> <span class="o">+</span> <span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">ruleUrl</span> <span class="p">?</span> <span class="dl">"</span><span class="s2"> (</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">ruleUrl</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">)</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">""</span>
+                    <span class="dl">"</span><span class="se">\n</span><span class="s2">  </span><span class="dl">"</span> <span class="o">+</span>
+                    <span class="nx">msg</span><span class="p">.</span><span class="nx">filePath</span> <span class="o">+</span>
+                    <span class="dl">"</span><span class="s2">:</span><span class="dl">"</span> <span class="o">+</span>
+                    <span class="nx">msg</span><span class="p">.</span><span class="nx">line</span> <span class="o">+</span>
+                    <span class="dl">"</span><span class="s2">:</span><span class="dl">"</span> <span class="o">+</span>
+                    <span class="nx">msg</span><span class="p">.</span><span class="nx">column</span>
+                <span class="p">);</span>
+            <span class="p">})</span>
+            <span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nx">lines</span> <span class="o">+</span> <span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>So running <code class="language-plaintext highlighter-rouge">eslint</code> with this custom formatter:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint <span class="nt">-f</span> ./my-awesome-formatter.js src/
+</code></pre></div></div>
+
+<p>The output will be</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error space-infix-ops <span class="o">(</span>https://eslint.org/docs/rules/space-infix-ops<span class="o">)</span>
+  src/configs/bundler.js:6:8
+error semi <span class="o">(</span>https://eslint.org/docs/rules/semi<span class="o">)</span>
+  src/configs/bundler.js:6:10
+warning no-unused-vars <span class="o">(</span>https://eslint.org/docs/rules/no-unused-vars<span class="o">)</span>
+  src/configs/bundler.js:5:6
+warning no-unused-vars <span class="o">(</span>https://eslint.org/docs/rules/no-unused-vars<span class="o">)</span>
+  src/configs/bundler.js:6:6
+warning no-shadow <span class="o">(</span>https://eslint.org/docs/rules/no-shadow<span class="o">)</span>
+  src/configs/bundler.js:65:32
+warning no-unused-vars <span class="o">(</span>https://eslint.org/docs/rules/no-unused-vars<span class="o">)</span>
+  src/configs/clean.js:3:6
+</code></pre></div></div>
+
+<h2 id="passing-arguments-to-formatters">Passing Arguments to Formatters</h2>
+
+<p>While custom formatter do not receive arguments in addition to the results object, it is possible to pass additional data into formatters.</p>
+
+<h2 id="using-environment-variables">Using Environment Variables</h2>
+
+<p>Custom formatters have access to environment variables and so can change their behavior based on environment variable data. Here’s an example that uses a <code class="language-plaintext highlighter-rouge">AF_SKIP_WARNINGS</code> environment variable to determine whether or not to show warnings in the results:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">results</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">skipWarnings</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">AF_SKIP_WARNINGS</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">true</span><span class="dl">"</span><span class="p">;</span> <span class="c1">//af stands for awesome-formatter</span>
+
+    <span class="kd">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="nx">results</span> <span class="o">||</span> <span class="p">[];</span>
+    <span class="kd">var</span> <span class="nx">summary</span> <span class="o">=</span> <span class="nx">results</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span>
+        <span class="kd">function</span><span class="p">(</span><span class="nx">seq</span><span class="p">,</span> <span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">current</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">logMessage</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="na">filePath</span><span class="p">:</span> <span class="nx">current</span><span class="p">.</span><span class="nx">filePath</span><span class="p">,</span>
+                    <span class="na">ruleId</span><span class="p">:</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">ruleId</span><span class="p">,</span>
+                    <span class="na">message</span><span class="p">:</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>
+                    <span class="na">line</span><span class="p">:</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">line</span><span class="p">,</span>
+                    <span class="na">column</span><span class="p">:</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">column</span>
+                <span class="p">};</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">severity</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">logMessage</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">warning</span><span class="dl">"</span><span class="p">;</span>
+                    <span class="nx">seq</span><span class="p">.</span><span class="nx">warnings</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">logMessage</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">severity</span> <span class="o">===</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">logMessage</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">;</span>
+                    <span class="nx">seq</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">logMessage</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">});</span>
+            <span class="k">return</span> <span class="nx">seq</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="na">errors</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="na">warnings</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">summary</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">summary</span><span class="p">.</span><span class="nx">warnings</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">warnings</span> <span class="o">=</span> <span class="o">!</span><span class="nx">skipWarnings</span> <span class="p">?</span> <span class="nx">summary</span><span class="p">.</span><span class="nx">warnings</span> <span class="p">:</span> <span class="p">[];</span> <span class="c1">// skip the warnings in that case</span>
+
+        <span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">summary</span><span class="p">.</span><span class="nx">errors</span>
+            <span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">warnings</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="dl">"</span><span class="se">\n</span><span class="dl">"</span> <span class="o">+</span>
+                    <span class="nx">msg</span><span class="p">.</span><span class="nx">type</span> <span class="o">+</span>
+                    <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span> <span class="o">+</span>
+                    <span class="nx">msg</span><span class="p">.</span><span class="nx">ruleId</span> <span class="o">+</span>
+                    <span class="dl">"</span><span class="se">\n</span><span class="s2">  </span><span class="dl">"</span> <span class="o">+</span>
+                    <span class="nx">msg</span><span class="p">.</span><span class="nx">filePath</span> <span class="o">+</span>
+                    <span class="dl">"</span><span class="s2">:</span><span class="dl">"</span> <span class="o">+</span>
+                    <span class="nx">msg</span><span class="p">.</span><span class="nx">line</span> <span class="o">+</span>
+                    <span class="dl">"</span><span class="s2">:</span><span class="dl">"</span> <span class="o">+</span>
+                    <span class="nx">msg</span><span class="p">.</span><span class="nx">column</span>
+                <span class="p">);</span>
+            <span class="p">})</span>
+            <span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nx">lines</span> <span class="o">+</span> <span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>You would run ESLint with this custom formatter and an environment variable set like this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">AF_SKIP_WARNINGS</span><span class="o">=</span><span class="nb">true </span>eslint <span class="nt">-f</span> ./my-awesome-formatter.js src/
+</code></pre></div></div>
+
+<p>The output would be:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error space-infix-ops
+  src/configs/bundler.js:6:8
+
+error semi
+  src/configs/bundler.js:6:10
+</code></pre></div></div>
+
+<h3 id="complex-argument-passing">Complex Argument Passing</h3>
+
+<p>If you find the custom formatter pattern doesn’t provide enough options for the way you’d like to format ESLint results, the best option is to use ESLint’s built-in <a href="https://eslint.org/docs/user-guide/formatters/">JSON formatter</a> and pipe the output to a second program. For example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint <span class="nt">-f</span> json src/ | your-program-that-reads-JSON <span class="nt">--option</span>
+</code></pre></div></div>
+
+<p>In this example, the <code class="language-plaintext highlighter-rouge">your-program-that-reads-json</code> program can accept the raw JSON of ESLint results and process it before outputting its own format of the results. You can pass as many command line arguments to that program as are necessary to customize the output.</p>
+
+<h2 id="note-formatting-for-terminals">Note: Formatting for Terminals</h2>
+
+<p>Modern terminals like <a href="https://www.iterm2.com/">iTerm2</a> or <a href="http://guake-project.org/">Guake</a> expect a specific results format to automatically open filenames when they are clicked. Most terminals support this format for that purpose:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file:line:column
+</code></pre></div></div>
+
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint/edit/master/docs/developer-guide/working-with-custom-formatters.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+	    var langs = {mixed: '中英文',zh: '中文',en: '英文'};
+	    var last = localStorage.getItem('lang') || 'zh';
+
+	    if (last in langs) {
+	      $('.lang-chooser').html(langs[last]); 
+	      $('.doc').removeClass(function(index,clz){
+	          return clz.slice(3);
+	      }).addClass('lang-' + last);
+	    }
+
+	    $('.navbar-left').show();
+
+	    $('.lang-type').on('click', function() {
+	        var $this = $(this),
+	            type = $this.data('lang'),
+	            lang = $this.html();
+
+	        localStorage.setItem('lang', type);
+
+	        $('.lang-chooser').html(lang); 
+	        $('.doc').removeClass(function(index,clz){
+	            return clz.slice(3);
+	        }).addClass('lang-' + type);
+	    });
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+

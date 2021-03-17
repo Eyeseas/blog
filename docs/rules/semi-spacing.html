@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="semi-spacing - Rules">
+  <meta property="og:url" content="http://localhost:4000/docs/rules/semi-spacing">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="semi-spacing - Rules">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/rules/semi-spacing">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>semi-spacing - Rules - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/docs/rules/semi-spacing" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel="stylesheet" href="/styles/mixed.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="lang-chooser">中文</span><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="lang-type" data-lang="zh" href="javascript:;">中文</a></li>
+            <li><a class="lang-type" data-lang="mixed" href="javascript:;">中英文</a></li>
+            <li><a class="lang-type" data-lang="en" href="javascript:;">英文</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="doc lang-zh">
+  <article class="container">
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="enforce-spacing-before-and-after-semicolons-semi-spacing">Enforce spacing before and after semicolons (semi-spacing)</h1>
+
+<h1 id="强制分号前后有空格-semi-spacing">强制分号前后有空格 (semi-spacing)</h1>
+
+<p class="fixable icon">The <code class="language-plaintext highlighter-rouge">--fix</code> option on the <a href="../user-guide/command-line-interface#fixing-problems">command line</a> can automatically fix some of the problems reported by this rule.</p>
+
+<p class="fixable icon"><a href="../user-guide/command-line-interface#fixing-problems">命令行</a>中的 <code class="language-plaintext highlighter-rouge">--fix</code> 选项可以自动修复一些该规则报告的问题。</p>
+
+<p>JavaScript allows you to place unnecessary spaces before or after a semicolon.</p>
+
+<p>JavaScript 允许你在分号前后放置不必要的空格。</p>
+
+<p>Disallowing or enforcing space around a semicolon can improve the readability of your program.</p>
+
+<p>禁止或强制分号周围的空格可以提高你程序的可读性。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span> <span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">d</span><span class="dl">"</span><span class="p">;</span><span class="kd">var</span> <span class="nx">e</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="rule-details">Rule Details</h2>
+
+<p>This rule aims to enforce spacing around a semicolon. This rule prevents the use of spaces before a semicolon in expressions.</p>
+
+<p>该该规则旨在强制分号周围的空格。该规则防止在表达式中的分号之前使用空格。</p>
+
+<p>This rule doesn’t check spacing in the following cases:</p>
+
+<p>该规则在以下情况下不会检查空格：</p>
+
+<ul>
+  <li>The spacing after the semicolon if it is the first token in the line.</li>
+  <li>行首分号后面的空格</li>
+  <li>The spacing before the semicolon if it is after an opening parenthesis (<code class="language-plaintext highlighter-rouge">(</code> or <code class="language-plaintext highlighter-rouge">{</code>), or the spacing after the semicolon if it is before a closing parenthesis (<code class="language-plaintext highlighter-rouge">)</code> or <code class="language-plaintext highlighter-rouge">}</code>). That spacing is checked by <code class="language-plaintext highlighter-rouge">space-in-parens</code> or <code class="language-plaintext highlighter-rouge">block-spacing</code>.</li>
+  <li>开括号 (<code class="language-plaintext highlighter-rouge">(</code> 或 <code class="language-plaintext highlighter-rouge">{</code>) 之后、分号之前的空格，或分号之后、闭括号 (<code class="language-plaintext highlighter-rouge">)</code> 或 <code class="language-plaintext highlighter-rouge">}</code>) 之前的空格。这个空格被 <code class="language-plaintext highlighter-rouge">space-in-parens</code> 或 <code class="language-plaintext highlighter-rouge">block-spacing</code> 规则检查。</li>
+  <li>The spacing around the semicolon in a for loop with an empty condition (<code class="language-plaintext highlighter-rouge">for(;;)</code>).</li>
+  <li>空条件 (<code class="language-plaintext highlighter-rouge">for(;;)</code>) 的 for 循环语句中分号周围的空格。</li>
+</ul>
+
+<h2 id="options">Options</h2>
+
+<p>The rule takes one option, an object, which has two keys <code class="language-plaintext highlighter-rouge">before</code> and <code class="language-plaintext highlighter-rouge">after</code> having boolean values <code class="language-plaintext highlighter-rouge">true</code> or <code class="language-plaintext highlighter-rouge">false</code>.</p>
+
+<p>该规则有一个可选项，是个对象，有两个键 <code class="language-plaintext highlighter-rouge">before</code> 和 <code class="language-plaintext highlighter-rouge">after</code> 对应的值为布尔类型的值 <code class="language-plaintext highlighter-rouge">true</code> 或 <code class="language-plaintext highlighter-rouge">false</code>。</p>
+
+<p>If <code class="language-plaintext highlighter-rouge">before</code> is <code class="language-plaintext highlighter-rouge">true</code>, space is enforced before semicolons and if it’s <code class="language-plaintext highlighter-rouge">false</code>, space is disallowed before semicolons.</p>
+
+<p>如果设置 <code class="language-plaintext highlighter-rouge">before</code> 为 <code class="language-plaintext highlighter-rouge">true</code>，分号之前强制有空格，如果设置为 <code class="language-plaintext highlighter-rouge">false</code>，分号之前禁止有空格。</p>
+
+<p>If <code class="language-plaintext highlighter-rouge">after</code> is <code class="language-plaintext highlighter-rouge">true</code>, space is enforced after semicolons and if it’s <code class="language-plaintext highlighter-rouge">false</code>, space is disallowed after semicolons.</p>
+
+<p>如果设置 <code class="language-plaintext highlighter-rouge">after</code> 为 <code class="language-plaintext highlighter-rouge">true</code>.分号之后强制有空格，如果设置为 <code class="language-plaintext highlighter-rouge">false</code>，分号之后禁止有空格。</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">after</code> option will be only applied if a semicolon is not at the end of line.</p>
+
+<p><code class="language-plaintext highlighter-rouge">after</code> 选项只在分号不是行尾时起作用。</p>
+
+<p>The default is <code class="language-plaintext highlighter-rouge">{"before": false, "after": true}</code>.</p>
+
+<p>默认选项为 <code class="language-plaintext highlighter-rouge">{"before": false, "after": true}</code>。</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="nl">"semi-spacing"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nl">"before"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nl">"after"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}]</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="before-false-after-true"><code class="language-plaintext highlighter-rouge">{"before": false, "after": true}</code></h3>
+
+<p>This is the default option. It enforces spacing after semicolons and disallows spacing before semicolons.</p>
+
+<p>这个是默认选项，它强制分号之后有空格，禁止分号之前有空格。</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<p><strong>错误</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint semi-spacing: "error"*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="p">;</span>
+<span class="kd">var</span> <span class="nx">foo</span><span class="p">;</span><span class="kd">var</span> <span class="nx">bar</span><span class="p">;</span>
+<span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">)</span> <span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span> <span class="k">break</span> <span class="p">;</span> <span class="p">}</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<p><strong>正确</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint semi-spacing: "error"*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">foo</span><span class="p">;</span> <span class="kd">var</span> <span class="nx">bar</span><span class="p">;</span>
+<span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">);</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span> <span class="k">break</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="p">(;;)</span> <span class="p">{}</span>
+<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{;}</span>
+<span class="p">;</span><span class="nx">foo</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h3 id="before-true-after-false"><code class="language-plaintext highlighter-rouge">{"before": true, "after": false}</code></h3>
+
+<p>This option enforces spacing before semicolons and disallows spacing after semicolons.</p>
+
+<p>这个选项强制分号之前有空格，禁止分号之后有空格。</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">{"before": true, "after": false}</code> option:</p>
+
+<p>选项 <code class="language-plaintext highlighter-rouge">{"before": true, "after": false}</code> 的 <strong>错误</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint semi-spacing: ["error", { "before": true, "after": false }]*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">foo</span> <span class="p">;</span> <span class="kd">var</span> <span class="nx">bar</span><span class="p">;</span>
+<span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">);</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span> <span class="k">break</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">{"before": true, "after": false}</code> option:</p>
+
+<p>选项 <code class="language-plaintext highlighter-rouge">{"before": true, "after": false}</code> 的 <strong>正确</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint semi-spacing: ["error", { "before": true, "after": false }]*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="p">;</span>
+<span class="kd">var</span> <span class="nx">foo</span> <span class="p">;</span><span class="kd">var</span> <span class="nx">bar</span> <span class="p">;</span>
+<span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">)</span> <span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><span class="k">break</span> <span class="p">;}</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<h2 id="when-not-to-use-it">When Not To Use It</h2>
+
+<p>You can turn this rule off if you are not concerned with the consistency of spacing before or after semicolons.</p>
+
+<p>如果你不关心分号之前或之后的空格的一致性，你可以关闭此规则。</p>
+
+<h2 id="related-rules">Related Rules</h2>
+
+<ul>
+  <li><a href="semi">semi</a></li>
+  <li><a href="no-extra-semi">no-extra-semi</a></li>
+  <li><a href="comma-spacing">comma-spacing</a></li>
+  <li><a href="block-spacing">block-spacing</a></li>
+  <li><a href="space-in-parens">space-in-parens</a></li>
+</ul>
+
+<h2 id="version">Version</h2>
+
+<p>This rule was introduced in ESLint 0.16.0.</p>
+
+<p>该规则在 ESLint 0.16.0 中被引入。</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/semi-spacing.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/semi-spacing.md">Documentation source</a></li>
+</ul>
+
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint/edit/master/docs/rules/semi-spacing.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+	    var langs = {mixed: '中英文',zh: '中文',en: '英文'};
+	    var last = localStorage.getItem('lang') || 'zh';
+
+	    if (last in langs) {
+	      $('.lang-chooser').html(langs[last]); 
+	      $('.doc').removeClass(function(index,clz){
+	          return clz.slice(3);
+	      }).addClass('lang-' + last);
+	    }
+
+	    $('.navbar-left').show();
+
+	    $('.lang-type').on('click', function() {
+	        var $this = $(this),
+	            type = $this.data('lang'),
+	            lang = $this.html();
+
+	        localStorage.setItem('lang', type);
+
+	        $('.lang-chooser').html(lang); 
+	        $('.doc').removeClass(function(index,clz){
+	            return clz.slice(3);
+	        }).addClass('lang-' + type);
+	    });
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+

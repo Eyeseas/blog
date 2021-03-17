@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="Shareable Configs">
+  <meta property="og:url" content="http://localhost:4000/docs/developer-guide/shareable-configs">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="Shareable Configs">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/developer-guide/shareable-configs">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>Shareable Configs - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/docs/developer-guide/shareable-configs" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel="stylesheet" href="/styles/mixed.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="lang-chooser">中文</span><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="lang-type" data-lang="zh" href="javascript:;">中文</a></li>
+            <li><a class="lang-type" data-lang="mixed" href="javascript:;">中英文</a></li>
+            <li><a class="lang-type" data-lang="en" href="javascript:;">英文</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="doc lang-zh">
+  <article class="container">
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="shareable-configs">Shareable Configs</h1>
+
+<p>The configuration that you have in your <code class="language-plaintext highlighter-rouge">.eslintrc</code> file is an important part of your project, and as such, you may want to share it with other projects or people. Shareable configs allow you to publish your configuration settings on <a href="https://www.npmjs.com/">npm</a> and have others download and use it in their ESLint projects.</p>
+
+<p>包含配置信息的 <code class="language-plaintext highlighter-rouge">.eslintrc</code> 文件是你的项目中重要的部分，正因为这样，你可能想要将你的配置信息分享给其他项目或人。可分享的配置允许你在 <a href="https://www.npmjs.com/">npm</a> 发布你的配置设置并且其他人可以在他的 ESLint 项目中下载使用这些配置。</p>
+
+<h2 id="creating-a-shareable-config">Creating a Shareable Config</h2>
+
+<p>Shareable configs are simply npm packages that export a configuration object. To start, <a href="https://docs.npmjs.com/getting-started/creating-node-modules">create a Node.js module</a> like you normally would. Make sure the module name begins with <code class="language-plaintext highlighter-rouge">eslint-config-</code>, such as <code class="language-plaintext highlighter-rouge">eslint-config-myconfig</code>.</p>
+
+<p>可分享的配置只是导出一个配置对象 npm 包 。首先，像你通常做的那样 <a href="https://docs.npmjs.com/getting-started/creating-node-modules">创建一个 Node.js 模块</a>。确保模块名称以 <code class="language-plaintext highlighter-rouge">eslint-config-</code> 开头，例如 <code class="language-plaintext highlighter-rouge">eslint-config-myconfig</code>。</p>
+
+<p>npm <a href="https://docs.npmjs.com/misc/scope">scoped modules</a> are also supported, by naming or prefixing the module with <code class="language-plaintext highlighter-rouge">@scope/eslint-config</code>, such as <code class="language-plaintext highlighter-rouge">@scope/eslint-config</code> or <code class="language-plaintext highlighter-rouge">@scope/eslint-config-myconfig</code>.</p>
+
+<p>npm <a href="https://docs.npmjs.com/misc/scope">scoped modules</a> 也是支持的，以 <code class="language-plaintext highlighter-rouge">@scope/eslint-config</code> 前缀命名，比如 <code class="language-plaintext highlighter-rouge">@scope/eslint-config</code> 或 <code class="language-plaintext highlighter-rouge">@scope/eslint-config-myconfig</code>。</p>
+
+<p>Create a new <code class="language-plaintext highlighter-rouge">index.js</code> file and export an object containing your settings:</p>
+
+<p>创建一个新的 <code class="language-plaintext highlighter-rouge">index.js</code> 文件并 export 一个包含配置的对象。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="na">globals</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">MyGlobal</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+
+    <span class="na">rules</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">semi</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">always</span><span class="dl">"</span><span class="p">]</span>
+    <span class="p">}</span>
+
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Since <code class="language-plaintext highlighter-rouge">index.js</code> is just JavaScript, you can optionally read these settings from a file or generate them dynamically.</p>
+
+<p>因为 <code class="language-plaintext highlighter-rouge">index.js</code> 只是 JavaScript，你可以选择从文件读取这些配置或者动态生成它们。</p>
+
+<h2 id="publishing-a-shareable-config">Publishing a Shareable Config</h2>
+
+<p>Once your shareable config is ready, you can <a href="https://docs.npmjs.com/getting-started/publishing-npm-packages">publish to npm</a> to share with others. We recommend using the <code class="language-plaintext highlighter-rouge">eslint</code> and <code class="language-plaintext highlighter-rouge">eslintconfig</code> keywords so others can easily find your module.</p>
+
+<p>一旦可分享的配置设置好，你可以 <a href="https://docs.npmjs.com/getting-started/publishing-npm-packages">发布到 npm</a> 分享给其他人。我们建议使用 <code class="language-plaintext highlighter-rouge">eslint</code> 和 <code class="language-plaintext highlighter-rouge">eslintconfig</code> 关键字方便其他人很容易的找到你的模块。</p>
+
+<p>You should declare your dependency on ESLint in <code class="language-plaintext highlighter-rouge">package.json</code> using the <a href="https://docs.npmjs.com/files/package.json#peerdependencies">peerDependencies</a> field. The recommended way to declare a dependency for future proof compatibility is with the “&gt;=” range syntax, using the lowest required ESLint version. For example:</p>
+
+<p>你应该在 <code class="language-plaintext highlighter-rouge">package.json</code> 中用 <a href="https://docs.npmjs.com/files/package.json#peerdependencies">peerDependencies</a> 字段声明你依赖的 ESLint。推荐使用 “&gt;=” 范围语法，即使用最低要求的 eslint 版本，声明该
+依赖以向后兼容。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"peerDependencies": {
+    "eslint": "&gt;= 3"
+}
+</code></pre></div></div>
+
+<p>You can also test your shareable config on your computer before publishing by linking your module globally. Type:</p>
+
+<p>在发布到 npm 之前，你可以将你的模块 link 到全局从而测试你的可分享设置模块。像这样:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">link</span>
+</code></pre></div></div>
+
+<p>Then, in your project that wants to use your shareable config, type:</p>
+
+<p>随后，在你的项目中使用你的可分享配置模块，像这样：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">link </span>eslint-config-myconfig
+</code></pre></div></div>
+
+<p>Be sure to replace <code class="language-plaintext highlighter-rouge">eslint-config-myconfig</code> with the actual name of your module.</p>
+
+<p>确保使用你的模块的实际的名称替换 <code class="language-plaintext highlighter-rouge">eslint-config-myconfig</code>。</p>
+
+<h2 id="using-a-shareable-config">Using a Shareable Config</h2>
+
+<p>Shareable configs are designed to work with the <code class="language-plaintext highlighter-rouge">extends</code> feature of <code class="language-plaintext highlighter-rouge">.eslintrc</code> files. Instead of using a file path for the value of <code class="language-plaintext highlighter-rouge">extends</code>, use your module name. For example:</p>
+
+<p>可分享配置被设计和 <code class="language-plaintext highlighter-rouge">.eslintrc</code> 文件的 <code class="language-plaintext highlighter-rouge">extends</code> 特性一起使用。使用模块名称作为 <code class="language-plaintext highlighter-rouge">extends</code> 取值而不是文件路径。例如：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"extends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eslint-config-myconfig"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>You can also omit the <code class="language-plaintext highlighter-rouge">eslint-config-</code> and it will be automatically assumed by ESLint:</p>
+
+<p>你也可以忽略 <code class="language-plaintext highlighter-rouge">eslint-config-</code> 前缀，ESLint 会自动找到。例如：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"extends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myconfig"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="npm-scoped-modules">npm scoped modules</h3>
+
+<p>npm <a href="https://docs.npmjs.com/misc/scope">scoped modules</a> are also supported in a number of ways.</p>
+
+<p>有多种方式支持 npm <a href="https://docs.npmjs.com/misc/scope">scoped modules</a>。</p>
+
+<p>By using the module name:</p>
+
+<p>通过使用模块名：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"extends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@scope/eslint-config"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>You can also omit the <code class="language-plaintext highlighter-rouge">eslint-config</code> and it will be automatically assumed by ESLint:</p>
+
+<p>你也可以省略 <code class="language-plaintext highlighter-rouge">eslint-config</code>，ESLint 会自动处理：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"extends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@scope"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The module name can also be customized, just note that when using <a href="https://docs.npmjs.com/misc/scope">scoped modules</a> it is not possible to omit the <code class="language-plaintext highlighter-rouge">eslint-config-</code> prefix. Doing so would result in package naming conflicts, and thus in resolution errors in most of cases. For example a package named <code class="language-plaintext highlighter-rouge">@scope/eslint-config-myconfig</code> vs <code class="language-plaintext highlighter-rouge">@scope/my-config</code>, since both are valid scoped package names, the configuration should be specified as:</p>
+
+<p>模块名也可以定制，只是要注意的是，当使用 <a href="https://docs.npmjs.com/misc/scope">scoped modules</a> 时，就不能省略 <code class="language-plaintext highlighter-rouge">eslint-config-</code> 前缀了。否则会导致包名冲突，从而导致大多数情况下的解析错误。比如，一个名为  <code class="language-plaintext highlighter-rouge">@scope/eslint-config-myconfig</code> 的包和 <code class="language-plaintext highlighter-rouge">@scope/my-config</code>，由于两者都是有效的特定范围的包名，所以应该这样指定配置：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"extends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@scope/eslint-config-myconfig"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>You can override settings from the shareable config by adding them directly into your <code class="language-plaintext highlighter-rouge">.eslintrc</code> file.</p>
+
+<p>你可以在你的 <code class="language-plaintext highlighter-rouge">.eslintrc</code> 文件中直接添加规则覆盖可分享的配置。</p>
+
+<h2 id="sharing-multiple-configs">Sharing Multiple Configs</h2>
+
+<p>It’s possible to share multiple configs in the same npm package. You can specify a default config for the package by following the directions in the first section. You can specify additional configs by simply adding a new file to your npm package and then referencing it from your ESLint config.</p>
+
+<p>你可能想分享多个配置在同一个 npm 包中。你可以像第一个章节那样为 npm 包指定默认的配置。你可以指定额外的配置通过在你的 npm 包中添加一个新文件并在你的 ESLint 配置中引用它。</p>
+
+<p>As an example, you can create a file called <code class="language-plaintext highlighter-rouge">my-special-config.js</code> in the root of your npm package and export a config, such as:</p>
+
+<p>例如，你可以创建一个叫 <code class="language-plaintext highlighter-rouge">my-special-config.js</code> 在 npm 包的根目录并且导出一个配置对象。如下：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">rules</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">quotes</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">double</span><span class="dl">"</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Then, assuming you’re using the package name <code class="language-plaintext highlighter-rouge">eslint-config-myconfig</code>, you can access the additional config via:</p>
+
+<p>随后，假设你使用的包的名称是 <code class="language-plaintext highlighter-rouge">eslint-config-myconfig</code>，你可以访问额外的配置通过：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"extends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myconfig/my-special-config"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>When using <a href="https://docs.npmjs.com/misc/scope">scoped modules</a> it is not possible to omit the <code class="language-plaintext highlighter-rouge">eslint-config</code> namespace. Doing so would result in resolution errors as explained above. Assuming the package name is <code class="language-plaintext highlighter-rouge">@scope/eslint-config</code>, the additional config can be accessed as:</p>
+
+<p>当使用 <a href="https://docs.npmjs.com/misc/scope">scoped modules</a> 时，不能省略 <code class="language-plaintext highlighter-rouge">eslint-config</code> 命名空间。如果省略，就会导致解析错误，如上解释。假设包名为 <code class="language-plaintext highlighter-rouge">@scope/eslint-config</code>，可如下配置：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"extends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@scope/eslint-config/my-special-config"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Note that you can leave off the <code class="language-plaintext highlighter-rouge">.js</code> from the filename. In this way, you can add as many additional configs to your package as you’d like.</p>
+
+<p>注意你可以从文件名称中去掉 <code class="language-plaintext highlighter-rouge">.js</code>。使用这种方法，你可以按照你想要的添加许多额外的配置到你的 npm 包中。</p>
+
+<p><strong>Important:</strong> We strongly recommend always including a default config for your plugin to avoid errors.</p>
+
+<p><strong>重要：</strong>我们强烈的建议为你的插件包含默认的配置从而避免错误。</p>
+
+<h2 id="local-config-file-resolution">Local Config File Resolution</h2>
+
+<p>If you need to make multiple configs that can extend from each other and live in different directories, you can create a single shareable config that handles this scenario.</p>
+
+<p>如果你想要创建多个可以互相引用并且放置在不同文件夹的配置文件。你可以创建一个简单的可分享配置处理这个场景。</p>
+
+<p>As an example, let’s assume you’re using the package name <code class="language-plaintext highlighter-rouge">eslint-config-myconfig</code> and your package looks something like this:</p>
+
+<p>例如，假设你使用一个名称为 <code class="language-plaintext highlighter-rouge">eslint-config-myconfig</code> 的包，你的包看起来像这样：</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>myconfig
+├── index.js
+└─┬ lib
+  ├── defaults.js
+  ├── dev.js
+  ├── ci.js
+  └─┬ ci
+    ├── frontend.js
+    ├── backend.js
+    └── common.js
+</code></pre></div></div>
+
+<p>In your <code class="language-plaintext highlighter-rouge">index.js</code> you can do something like this:</p>
+
+<p>在你的 <code class="language-plaintext highlighter-rouge">index.js</code> 文件你可以在这样做：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./lib/ci.js</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Now inside your package you have <code class="language-plaintext highlighter-rouge">/lib/defaults.js</code>, which contains:</p>
+
+<p>现在在你的包的内部有一个 <code class="language-plaintext highlighter-rouge">/lib/defaults.js</code> 文件，包含：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">rules</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">'</span><span class="s1">no-console</span><span class="dl">'</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Inside your <code class="language-plaintext highlighter-rouge">/lib/ci.js</code> you have</p>
+
+<p><code class="language-plaintext highlighter-rouge">/lib/ci.js</code> 文件内部是这样的：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./ci/backend</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Inside your <code class="language-plaintext highlighter-rouge">/lib/ci/common.js</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">/lib/ci/common.js</code> 文件内部是这样的：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">rules</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">'</span><span class="s1">no-alert</span><span class="dl">'</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">},</span>
+    <span class="na">extends</span><span class="p">:</span> <span class="dl">'</span><span class="s1">myconfig/lib/defaults</span><span class="dl">'</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Despite being in an entirely different directory, you’ll see that all <code class="language-plaintext highlighter-rouge">extends</code> must use the full package path to the config file you wish to extend.</p>
+
+<p>尽管在一个完全不同的目录中，你会看到所有的 <code class="language-plaintext highlighter-rouge">extends</code> 都必须使用你希望扩展的配置文件的完整包路径。</p>
+
+<p>Now inside your <code class="language-plaintext highlighter-rouge">/lib/ci/backend.js</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">/lib/ci/backend.js</code> 文件内部是这样的：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">rules</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">'</span><span class="s1">no-console</span><span class="dl">'</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="na">extends</span><span class="p">:</span> <span class="dl">'</span><span class="s1">myconfig/lib/ci/common</span><span class="dl">'</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>In the last file, you’ll once again see that to properly resolve your config, you’ll need include the full package path.</p>
+
+<p>在最后一个文件中，你会再次看到，要正确地解决你的配置，你需要包含完整的包路径。</p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://docs.npmjs.com/misc/developers">npm Developer Guide</a></li>
+</ul>
+
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint/edit/master/docs/developer-guide/shareable-configs.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+	    var langs = {mixed: '中英文',zh: '中文',en: '英文'};
+	    var last = localStorage.getItem('lang') || 'zh';
+
+	    if (last in langs) {
+	      $('.lang-chooser').html(langs[last]); 
+	      $('.doc').removeClass(function(index,clz){
+	          return clz.slice(3);
+	      }).addClass('lang-' + last);
+	    }
+
+	    $('.navbar-left').show();
+
+	    $('.lang-type').on('click', function() {
+	        var $this = $(this),
+	            type = $this.data('lang'),
+	            lang = $this.html();
+
+	        localStorage.setItem('lang', type);
+
+	        $('.lang-chooser').html(lang); 
+	        $('.doc').removeClass(function(index,clz){
+	            return clz.slice(3);
+	        }).addClass('lang-' + type);
+	    });
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+

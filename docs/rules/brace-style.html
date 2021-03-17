@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="brace-style - Rules">
+  <meta property="og:url" content="http://localhost:4000/docs/rules/brace-style">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="brace-style - Rules">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/rules/brace-style">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>brace-style - Rules - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/docs/rules/brace-style" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel="stylesheet" href="/styles/mixed.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="lang-chooser">中文</span><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="lang-type" data-lang="zh" href="javascript:;">中文</a></li>
+            <li><a class="lang-type" data-lang="mixed" href="javascript:;">中英文</a></li>
+            <li><a class="lang-type" data-lang="en" href="javascript:;">英文</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="doc lang-zh">
+  <article class="container">
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-brace-style-brace-style">Require Brace Style (brace-style)</h1>
+
+<h1 id="大括号风格要求-brace-style">大括号风格要求 (brace-style)</h1>
+
+<p class="fixable icon">The <code class="language-plaintext highlighter-rouge">--fix</code> option on the <a href="../user-guide/command-line-interface#fixing-problems">command line</a> can automatically fix some of the problems reported by this rule.</p>
+
+<p class="fixable icon"><a href="../user-guide/command-line-interface#fixing-problems">命令行</a>中的 <code class="language-plaintext highlighter-rouge">--fix</code> 选项可以自动修复一些该规则报告的问题。</p>
+
+<p>Brace style is closely related to <a href="https://en.wikipedia.org/wiki/Indent_style">indent style</a> in programming and describes the placement of braces relative to their control statement and body. There are probably a dozen, if not more, brace styles in the world.</p>
+
+<p>在编程过程中，大括号风格与<a href="https://en.wikipedia.org/wiki/Indent_style">缩进风格</a>紧密联系，用来描述大括号相对控制语句和代码块的位置，少说也有十几种。</p>
+
+<p>The <em>one true brace style</em> is one of the most common brace styles in JavaScript, in which the opening brace of a block is placed on the same line as its corresponding statement or declaration. For example:</p>
+
+<p>在 Javascript 中，<em>one true brace style</em>也是最常见的一种，它将大括号放在控制语句或声明语句同一行的位置。例如：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">bar</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">baz</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>One common variant of one true brace style is called Stroustrup, in which the <code class="language-plaintext highlighter-rouge">else</code> statements in an <code class="language-plaintext highlighter-rouge">if-else</code> construct, as well as <code class="language-plaintext highlighter-rouge">catch</code> and <code class="language-plaintext highlighter-rouge">finally</code>, must be on its own line after the preceding closing brace. For example:</p>
+
+<p><em>one true brace style</em>的一种常见的变体形式叫做 <em>Stroustrup</em>，<code class="language-plaintext highlighter-rouge">if-else</code>中的<code class="language-plaintext highlighter-rouge">else</code>语句，连同<code class="language-plaintext highlighter-rouge">catch</code> 和 <code class="language-plaintext highlighter-rouge">finally</code>，都必须在右括号后另起一行，如下面这个例子：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">bar</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+  <span class="nx">baz</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Another style is called <a href="https://en.wikipedia.org/wiki/Indent_style#Allman_style">Allman</a>, in which all the braces are expected to be on their own lines without any extra indentation. For example:</p>
+
+<p>另一种风格叫做<a href="https://en.wikipedia.org/wiki/Indent_style#Allman_style">Allman</a>，
+括号必须单独成行且没有任何缩进：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nx">bar</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+  <span class="nx">baz</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>While no style is considered better than the other, most developers agree that having a consistent style throughout a project is important for its long-term maintainability.</p>
+
+<p>尽管没有哪种风格被认为会比另一种更好，但大多数开发者一致认为在同一项目中保持一致的风格对于长期的可维护性是很重要的。</p>
+
+<h2 id="rule-details">Rule Details</h2>
+
+<p>This rule enforces consistent brace style for blocks.</p>
+
+<p>该规则旨在强制在Javascript中使用特定的括号风格。因此，如果某条语句或声明没有遵守该该风格，该规则将发出警告。</p>
+
+<h2 id="options">Options</h2>
+
+<p>This rule has a string option:</p>
+
+<p>该规则有一个字符串选项：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"1tbs"</code> (default) enforces one true brace style</li>
+  <li><code class="language-plaintext highlighter-rouge">"1tbs"</code> (默认) 强制 one true brace style</li>
+  <li><code class="language-plaintext highlighter-rouge">"stroustrup"</code> enforces Stroustrup style</li>
+  <li><code class="language-plaintext highlighter-rouge">"stroustrup"</code> 强制 Stroustrup style</li>
+  <li><code class="language-plaintext highlighter-rouge">"allman"</code> enforces Allman style</li>
+  <li><code class="language-plaintext highlighter-rouge">"allman"</code> 强制 Allman style</li>
+</ul>
+
+<p>This rule has an object option for an exception:</p>
+
+<p>该规则可以有例外情况，用对象表示：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"allowSingleLine": true</code> (default <code class="language-plaintext highlighter-rouge">false</code>) allows the opening and closing braces for a block to be on the <em>same</em> line</li>
+  <li><code class="language-plaintext highlighter-rouge">"allowSingleLine": true</code> (默认 <code class="language-plaintext highlighter-rouge">false</code>) 允许块的开括号和闭括号在 <em>同一行</em></li>
+</ul>
+
+<h3 id="1tbs">1tbs</h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="language-plaintext highlighter-rouge">"1tbs"</code> option:</p>
+
+<p>选项<code class="language-plaintext highlighter-rouge">"1tbs"</code>的 <strong>错误</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint brace-style: "error"*/</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nx">bar</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">try</span>
+<span class="p">{</span>
+  <span class="nx">somethingRisky</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nx">handleError</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">bar</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+  <span class="nx">baz</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="language-plaintext highlighter-rouge">"1tbs"</code> option:</p>
+
+<p>选项<code class="language-plaintext highlighter-rouge">"1tbs"</code>的 <strong>正确</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint brace-style: "error"*/</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">bar</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">bar</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">baz</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">try</span> <span class="p">{</span>
+  <span class="nx">somethingRisky</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">handleError</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// when there are no braces, there are no problems</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="nx">bar</span><span class="p">();</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">baz</span><span class="p">)</span> <span class="nx">boom</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">"1tbs", { "allowSingleLine": true }</code> options:</p>
+
+<p>选项<code class="language-plaintext highlighter-rouge">"1tbs", { "allowSingleLine": true }</code>的 <strong>正确</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint brace-style: ["error", "1tbs", { "allowSingleLine": true }]*/</span>
+
+<span class="kd">function</span> <span class="nx">nop</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span> <span class="nx">bar</span><span class="p">();</span> <span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span> <span class="nx">bar</span><span class="p">();</span> <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="nx">baz</span><span class="p">();</span> <span class="p">}</span>
+
+<span class="k">try</span> <span class="p">{</span> <span class="nx">somethingRisky</span><span class="p">();</span> <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="nx">handleError</span><span class="p">();</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="stroustrup">stroustrup</h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">"stroustrup"</code> option:</p>
+
+<p>选项<code class="language-plaintext highlighter-rouge">"stroustrup"</code>的 <strong>错误</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint brace-style: ["error", "stroustrup"]*/</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nx">bar</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">try</span>
+<span class="p">{</span>
+  <span class="nx">somethingRisky</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nx">handleError</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">bar</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">baz</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">"stroustrup"</code> option:</p>
+
+<p>选项<code class="language-plaintext highlighter-rouge">"stroustrup"</code>的 <strong>正确</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint brace-style: ["error", "stroustrup"]*/</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">bar</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">bar</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+  <span class="nx">baz</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">try</span> <span class="p">{</span>
+  <span class="nx">somethingRisky</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">handleError</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// when there are no braces, there are no problems</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="nx">bar</span><span class="p">();</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">baz</span><span class="p">)</span> <span class="nx">boom</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">"stroustrup", { "allowSingleLine": true }</code> options:</p>
+
+<p>选项<code class="language-plaintext highlighter-rouge">"stroustrup", { "allowSingleLine": true }</code>的 <strong>正确</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint brace-style: ["error", "stroustrup", { "allowSingleLine": true }]*/</span>
+
+<span class="kd">function</span> <span class="nx">nop</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span> <span class="nx">bar</span><span class="p">();</span> <span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span> <span class="nx">bar</span><span class="p">();</span> <span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span> <span class="nx">baz</span><span class="p">();</span> <span class="p">}</span>
+
+<span class="k">try</span> <span class="p">{</span> <span class="nx">somethingRisky</span><span class="p">();</span> <span class="p">}</span>
+<span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="nx">handleError</span><span class="p">();</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="allman">allman</h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">"allman"</code> option:</p>
+
+<p>选项<code class="language-plaintext highlighter-rouge">"allman"</code>的 <strong>错误</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint brace-style: ["error", "allman"]*/</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nx">bar</span><span class="p">();</span> <span class="p">}</span>
+
+<span class="k">try</span>
+<span class="p">{</span>
+  <span class="nx">somethingRisky</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nx">handleError</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">bar</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">baz</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">"allman"</code> option:</p>
+
+<p>选项<code class="language-plaintext highlighter-rouge">"allman"</code>的 <strong>正确</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint brace-style: ["error", "allman"]*/</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nx">bar</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nx">bar</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+  <span class="nx">baz</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">try</span>
+<span class="p">{</span>
+  <span class="nx">somethingRisky</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nx">handleError</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// when there are no braces, there are no problems</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="nx">bar</span><span class="p">();</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">baz</span><span class="p">)</span> <span class="nx">boom</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">"allman", { "allowSingleLine": true }</code> options:</p>
+
+<p>选项<code class="language-plaintext highlighter-rouge">"allman", { "allowSingleLine": true }</code>的 <strong>正确</strong> 代码示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint brace-style: ["error", "allman", { "allowSingleLine": true }]*/</span>
+
+<span class="kd">function</span> <span class="nx">nop</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span> <span class="nx">bar</span><span class="p">();</span> <span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span> <span class="nx">bar</span><span class="p">();</span> <span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span> <span class="nx">baz</span><span class="p">();</span> <span class="p">}</span>
+
+<span class="k">try</span> <span class="p">{</span> <span class="nx">somethingRisky</span><span class="p">();</span> <span class="p">}</span>
+<span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="nx">handleError</span><span class="p">();</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="when-not-to-use-it">When Not To Use It</h2>
+
+<p>If you don’t want to enforce a particular brace style, don’t enable this rule.</p>
+
+<p>如果伱不想强制使用一种括号风格，关闭此规则即可。</p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Indent_style">Indent style</a></li>
+</ul>
+
+<h2 id="version">Version</h2>
+
+<p>This rule was introduced in ESLint 0.0.7.</p>
+
+<p>该规则在 ESLint 0.0.7 中被引入。</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/brace-style.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/brace-style.md">Documentation source</a></li>
+</ul>
+
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint/edit/master/docs/rules/brace-style.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+	    var langs = {mixed: '中英文',zh: '中文',en: '英文'};
+	    var last = localStorage.getItem('lang') || 'zh';
+
+	    if (last in langs) {
+	      $('.lang-chooser').html(langs[last]); 
+	      $('.doc').removeClass(function(index,clz){
+	          return clz.slice(3);
+	      }).addClass('lang-' + last);
+	    }
+
+	    $('.navbar-left').show();
+
+	    $('.lang-type').on('click', function() {
+	        var $this = $(this),
+	            type = $this.data('lang'),
+	            lang = $this.html();
+
+	        localStorage.setItem('lang', type);
+
+	        $('.lang-chooser').html(lang); 
+	        $('.doc').removeClass(function(index,clz){
+	            return clz.slice(3);
+	        }).addClass('lang-' + type);
+	    });
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+

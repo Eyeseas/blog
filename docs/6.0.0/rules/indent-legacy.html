@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality">
+  <meta name="description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="theme-color" content="#463fd4"/>
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="ESLint中文">
+  <meta property="og:title" content="indent-legacy - Rules">
+  <meta property="og:url" content="http://localhost:4000/docs/6.0.0/rules/indent-legacy">
+  <meta property="og:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="indent-legacy - Rules">
+  <meta name="twitter:description" content="ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/6.0.0/rules/indent-legacy">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://localhost:4000/img/favicon.512x512.png">
+
+    
+        <title>indent-legacy - Rules - ESLint中文</title>
+    
+
+
+  <link href="http://localhost:4000/docs/6.0.0/rules/indent-legacy" rel="canonical" />
+  <link rel="stylesheet" href="/styles/main.css"/>
+  
+  <link rel="stylesheet" href="/styles/mixed.css"/>
+  
+  <link rel='manifest' href='http://localhost:4000/manifest.json'>
+  <link rel="icon" href="http://localhost:4000/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="ESLint中文" href="http://localhost:4000/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="/styles/vendor/docsearch.min.css" />
+</head>
+<body>
+
+<input type="checkbox" id="eslint-toggle-search" class="eslint-toggle-search-checkbox" />
+<header class="navbar navbar-default navbar-demo navbar-fixed-top eslint-nav" id="top" role="banner">
+  <div class="container">
+
+    <a href="http://localhost:4000/" class="navbar-brand"><img alt="ESLint" src="http://localhost:4000/img/logo.svg" itemprop="image">ESLint</a>
+
+    <div class="eslint-navbar-toggles">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#eslint-navbar" aria-controls="eslint-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
+      
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="lang-chooser">中文</span><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="lang-type" data-lang="zh" href="javascript:;">中文</a></li>
+            <li><a class="lang-type" data-lang="mixed" href="javascript:;">中英文</a></li>
+            <li><a class="lang-type" data-lang="en" href="javascript:;">英文</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/user-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">用户指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/user-guide/getting-started">开始</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/configuring">配置</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/command-line-interface">命令行</a></li>
+            <li><a href="http://localhost:4000/docs/rules/">规则</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/formatters">Formatters</a></li>
+            <li><a href="http://localhost:4000/docs/user-guide/integrations">集成</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/developer-guide" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">开发指南<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/docs/developer-guide/architecture">架构</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/source-code">源码</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/development-environment">开发环境</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/contributing">参与</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/unit-tests">单元测试</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-rules">创建规则</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-formatters">自定义格式化器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-custom-parsers">自定义解析器</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/working-with-plugins">开发插件</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/shareable-configs">可共享的配置</a></li>
+            <li><a href="http://localhost:4000/docs/developer-guide/nodejs-api">Node.js API</a></li>
+            <li><a href="http://localhost:4000/docs/maintainer-guide">维护者指南</a></li>
+          </ul>
+        </li>
+        <li><a href="http://localhost:4000/blog/">博客</a></li>
+        <li class="dropdown">
+          <a href="http://localhost:4000/demo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">演示<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/demo/">ESLint Demo</a></li>
+            <li><a href="http://localhost:4000/parser/">Espree Demo</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="http://localhost:4000/docs/about/">About</a></li> -->
+        <li class="dropdown">
+          <a href="http://localhost:4000/docs/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">关于<span
+              class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4000/users/">谁在使用 ESLint?</a></li>
+            <li><a href="http://localhost:4000/team/">关于 Team</a></li>
+            <li><a href="http://localhost:4000/docs/about/">关于 ESLint</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">
+        <span class="sr-only">Open search</span>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </label>
+
+      <div class="navbar-form navbar-right eslint-search" role="search">
+        <div class="input-group">
+          <label class="sr-only" aria-label="Search" for="eslint-search-input">Search</label>
+          <div class="eslint-search-input-wrapper">
+            <input type="text" class="form-control" id="eslint-search-input" accesskey="s" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the docs...">
+            <label for="eslint-toggle-search" class="eslint-toggle-search-close">
+              <span class="sr-only">Close search</span>
+              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div><!-- /.container -->
+</header><!-- /.navbar -->
+
+<main class="doc lang-zh">
+  <article class="container">
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="enforce-consistent-indentation-indent-legacy">enforce consistent indentation (indent-legacy)</h1>
+
+<p class="fixable icon">The <code class="language-plaintext highlighter-rouge">--fix</code> option on the <a href="../user-guide/command-line-interface#fixing-problems">command line</a> can automatically fix some of the problems reported by this rule.</p>
+
+<p>ESLint 4.0.0 introduced a rewrite of the <a href="/docs/rules/indent"><code class="language-plaintext highlighter-rouge">indent</code></a> rule, which now reports more errors than it did in previous versions. To ease the process of migrating to 4.0.0, the <code class="language-plaintext highlighter-rouge">indent-legacy</code> rule was introduced as a snapshot of the <code class="language-plaintext highlighter-rouge">indent</code> rule from ESLint 3.x. If your build is failing after the upgrade to 4.0.0, you can disable <code class="language-plaintext highlighter-rouge">indent</code> and enable <code class="language-plaintext highlighter-rouge">indent-legacy</code> as a quick fix. Eventually, you should switch back to the <code class="language-plaintext highlighter-rouge">indent</code> rule to get bugfixes and improvements in future versions.</p>
+
+<hr />
+
+<p>There are several common guidelines which require specific indentation of nested blocks and statements, like:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">hello</span><span class="p">(</span><span class="nx">indentSize</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">indentSize</span> <span class="o">===</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nx">type</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1">tab</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Each next indentation will increase on 4 spaces</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>These are the most common scenarios recommended in different style guides:</p>
+
+<ul>
+  <li>Two spaces, not longer and no tabs: Google, npm, Node.js, Idiomatic, Felix</li>
+  <li>Tabs: jQuery</li>
+  <li>Four spaces: Crockford</li>
+</ul>
+
+<h2 id="rule-details">Rule Details</h2>
+
+<p>This rule enforces a consistent indentation style. The default style is <code class="language-plaintext highlighter-rouge">4 spaces</code>.</p>
+
+<h2 id="options">Options</h2>
+
+<p>This rule has a mixed option:</p>
+
+<p>For example, for 2-space indentation:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"indent"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Or for tabbed indentation:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"indent"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"tab"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default options:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: "error"*/</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">b</span><span class="o">=</span><span class="nx">c</span><span class="p">;</span>
+  <span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">e</span><span class="o">=</span><span class="nx">f</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default options:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: "error"*/</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">b</span><span class="o">=</span><span class="nx">c</span><span class="p">;</span>
+    <span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span><span class="o">=</span><span class="nx">f</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This rule has an object option:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"SwitchCase"</code> (default: 0) enforces indentation level for <code class="language-plaintext highlighter-rouge">case</code> clauses in <code class="language-plaintext highlighter-rouge">switch</code> statements</li>
+  <li><code class="language-plaintext highlighter-rouge">"VariableDeclarator"</code> (default: 1) enforces indentation level for <code class="language-plaintext highlighter-rouge">var</code> declarators; can also take an object to define separate rules for <code class="language-plaintext highlighter-rouge">var</code>, <code class="language-plaintext highlighter-rouge">let</code> and <code class="language-plaintext highlighter-rouge">const</code> declarations.</li>
+  <li><code class="language-plaintext highlighter-rouge">"outerIIFEBody"</code> (default: 1) enforces indentation level for file-level IIFEs.</li>
+  <li><code class="language-plaintext highlighter-rouge">"MemberExpression"</code> (off by default) enforces indentation level for multi-line property chains (except in variable declarations and assignments)</li>
+  <li><code class="language-plaintext highlighter-rouge">"FunctionDeclaration"</code> takes an object to define rules for function declarations.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">parameters</code> (off by default) enforces indentation level for parameters in a function declaration. This can either be a number indicating indentation level, or the string <code class="language-plaintext highlighter-rouge">"first"</code> indicating that all parameters of the declaration must be aligned with the first parameter.</li>
+      <li><code class="language-plaintext highlighter-rouge">body</code> (default: 1) enforces indentation level for the body of a function declaration.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">"FunctionExpression"</code> takes an object to define rules for function expressions.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">parameters</code> (off by default) enforces indentation level for parameters in a function expression. This can either be a number indicating indentation level, or the string <code class="language-plaintext highlighter-rouge">"first"</code> indicating that all parameters of the expression must be aligned with the first parameter.</li>
+      <li><code class="language-plaintext highlighter-rouge">body</code> (default: 1) enforces indentation level for the body of a function expression.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">"CallExpression"</code> takes an object to define rules for function call expressions.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">arguments</code> (off by default) enforces indentation level for arguments in a call expression. This can either be a number indicating indentation level, or the string <code class="language-plaintext highlighter-rouge">"first"</code> indicating that all arguments of the expression must be aligned with the first argument.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">"ArrayExpression"</code> (default: 1) enforces indentation level for elements in arrays. It can also be set to the string <code class="language-plaintext highlighter-rouge">"first"</code>, indicating that all the elements in the array should be aligned with the first element.</li>
+  <li><code class="language-plaintext highlighter-rouge">"ObjectExpression"</code> (default: 1) enforces indentation level for properties in objects. It can be set to the string <code class="language-plaintext highlighter-rouge">"first"</code>, indicating that all properties in the object should be aligned with the first property.</li>
+</ul>
+
+<p>Level of indentation denotes the multiple of the indent specified. Example:</p>
+
+<ul>
+  <li>Indent of 4 spaces with <code class="language-plaintext highlighter-rouge">VariableDeclarator</code> set to <code class="language-plaintext highlighter-rouge">2</code> will indent the multi-line variable declarations with 8 spaces.</li>
+  <li>Indent of 2 spaces with <code class="language-plaintext highlighter-rouge">VariableDeclarator</code> set to <code class="language-plaintext highlighter-rouge">2</code> will indent the multi-line variable declarations with 4 spaces.</li>
+  <li>Indent of 2 spaces with <code class="language-plaintext highlighter-rouge">VariableDeclarator</code> set to <code class="language-plaintext highlighter-rouge">{"var": 2, "let": 2, "const": 3}</code> will indent the multi-line variable declarations with 4 spaces for <code class="language-plaintext highlighter-rouge">var</code> and <code class="language-plaintext highlighter-rouge">let</code>, 6 spaces for <code class="language-plaintext highlighter-rouge">const</code> statements.</li>
+  <li>Indent of tab with <code class="language-plaintext highlighter-rouge">VariableDeclarator</code> set to <code class="language-plaintext highlighter-rouge">2</code> will indent the multi-line variable declarations with 2 tabs.</li>
+  <li>Indent of 2 spaces with <code class="language-plaintext highlighter-rouge">SwitchCase</code> set to <code class="language-plaintext highlighter-rouge">0</code> will not indent <code class="language-plaintext highlighter-rouge">case</code> clauses with respect to <code class="language-plaintext highlighter-rouge">switch</code> statements.</li>
+  <li>Indent of 2 spaces with <code class="language-plaintext highlighter-rouge">SwitchCase</code> set to <code class="language-plaintext highlighter-rouge">1</code> will indent <code class="language-plaintext highlighter-rouge">case</code> clauses with 2 spaces with respect to <code class="language-plaintext highlighter-rouge">switch</code> statements.</li>
+  <li>Indent of 2 spaces with <code class="language-plaintext highlighter-rouge">SwitchCase</code> set to <code class="language-plaintext highlighter-rouge">2</code> will indent <code class="language-plaintext highlighter-rouge">case</code> clauses with 4 spaces with respect to <code class="language-plaintext highlighter-rouge">switch</code> statements.</li>
+  <li>Indent of tab with <code class="language-plaintext highlighter-rouge">SwitchCase</code> set to <code class="language-plaintext highlighter-rouge">2</code> will indent <code class="language-plaintext highlighter-rouge">case</code> clauses with 2 tabs with respect to <code class="language-plaintext highlighter-rouge">switch</code> statements.</li>
+  <li>Indent of 2 spaces with <code class="language-plaintext highlighter-rouge">MemberExpression</code> set to <code class="language-plaintext highlighter-rouge">0</code> will indent the multi-line property chains with 0 spaces.</li>
+  <li>Indent of 2 spaces with <code class="language-plaintext highlighter-rouge">MemberExpression</code> set to <code class="language-plaintext highlighter-rouge">1</code> will indent the multi-line property chains with 2 spaces.</li>
+  <li>Indent of 2 spaces with <code class="language-plaintext highlighter-rouge">MemberExpression</code> set to <code class="language-plaintext highlighter-rouge">2</code> will indent the multi-line property chains with 4 spaces.</li>
+  <li>Indent of 4 spaces with <code class="language-plaintext highlighter-rouge">MemberExpression</code> set to <code class="language-plaintext highlighter-rouge">0</code> will indent the multi-line property chains with 0 spaces.</li>
+  <li>Indent of 4 spaces with <code class="language-plaintext highlighter-rouge">MemberExpression</code> set to <code class="language-plaintext highlighter-rouge">1</code> will indent the multi-line property chains with 4 spaces.</li>
+  <li>Indent of 4 spaces with <code class="language-plaintext highlighter-rouge">MemberExpression</code> set to <code class="language-plaintext highlighter-rouge">2</code> will indent the multi-line property chains with 8 spaces.</li>
+</ul>
+
+<h3 id="tab">tab</h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">"tab"</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", "tab"]*/</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nx">b</span><span class="o">=</span><span class="nx">c</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span>
+           <span class="nx">e</span><span class="o">=</span><span class="nx">f</span><span class="p">;</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">"tab"</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", "tab"]*/</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+<span class="cm">/*tab*/</span><span class="nx">b</span><span class="o">=</span><span class="nx">c</span><span class="p">;</span>
+<span class="cm">/*tab*/</span><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span>
+<span class="cm">/*tab*//*tab*/</span><span class="nx">e</span><span class="o">=</span><span class="nx">f</span><span class="p">;</span>
+<span class="cm">/*tab*/</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="switchcase">SwitchCase</h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "SwitchCase": 1 }</code> options:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "SwitchCase": 1 }]*/</span>
+
+<span class="k">switch</span><span class="p">(</span><span class="nx">a</span><span class="p">){</span>
+<span class="k">case</span> <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span>
+    <span class="k">break</span><span class="p">;</span>
+<span class="k">case</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span>
+    <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "SwitchCase": 1 }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "SwitchCase": 1 }]*/</span>
+
+<span class="k">switch</span><span class="p">(</span><span class="nx">a</span><span class="p">){</span>
+  <span class="k">case</span> <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span>
+    <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="variabledeclarator">VariableDeclarator</h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "VariableDeclarator": 1 }</code> options:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "VariableDeclarator": 1 }]*/</span>
+<span class="cm">/*eslint-env es6*/</span>
+
+<span class="kd">var</span> <span class="nx">a</span><span class="p">,</span>
+    <span class="nx">b</span><span class="p">,</span>
+    <span class="nx">c</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">a</span><span class="p">,</span>
+    <span class="nx">b</span><span class="p">,</span>
+    <span class="nx">c</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nx">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "VariableDeclarator": 1 }</code> options:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "VariableDeclarator": 1 }]*/</span>
+<span class="cm">/*eslint-env es6*/</span>
+
+<span class="kd">var</span> <span class="nx">a</span><span class="p">,</span>
+  <span class="nx">b</span><span class="p">,</span>
+  <span class="nx">c</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">a</span><span class="p">,</span>
+  <span class="nx">b</span><span class="p">,</span>
+  <span class="nx">c</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="nx">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "VariableDeclarator": 2 }</code> options:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "VariableDeclarator": 2 }]*/</span>
+<span class="cm">/*eslint-env es6*/</span>
+
+<span class="kd">var</span> <span class="nx">a</span><span class="p">,</span>
+    <span class="nx">b</span><span class="p">,</span>
+    <span class="nx">c</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">a</span><span class="p">,</span>
+    <span class="nx">b</span><span class="p">,</span>
+    <span class="nx">c</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nx">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "VariableDeclarator": { "var": 2, "let": 2, "const": 3 } }</code> options:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "VariableDeclarator": { "var": 2, "let": 2, "const": 3 } }]*/</span>
+<span class="cm">/*eslint-env es6*/</span>
+
+<span class="kd">var</span> <span class="nx">a</span><span class="p">,</span>
+    <span class="nx">b</span><span class="p">,</span>
+    <span class="nx">c</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">a</span><span class="p">,</span>
+    <span class="nx">b</span><span class="p">,</span>
+    <span class="nx">c</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nx">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="outeriifebody">outerIIFEBody</h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the options <code class="language-plaintext highlighter-rouge">2, { "outerIIFEBody": 0 }</code>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "outerIIFEBody": 0 }]*/</span>
+
+<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">})();</span>
+
+
+<span class="k">if</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">foo</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the options <code class="language-plaintext highlighter-rouge">2, {"outerIIFEBody": 0}</code>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "outerIIFEBody": 0 }]*/</span>
+
+<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">})();</span>
+
+
+<span class="k">if</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">foo</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="memberexpression">MemberExpression</h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "MemberExpression": 1 }</code> options:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "MemberExpression": 1 }]*/</span>
+
+<span class="nx">foo</span>
+<span class="p">.</span><span class="nx">bar</span>
+<span class="p">.</span><span class="nx">baz</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "MemberExpression": 1 }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "MemberExpression": 1 }]*/</span>
+
+<span class="nx">foo</span>
+  <span class="p">.</span><span class="nx">bar</span>
+  <span class="p">.</span><span class="nx">baz</span><span class="p">();</span>
+
+<span class="c1">// Any indentation is permitted in variable declarations and assignments.</span>
+<span class="kd">var</span> <span class="nx">bip</span> <span class="o">=</span> <span class="nx">aardvark</span><span class="p">.</span><span class="nx">badger</span>
+                  <span class="p">.</span><span class="nx">coyote</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="functiondeclaration">FunctionDeclaration</h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "FunctionDeclaration": {"body": 1, "parameters": 2} }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "FunctionDeclaration": {"body": 1, "parameters": 2} }]*/</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">,</span>
+  <span class="nx">baz</span><span class="p">,</span>
+  <span class="nx">qux</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">qux</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "FunctionDeclaration": {"body": 1, "parameters": 2} }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "FunctionDeclaration": {"body": 1, "parameters": 2} }]*/</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">,</span>
+    <span class="nx">baz</span><span class="p">,</span>
+    <span class="nx">qux</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">qux</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "FunctionDeclaration": {"parameters": "first"} }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, {"FunctionDeclaration": {"parameters": "first"}}]*/</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">,</span>
+  <span class="nx">qux</span><span class="p">,</span> <span class="nx">boop</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">qux</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "FunctionDeclaration": {"parameters": "first"} }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, {"FunctionDeclaration": {"parameters": "first"}}]*/</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">,</span>
+             <span class="nx">qux</span><span class="p">,</span> <span class="nx">boop</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">qux</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="functionexpression">FunctionExpression</h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "FunctionExpression": {"body": 1, "parameters": 2} }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "FunctionExpression": {"body": 1, "parameters": 2} }]*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">bar</span><span class="p">,</span>
+  <span class="nx">baz</span><span class="p">,</span>
+  <span class="nx">qux</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">qux</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "FunctionExpression": {"body": 1, "parameters": 2} }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "FunctionExpression": {"body": 1, "parameters": 2} }]*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">bar</span><span class="p">,</span>
+    <span class="nx">baz</span><span class="p">,</span>
+    <span class="nx">qux</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">qux</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "FunctionExpression": {"parameters": "first"} }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, {"FunctionExpression": {"parameters": "first"}}]*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">,</span>
+  <span class="nx">qux</span><span class="p">,</span> <span class="nx">boop</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">qux</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "FunctionExpression": {"parameters": "first"} }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, {"FunctionExpression": {"parameters": "first"}}]*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">,</span>
+                   <span class="nx">qux</span><span class="p">,</span> <span class="nx">boop</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">qux</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="callexpression">CallExpression</h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "CallExpression": {"arguments": 1} }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "CallExpression": {"arguments": 1} }]*/</span>
+
+<span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">,</span>
+    <span class="nx">baz</span><span class="p">,</span>
+      <span class="nx">qux</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "CallExpression": {"arguments": 1} }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "CallExpression": {"arguments": 1} }]*/</span>
+
+<span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">,</span>
+  <span class="nx">baz</span><span class="p">,</span>
+  <span class="nx">qux</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "CallExpression": {"arguments": "first"} }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, {"CallExpression": {"arguments": "first"}}]*/</span>
+
+<span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">,</span>
+  <span class="nx">baz</span><span class="p">,</span> <span class="nx">boop</span><span class="p">,</span> <span class="nx">beep</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "CallExpression": {"arguments": "first"} }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, {"CallExpression": {"arguments": "first"}}]*/</span>
+
+<span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">,</span>
+    <span class="nx">baz</span><span class="p">,</span> <span class="nx">boop</span><span class="p">,</span> <span class="nx">beep</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="arrayexpression">ArrayExpression</h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "ArrayExpression": 1 }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "ArrayExpression": 1 }]*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nx">bar</span><span class="p">,</span>
+<span class="nx">baz</span><span class="p">,</span>
+      <span class="nx">qux</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "ArrayExpression": 1 }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "ArrayExpression": 1 }]*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="nx">bar</span><span class="p">,</span>
+  <span class="nx">baz</span><span class="p">,</span>
+  <span class="nx">qux</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "ArrayExpression": "first" }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, {"ArrayExpression": "first"}]*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="nx">bar</span><span class="p">,</span>
+  <span class="nx">baz</span><span class="p">,</span>
+  <span class="nx">qux</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "ArrayExpression": "first" }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, {"ArrayExpression": "first"}]*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="nx">bar</span><span class="p">,</span>
+           <span class="nx">baz</span><span class="p">,</span>
+           <span class="nx">qux</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<h3 id="objectexpression">ObjectExpression</h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "ObjectExpression": 1 }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "ObjectExpression": 1 }]*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">bar</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="na">baz</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="na">qux</span><span class="p">:</span> <span class="mi">3</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "ObjectExpression": 1 }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, { "ObjectExpression": 1 }]*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">bar</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">baz</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="na">qux</span><span class="p">:</span> <span class="mi">3</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "ObjectExpression": "first" }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, {"ObjectExpression": "first"}]*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span> <span class="na">bar</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">baz</span><span class="p">:</span> <span class="mi">2</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="language-plaintext highlighter-rouge">2, { "ObjectExpression": "first" }</code> option:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*eslint indent: ["error", 2, {"ObjectExpression": "first"}]*/</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span> <span class="na">bar</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="na">baz</span><span class="p">:</span> <span class="mi">2</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="compatibility">Compatibility</h2>
+
+<ul>
+  <li><strong>JSHint</strong>: <code class="language-plaintext highlighter-rouge">indent</code></li>
+  <li><strong>JSCS</strong>: <a href="https://jscs-dev.github.io/rule/validateIndentation">validateIndentation</a></li>
+</ul>
+
+<h2 id="version">Version</h2>
+
+<p>This rule was introduced in ESLint 4.0.0-alpha.0.</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/indent-legacy.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/indent-legacy.md">Documentation source</a></li>
+</ul>
+
+  </article>
+</main>
+
+    <hr>
+
+    <div class="container">
+
+      <footer>
+        <ul class="list-inline">
+          
+            <li><a href="https://github.com/eslint/eslint/edit/master/docs/rules/indent-legacy.md">Edit this page</a></li>
+          
+          <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
+          <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
+          <li><a href="https://twitter.com/geteslint">Twitter</a></li>
+          <li><a href="https://gitter.im/eslint/eslint">Chat Room</a></li>
+          <li>Copyright JS Foundation and other contributors, <a href="https://js.foundation">https://js.foundation/</a></li>
+        </ul>
+      </footer>
+    </div><!-- /.container -->
+
+  <link href="/styles/vendor/font.css" rel="stylesheet">
+  <script src="/js/vendor/jquery-1.10.2.min.js" defer></script>
+  <script src="/js/vendor/bootstrap-native.min.js" defer></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+      <!-- at the end of the BODY -->
+  <script type="text/javascript" src="/js/vendor/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '891b0e977d96c762a3821e0c00172ac9',
+    indexName: 'eslint',
+    inputSelector: '#eslint-search-input',
+    algoliaOptions: { 'facetFilters': [["tags:docs", "tags:blog"]] },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  var htmlClassList = document.documentElement.classList;
+  htmlClassList.remove("no-js");
+  htmlClassList.add("js");
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      
+	
+	    var langs = {mixed: '中英文',zh: '中文',en: '英文'};
+	    var last = localStorage.getItem('lang') || 'zh';
+
+	    if (last in langs) {
+	      $('.lang-chooser').html(langs[last]); 
+	      $('.doc').removeClass(function(index,clz){
+	          return clz.slice(3);
+	      }).addClass('lang-' + last);
+	    }
+
+	    $('.navbar-left').show();
+
+	    $('.lang-type').on('click', function() {
+	        var $this = $(this),
+	            type = $this.data('lang'),
+	            lang = $this.html();
+
+	        localStorage.setItem('lang', type);
+
+	        $('.lang-chooser').html(lang); 
+	        $('.doc').removeClass(function(index,clz){
+	            return clz.slice(3);
+	        }).addClass('lang-' + type);
+	    });
+	
+  });
+	
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1278836435 {display: none;}</style>
+  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278836435'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278836435%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
+
