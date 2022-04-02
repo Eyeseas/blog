@@ -5,10 +5,10 @@
 # Site
 title: Eyeseas
 subtitle: ''
-description: ''
+description:  一只胖虎
 keywords:
 author: Eyeseas Kong
-language: cn
+language: zh-CN
 timezone: ''
 
 # URL
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
