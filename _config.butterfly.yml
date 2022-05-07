@@ -11,6 +11,8 @@ menu:
   #   Music: /music/ || fas fa-music
   #   Movie: /movies/ || fas fa-video
   # Link: /link/ || fas fa-link
+  工具 || fas fa-screwdriver-wrench:
+      Cloudreve: https://pi.ueyeseas.com:7777/ || fas fa-cloud
   关于我: /about/ || fas fa-heart
 
 # Code Blocks (代碼相關)
