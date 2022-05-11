@@ -23,7 +23,10 @@ tags:
         ......
     }
 ```
+{% note success modern%}
+解决方案:
 最简单粗暴的方式就是直接拦截这个请求,然后把`studyLength`和`studyTime`直接改成`resourceLength`的值
+{% endnote %}
 
 ## 考试
 
@@ -42,8 +45,10 @@ tags:
     }
 }
 ```
+{% note success modern%}
+解决方案:
 自己把`typeList`里面的数据复制出来查找考试答案即可
-
+{% endnote %}
 
 
 附:
@@ -54,5 +59,6 @@ data.data.typeList[1].questionList.map(item=>(item.answer))
 ```
 ![测试图片](https://raw.githubusercontent.com/konglinghu777/images/main/20220511124900.png)
 
+![考试结果](https://raw.githubusercontent.com/konglinghu777/images/main/IMG_2800.PNG)
 
 
