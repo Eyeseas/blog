@@ -11,9 +11,9 @@ tags:
 本文只是基础实现使用`webhook`消息处理方式开发telegram bot并且部署在`heroku`平台上
 
 ## 开发准备
-- 开发语言:nodejs
-- bot-api框架:telegraf
-- 部署平台:heroku
+- 开发语言: {% label nodejs green %}
+- bot-api框架: {% label telegraf green %}
+- 部署平台: {% label heroku green %}
 
 ## 常见问题
 
