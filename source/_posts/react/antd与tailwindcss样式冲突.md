@@ -7,9 +7,7 @@ tags:
     - css
 ---
 
-{% note warning modern %}
 个人觉得更优的解决方案，**不需要禁止tailwindcss的默认属性**，仅供参考[antd按需引入解决tailwindcss冲突](/react/antd按需引入css(less)/)
-{% endnote %}
 
 
 ## 问题描述

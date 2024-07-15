@@ -6,9 +6,7 @@ tags:
 cover: https://raw.githubusercontent.com/konglinghu777/images/main/20220415005114.png
 ---
 
-{% note success no-icon simple %}
 参考自[p3terx](https://p3terx.com/archives/docker-aria2-pro.html)的博客
-{% endnote %}
 
 ## 部署docker-aria2
 

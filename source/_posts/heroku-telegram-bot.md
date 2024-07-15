@@ -11,9 +11,9 @@ tags:
 本文只是基础实现使用`webhook`消息处理方式开发telegram bot并且部署在`heroku`平台上
 
 ## 开发准备
-- 开发语言: {% label nodejs green %}
-- bot-api框架: {% label telegraf green %}
-- 部署平台: {% label heroku green %}
+- 开发语言: nodejs
+- bot-api框架: telegraf
+- 部署平台: heroku
 
 ## 常见问题
 
@@ -25,14 +25,14 @@ heroku config:set CONFIG_NAME=CONFIG_VALUE
 
 ![heroku config](https://raw.githubusercontent.com/konglinghu777/images/main/20220515005658.png)
 
-比如把{% label BOT_TOKEN %}设置在`config var`内,但是当本地node项目测试时需要从`.env`文件中读取变量,可以通过已下命令把heroku的`config var`写入到`.env`文件
+比如把 BOT_TOKEN 设置在`config var`内,但是当本地node项目测试时需要从`.env`文件中读取变量,可以通过已下命令把heroku的`config var`写入到`.env`文件
 ```shell
 heroku config -s >> .env
 ```
 
 ### 2.heroku web应用端口的问题
 
-`heroku` 启动 {% label web blue %} 应用时会随机生成一个`端口值`记录在 {% label process.env.PORT green %} 内,所以在使用`telegraf`的api时,在`webhook`的配置项内有端口值需要根据`dev/prod`的环境来设置
+`heroku` 启动  web blue  应用时会随机生成一个`端口值`记录在  process.env.PORT green  内,所以在使用`telegraf`的api时,在`webhook`的配置项内有端口值需要根据`dev/prod`的环境来设置
 ```JavaScript
 bot.launch({
     webhook: {

@@ -9,7 +9,7 @@ description:  一只胖虎
 keywords:
 author: Eyeseas Kong
 language: zh-CN
-timezone: ''
+timezone: 'Asia/Shanghai'
 email: konglinghu777@gmail.com
 
 # URL
@@ -98,7 +98,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: butterfly
+theme: oranges
 
 # Security
 encrypt: # hexo-blog-encrypt

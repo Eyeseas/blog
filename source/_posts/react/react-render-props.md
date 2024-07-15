@@ -8,7 +8,7 @@ tags:
 
 ## 介绍
 在react官方文档的高级指引中有一页[`Render Props`](https://zh-hans.reactjs.org/docs/render-props.html)的文档,作为一个react初学者对这个概念浅薄的理解有点像vue中
-常用的对组件使用props传入一个{% label 回调函数 blue%},则可以通过回调函数在组件外部拿到组件内部的数据的一个操作
+常用的对组件使用props传入一个 回调函数,则可以通过回调函数在组件外部拿到组件内部的数据的一个操作
 
 ## 例子
 

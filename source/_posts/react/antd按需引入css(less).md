@@ -8,9 +8,7 @@ tags:
 cover: https://raw.githubusercontent.com/konglinghu777/images/main/20220715234155.png
 ---
 
-{% note success no-icon simple %}
 通过该方法按需引入antd样式，也可以解决[antd与tailwindcss样式冲突](/react/antd与tailwindcss样式冲突/)的问题
-{% endnote %}
 
 
 ## 解决方案
