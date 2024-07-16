@@ -26,7 +26,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT }}
       - name: Commit changes
         run: |
-          git add obisidian
           git commit -m "Update submodule to latest commit"
           git push origin main
         env:
