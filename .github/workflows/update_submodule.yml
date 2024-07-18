@@ -27,7 +27,7 @@ jobs:
       - name: Commit changes
         run: |
           git add source/_posts/obisidian
-          git commit -m "Update submodule to latest commit"
+          git commit -m "[UPDATE] Eyeseas/Obisidian to latest commit"
           git push origin master
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
