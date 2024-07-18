@@ -8,7 +8,7 @@ subtitle: ''
 description: ''
 keywords:
 author: Eyeseas
-language: en
+language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
@@ -97,6 +97,7 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
+scheme: muse
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
